@@ -42,16 +42,25 @@ const products = [
       reviews: '14',
       price: '3',
     },
+    {
+      id: 1,
+      name: 'Ultrasonic Sensor',
+      href: '#',
+      imageSrc: 'https://th.bing.com/th/id/OIP.exqofz-kQaM9nCVoKaUEpQHaHa?pid=ImgDet&rs=1',
+      imageAlt: "Ultrasonic Sensor",
+      rating: '5',
+      reviews: '14',
+      price: '3',
+    },
     // More products...
   ]
   
-  export default function Card() {
+  export default function Store() {
     return (
       <div className="bg-white">
-        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">Trending products</h2>
+        <div className="mx-auto max-w-2xl py-8 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
   
-          <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          <div className="my-4 grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
               <div key={product.id} className="group relative p-6 border-x border-y border-gray-200">
                 <div className="min-h-64 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-64">

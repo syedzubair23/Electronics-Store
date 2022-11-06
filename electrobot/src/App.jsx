@@ -7,13 +7,15 @@ import Brands from "./components/Brands"
 import ShoppingCart from "./components/ShoppingCart"
 import CheckoutForm from "./components/CheckoutForm"
 import ProductDetails from "./components/ProductDetails"
+import Store from "./pages/Store"
 
 function App() {
   return (
     <div className="app">
       <Navbar />
+      <Store />
       {/* <CheckoutForm /> */}
-      <ProductDetails />
+      {/* <ProductDetails /> */}
       {/* <Hero />
       <Card />
       <Brands />
