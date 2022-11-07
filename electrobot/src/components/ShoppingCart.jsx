@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
 
 const products = [
   {
@@ -28,11 +29,12 @@ const products = [
 ]
 
 export default function ShoppingCart() {
+  // console.log(showCart)
   const [open, setOpen] = useState(true)
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-30" onClose={setOpen}>
+      <Dialog as="div" className="z-30 relative" onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
@@ -123,17 +125,20 @@ export default function ShoppingCart() {
                         <p>$262.00</p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
-                      <div className="mt-6">
-                        <a
-                          href="#"
-                          className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                        >
-                          Checkout
-                        </a>
-                      </div>
+                      <Link to="/checkout">
+                        <div className="mt-6">
+                          <a
+                            href=""
+                            className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                          >
+                            Checkout
+                          </a>
+                        </div>
+                      </Link>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
                           or
+                          <span> </span>
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"

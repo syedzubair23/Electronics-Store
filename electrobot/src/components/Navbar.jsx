@@ -32,6 +32,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import ShoppingCart from "./ShoppingCart";
+import { Link } from "react-router-dom";
 
 const navigation = {
   categories: [
@@ -138,7 +139,7 @@ const navigation = {
       ],
     },
   ],
-  pages: [{ name: "Store", href: "#" }],
+  pages: [{ name: "Store", href: "/store" }],
 };
 
 function classNames(...classes) {
@@ -147,6 +148,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   return (
     <div className="bg-white">
@@ -250,14 +252,15 @@ export default function Navbar() {
 
                 <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   {navigation.pages.map((page) => (
-                    <div key={page.name} className="flow-root">
-                      <a
-                        href={page.href}
-                        className="-m-2 block p-2 font-medium text-gray-900"
-                      >
-                        {page.name}
-                      </a>
-                    </div>
+                    <Link to={page.href}>
+                        <div key={page.name} className="flow-root">
+                        <a
+                            className="-m-2 block p-2 font-medium text-gray-900"
+                        >
+                            {page.name}
+                        </a>
+                        </div>
+                    </Link>
                   ))}
                 </div>
 
@@ -346,16 +349,18 @@ export default function Navbar() {
               </button>
 
               {/* Logo */}
-              <div className="ml-4 flex lg:ml-0">
-                <a href="#">
-                  <span className="sr-only">Your Company</span>
-                  <img
-                    className="h-8 w-auto"
-                    src="images/Electrobot.svg"
-                    alt=""
-                  />
-                </a>
-              </div>
+              <Link to="/">
+                <div className="ml-4 flex lg:ml-0">
+                    <a href="#">
+                    <span className="sr-only">Your Company</span>
+                    <img
+                        className="h-8 w-auto"
+                        src="images/Electrobot.svg"
+                        alt=""
+                    />
+                    </a>
+                </div>
+              </Link>
 
               {/* Flyout menus */}
               <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
@@ -483,8 +488,10 @@ export default function Navbar() {
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  {/* <button onClick={<ShoppingCart />}> */}
-                    <a href="#" className="group -m-2 flex items-center p-2">
+                  <button type="button" 
+                  onClick={(e) => e.preventDefault() }
+                  >
+                    <a href="" className="group -m-2 flex items-center p-2  relative">
                       <ShoppingBagIcon
                         className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                         aria-hidden="true"
@@ -493,8 +500,9 @@ export default function Navbar() {
                         0
                       </span>
                       <span className="sr-only">items in cart, view bag</span>
+                      {/* <ShoppingCart  /> */}
                     </a>
-                  {/* </button> */}
+                  </button>
                 </div>
               </div>
             </div>

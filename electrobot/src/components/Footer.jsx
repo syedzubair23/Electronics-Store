@@ -123,7 +123,7 @@ function Footer() {
   return (
     <div className="footer">
       <div className=" bg-white">
-        <div className="mx-auto max-w-7xl px-8">
+        <div className="mx-auto max-w-7xl px-8 border-t border-gray-100">
           <div className="grid grid-cols-1 py-20">
             <div className="col-start-1 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
               {footer.footer_data.map((item) => (

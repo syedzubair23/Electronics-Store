@@ -5,16 +5,23 @@ import Footer from "./components/Footer"
 import Incentives from "./components/Incentives"
 import Brands from "./components/Brands"
 import ShoppingCart from "./components/ShoppingCart"
-import CheckoutForm from "./components/CheckoutForm"
+import Checkout from "./components/Checkout"
 import ProductDetails from "./components/ProductDetails"
 import Store from "./pages/Store"
+import { Routes, Route } from "react-router-dom"
+import TrendingProducts from "./components/TrendingProducts"
 
 function App() {
   return (
     <div className="app">
       <Navbar />
-      <Store />
-      {/* <CheckoutForm /> */}
+      <Routes>
+        <Route path="/" element={[<Hero />, <TrendingProducts />, <Brands />, <Incentives />]} />
+        <Route path="/store" element={[<Store />]} />
+        <Route path="/checkout" element={[<Checkout />]} />
+
+      </Routes>
+      <Footer />
       {/* <ProductDetails /> */}
       {/* <Hero />
       <Card />

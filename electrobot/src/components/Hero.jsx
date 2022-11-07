@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -120,14 +121,15 @@ export default function Hero() {
                 inductors, capacitors, and resistors of different brands.
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                <div className="rounded-md shadow">
-                  <a
-                    href="#"
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-cyan-400 px-16 py-3 text-base font-medium text-white hover:bg-cyan-500 md:px-18 md:text-lg"
-                  >
-                    Shop now
-                  </a>
-                </div>
+                <Link to="/store">
+                    <div className="rounded-md shadow">
+                    <a
+                        className="flex w-full items-center justify-center rounded-md border border-transparent bg-cyan-400 px-16 py-3 text-base font-medium text-white hover:bg-cyan-500 md:px-18 md:text-lg"
+                    >
+                        Shop now
+                    </a>
+                    </div>
+                </Link>
               </div>
             </div>
           </main>
