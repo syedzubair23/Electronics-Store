@@ -12,9 +12,9 @@ const navigation = [
 
 export default function Hero() {
   return (
-    <div className="relative overflow-hidden bg-gray-100">
-      <div className="mx-auto max-w-7xl">
-        <div className="relative z-10 bg-gray-100 py-8 sm:py-16 md:py-20 lg:w-full lg:max-w-2xl lg:pt-10 lg:pb-[5.71rem] xl:py-32">
+    <div className="relative overflow-hidden bg-gray-100 min-h-[calc(100vh-105px)]">
+      <div className="mx-auto max-w-7xl min-h-[calc(100vh-105px)]">
+        <div className="relative z-10 bg-gray-100 py-8 sm:py-16 md:py-20 lg:w-full lg:max-w-2xl lg:pt-10 lg:pb-[5.71rem] xl:py-32 min-h-[calc(100vh-105px)]">
           <svg
             className="absolute inset-y-0 right-0 hidden h-full w-48 translate-x-1/2 transform text-gray-100 lg:block"
             fill="currentColor"
@@ -110,7 +110,7 @@ export default function Hero() {
             </Transition>
           </Popover> */}
 
-          <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 xl:-mt-10 2xl:-mt-0">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl font-bold  text-gray-900 sm:text-5xl md:text-6xl">
                 <span className="block xl:inline tracking-tight">Want to buy</span>{' '}

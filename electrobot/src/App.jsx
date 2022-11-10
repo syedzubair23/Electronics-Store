@@ -10,18 +10,24 @@ import ProductDetails from "./components/ProductDetails"
 import Store from "./pages/Store"
 import { Routes, Route } from "react-router-dom"
 import TrendingProducts from "./components/TrendingProducts"
+import Frontpage from "./pages/Frontpage"
+import Wishlist from "./components/Wishlist"
+import CustomSelect from "./components/CustomSelect"
 
 function App() {
   return (
     <div className="app">
       <Navbar />
       <Routes>
-        <Route path="/" element={[<Hero />, <TrendingProducts />, <Brands />, <Incentives />]} />
-        <Route path="/store" element={[<Store />]} />
+        <Route path="/" element={[<Frontpage />]} />
+        <Route path="/wishlist" element={[<Wishlist />]} /> 
         <Route path="/checkout" element={[<Checkout />]} />
+        <Route path="/store" element={[<Store />]} />
+        {/* <Route path="/select" element={[<CustomSelect />]} /> */}
 
-      </Routes>
+      </Routes>      
       <Footer />
+
       {/* <ProductDetails /> */}
       {/* <Hero />
       <Card />
