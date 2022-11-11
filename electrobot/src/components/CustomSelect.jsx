@@ -1,27 +1,31 @@
-import { Fragment, useState } from 'react'
-import { Combobox, Transition } from '@headlessui/react'
-import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
+import { Fragment, useState, useEffect } from "react";
+import { Combobox, Transition } from "@headlessui/react";
+import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 
-export default function CustomSelect({quantity}) {
-  const [selected, setSelected] = useState(1)
-  const [query, setQuery] = useState('')
+export default function CustomSelect({ quantity, id, addQuantity }) {
+  const [query, setQuery] = useState("");
+  const [selected, setSelected] = useState(1);
 
-  const quantity_array = ([
-    ...Array(quantity).keys(),
-  ])
+  const quantity_array = [...Array(quantity).keys()];
 
   const filteredQuantity =
-    query === ''
+    query === ""
       ? quantity_array
       : quantity_array.filter((value) =>
-           String(value+1)
-            .replace(/\s+/g, '')
-            .includes(query.replace(/\s+/g, ''))
-        )
+          String(value + 1)
+            .replace(/\s+/g, "")
+            .includes(query.replace(/\s+/g, ""))
+        );
+
+  const selected_qty = useEffect(() => {
+    addQuantity(id, selected);
+  }, [selected]);
 
   return (
     <div className="w-[70px]">
       <Combobox value={selected} onChange={setSelected}>
+        {/* {console.log("item id :", id, "item quantity :", selected)} */}
+        {selected_qty}
         <div className="relative mt-1">
           <div className="relative w-full cursor-default overflow-hidden rounded-md bg-white text-left shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
             <Combobox.Input
@@ -41,11 +45,13 @@ export default function CustomSelect({quantity}) {
             leave="transition ease-in duration-100"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
-            afterLeave={() => setQuery('')}
+            afterLeave={() => setQuery("")}
           >
-            <Combobox.Options className={`
-            absolute z-50 mt-1 max-h-40 overflow-auto w-24 rounded-md bg-white py-1 text-sm shadow-md ring-1 ring-cyan-400 ring-opacity-5 focus:outline-none sm:text-sm` }>
-              {filteredQuantity.length === 0 && query!='' ? (
+            <Combobox.Options
+              className={`
+            absolute z-50 mt-1 max-h-40 overflow-auto w-24 rounded-md bg-white py-1 text-sm shadow-md ring-1 ring-cyan-400 ring-opacity-5 focus:outline-none sm:text-sm`}
+            >
+              {filteredQuantity.length === 0 && query != "" ? (
                 <div className="relative cursor-default select-none py-2 px-4 text-cyan-900 text-center">
                   {/* Only {people.length} items left */}
                   Nothing found
@@ -56,16 +62,16 @@ export default function CustomSelect({quantity}) {
                     key={qt}
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                        active ? 'bg-cyan-400 text-white' : 'text-gray-900'
+                        active ? "bg-cyan-400 text-white" : "text-gray-900"
                       }`
                     }
-                    value={qt+1}
+                    value={qt + 1}
                   >
                     {({ selected, active }) => (
                       <>
                         <span
                           className={`block truncate ${
-                            selected ? 'font-medium' : 'font-normal'
+                            selected ? "font-medium" : "font-normal"
                           }`}
                         >
                           {qt + 1}
@@ -73,7 +79,7 @@ export default function CustomSelect({quantity}) {
                         {selected ? (
                           <span
                             className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                              active ? 'text-cyan-900' : 'text-cyan-400'
+                              active ? "text-cyan-900" : "text-cyan-400"
                             }`}
                           >
                             <CheckIcon className="h-5 w-5" aria-hidden="true" />
@@ -89,5 +95,5 @@ export default function CustomSelect({quantity}) {
         </div>
       </Combobox>
     </div>
-  )
+  );
 }

@@ -34,35 +34,47 @@ function ContextProvider({ children }) {
   //     setAllProducts(products);
   //   }, []);
 
-//   function toggleFavorite(id) {
-//     console.log(id);
-//     const updatedArr = allProducts.map((product) => {
-//       if (product.id === id) {
-//         return { ...product, isFavorite: !product.isFavorite };
-//         setFavoriteItems(product)
-//       }
-//       return product;
-//     });
-//     setAllProducts(updatedArr);
-//   }
+  //   function toggleFavorite(id) {
+  //     console.log(id);
+  //     const updatedArr = allProducts.map((product) => {
+  //       if (product.id === id) {
+  //         return { ...product, isFavorite: !product.isFavorite };
+  //         setFavoriteItems(product)
+  //       }
+  //       return product;
+  //     });
+  //     setAllProducts(updatedArr);
+  //   }
+
+  function addQuantity(id, qty=1) {
+    console.log(id);
+    const updatedArr = cartItems.map((product) => {
+      if (product.id === id) {
+        return { ...product, qty: qty };
+        setCartItems(product);
+      }
+      return product;
+    });
+    setCartItems(updatedArr);
+  }
 
   function addToCart(newItem) {
     setCartItems((prevItems) => [...prevItems, newItem]);
   }
   console.log(cartItems);
-  
-  function removeFromCart(id) {
-      setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
-    }
 
-    function emptyCart() {
-      setCartItems([])
+  function removeFromCart(id) {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   }
-    
-    function addToFavorite(newItem) {
-        setFavoriteItems((prevItems) => [...prevItems, newItem]);
-    }
-    console.log(favoriteItems);
+
+  function emptyCart() {
+    setCartItems([]);
+  }
+
+  function addToFavorite(newItem) {
+    setFavoriteItems((prevItems) => [...prevItems, newItem]);
+  }
+  console.log(favoriteItems);
 
   function removeFromFavorite(id) {
     setFavoriteItems((prevItems) => prevItems.filter((item) => item.id !== id));
@@ -79,7 +91,8 @@ function ContextProvider({ children }) {
         emptyCart,
         favoriteItems,
         addToFavorite,
-        removeFromFavorite
+        removeFromFavorite,
+        addQuantity,
       }}
     >
       {children}

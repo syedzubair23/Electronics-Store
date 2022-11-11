@@ -5,12 +5,12 @@ import { useStateValue } from "./logic_components/StateProvider";
 import { Context } from "./logic_components/Context";
 import CustomSelect from "./CustomSelect";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { Tab } from "@headlessui/react";
+import { Tab, Combobox } from "@headlessui/react";
 
 const delivery_method = [
-  { id: 1, delivery: 'Standard', business_days: '4-10', charges: '5'},
-  { id: 2, delivery: 'Express', business_days: '2-5', charges: '16'},
-]
+  { id: 1, delivery: "Standard", business_days: "4-10", charges: "5" },
+  { id: 2, delivery: "Express", business_days: "2-5", charges: "16" },
+];
 
 // const products = [
 //   {
@@ -41,12 +41,13 @@ const delivery_method = [
 // ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 function Checkout() {
   // const [{basket}, dispatch] = useStateValue();
-  const { allProducts, cartItems, removeFromCart } = useContext(Context);
+  const { cartItems, removeFromCart, addQuantity } = useContext(Context);
+  const [deliveryCharges, setDeliveryCharges] = useState("5");
   // const [qty, setQty] = useState(1);
 
   const removeFromBasket = () => {
@@ -64,6 +65,18 @@ function Checkout() {
   //       )
   // console.log(product_quantity)
 
+  const subtotal = cartItems
+    .reduce(
+      (acc, item) =>
+        acc + (item.quantity > 0 ? (Number(item.qty) || 1) : 0) * Number(item.price),
+      0
+    )
+    .toFixed(2);
+  const shipping_charges = Number(deliveryCharges).toFixed(2);
+  const taxes =
+    subtotal < 500
+      ? ((subtotal * 2.2) / 100).toFixed(2)
+      : ((subtotal * 3.12) / 100).toFixed(2);
   return (
     <div className="bg-gray-100">
       <div className="mx-auto max-w-2xl py-12 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -245,38 +258,41 @@ function Checkout() {
                 Delivery method
               </h2>
 
-              <div >
+              <div>
                 <Tab.Group defaultIndex={0}>
                   <Tab.List className="grid gap-x-4 gap-y-5 mb-5 sm:grid-cols-2">
                     {delivery_method.map((deliveryMethod) => (
-                    <Tab 
-                    key={deliveryMethod.id}
-                    className={({ selected }) =>
-                            classNames(
-                              'bg-white px-4 py-5 rounded-lg shadow outline-none',
-                              selected
-                                ? "border-2 border-cyan-400 border-opacity-70 shadow-md"
-                                : "border-transparent",
-                            )
-                          }
-                    >
-                      <div className="group">
-                        <div className="flex justify-between items-center">
-                          <h3 className="text-sm font-medium text-gray-900">
-                            {deliveryMethod.delivery}
-                          </h3>
-                          <div>
-                            <CheckCircleIcon className="h-4 w-4 text-cyan-400" />
+                      <Tab
+                        onClick={() =>
+                          setDeliveryCharges(deliveryMethod.charges)
+                        }
+                        key={deliveryMethod.id}
+                        className={({ selected }) =>
+                          classNames(
+                            "bg-white px-4 py-5 rounded-lg shadow outline-none",
+                            selected
+                              ? "border-2 border-cyan-400 border-opacity-70 shadow-md"
+                              : "border-transparent"
+                          )
+                        }
+                      >
+                        <div className="group">
+                          <div className="flex justify-between items-center">
+                            <h3 className="text-sm font-medium text-gray-900">
+                              {deliveryMethod.delivery}
+                            </h3>
+                            <div>
+                              <CheckCircleIcon className="h-4 w-4 text-cyan-400" />
+                            </div>
                           </div>
+                          <p className="text-sm text-gray-400 text-left font-light mt-2">
+                            {deliveryMethod.business_days} business days
+                          </p>
+                          <h3 className="text-sm font-medium text-left text-gray-900 mt-6">
+                            ${deliveryMethod.charges}
+                          </h3>
                         </div>
-                        <p className="text-sm text-gray-400 text-left font-light mt-2">
-                          {deliveryMethod.business_days} business days
-                        </p>
-                        <h3 className="text-sm font-medium text-left text-gray-900 mt-6">
-                          ${deliveryMethod.charges}
-                        </h3>
-                      </div>
-                    </Tab>
+                      </Tab>
                     ))}
                   </Tab.List>
                 </Tab.Group>
@@ -452,6 +468,8 @@ function Checkout() {
                                 {Number(item.quantity) > 0 ? (
                                   <CustomSelect
                                     quantity={Number(item.quantity)}
+                                    id={item.id}
+                                    addQuantity={addQuantity}
                                   />
                                 ) : (
                                   <div className="flex gap-x-3 items-center">
@@ -483,20 +501,27 @@ function Checkout() {
                     <div className="flex flex-col gap-y-7 text-sm text-gray-900 font-medium">
                       <div className="flex justify-between">
                         <p>Subtotal</p>
-                        <p className="font-medium">$122.00</p>
+                        <p className="font-medium">${subtotal}</p>
                       </div>
                       <div className="flex justify-between">
                         <p>Shipping</p>
-                        <p className="font-medium">$5.00</p>
+                        <p className="font-medium">${shipping_charges}</p>
                       </div>
                       <div className="flex justify-between">
                         <p>Taxes</p>
-                        <p className="font-medium">$5.52</p>
+                        <p className="font-medium">${taxes}</p>
                       </div>
                       <hr className="h-[1px] bg-gray-200" />
                       <div className="flex justify-between font-semibold">
                         <p>Total</p>
-                        <p>$132.52</p>
+                        <p>
+                          $
+                          {(
+                            Number(subtotal) +
+                            Number(shipping_charges) +
+                            Number(taxes)
+                          ).toFixed(2)}
+                        </p>
                       </div>
                       {/* <hr className="h-[1px] bg-gray-200" /> */}
                     </div>
