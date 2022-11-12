@@ -2,78 +2,78 @@ import { Fragment, useState } from "react";
 import { CheckIcon, StarIcon } from "@heroicons/react/24/solid";
 import { Tab, Transition } from "@headlessui/react";
 
-const navigation = {
-    categories: [
-      {
-        id: "components",
-        name: "Components",
-        featured: [
-          {
-            name: "Resistors",
-            href: "#",
-            imageSrc:
-              "https://media.gettyimages.com/photos/electronic-component-electric-heating-elements-of-various-models-picture-id1339847300?k=20&m=1339847300&s=612x612&w=0&h=aukuydVEoGuY3m6c8VXpwsIzBsRSivMEBfX2f4ihrvw=",
-            imageAlt: "Resistors",
-          },
-          {
-            name: "Capcitors",
-            href: "#",
-            imageSrc:
-              "https://media.gettyimages.com/photos/collection-of-capacitors-against-a-white-background-picture-id172962646?k=20&m=172962646&s=612x612&w=0&h=ES1R7bMMDkR5r3Xp3CnJD-GJTaWLtL8aQ4e-wi-Aaxo=",
-            imageAlt: "Capacitors",
-          },
-          {
-            name: "Inductors",
-            href: "#",
-            imageSrc:
-              "https://qph.fs.quoracdn.net/main-qimg-d7ec636623ea2d1081f16042a4aabd38-c",
-            imageAlt: "Inductors",
-          },
-          {
-            name: "Leds",
-            href: "#",
-            imageSrc:
-              "https://media.gettyimages.com/photos/high-angle-view-of-led-lights-against-white-background-picture-id1157527318?k=20&m=1157527318&s=612x612&w=0&h=LyjPCH4bSngY-LtXpphg1eKmrfMo0FICYpd_1OTISnM=",
-            imageAlt: "Leds",
-          },
-        ],
-      },
-      {
-        id: "microcontrollers",
-        name: "Microcontrollers",
-        featured: [
-          {
-            name: "Arduino",
-            href: "#",
-            imageSrc:
-              "https://c1.wallpaperflare.com/preview/107/530/442/electronics-arduino-diy.jpg",
-            imageAlt: "Arduino",
-          },
-          {
-            name: "Esp32",
-            href: "#",
-            imageSrc:
-              "https://everybitelectronics.co.uk/wp-content/uploads/2020/04/ESP32.jpg",
-            imageAlt: "Esp32",
-          },
-          {
-            name: "Raspberri pi",
-            href: "#",
-            imageSrc:
-              "https://c4.wallpaperflare.com/wallpaper/672/858/376/raspberry-pi-computer-macro-wallpaper-preview.jpg",
-            imageAlt: "Raspberri pi",
-          },
-          {
-            name: "Stm32",
-            href: "#",
-            imageSrc:
-              "https://th.bing.com/th/id/OIP.HC9F52kRLNEhyd5W5b0BmQHaHP?pid=ImgDet&rs=1",
-            imageAlt: "Stm32",
-          },
-        ],
-      },
-    ],
-  };
+// const navigation = {
+//     categories: [
+//       {
+//         id: "components",
+//         name: "Components",
+//         featured: [
+//           {
+//             name: "Resistors",
+//             href: "#",
+//             imageSrc:
+//               "https://media.gettyimages.com/photos/electronic-component-electric-heating-elements-of-various-models-picture-id1339847300?k=20&m=1339847300&s=612x612&w=0&h=aukuydVEoGuY3m6c8VXpwsIzBsRSivMEBfX2f4ihrvw=",
+//             imageAlt: "Resistors",
+//           },
+//           {
+//             name: "Capcitors",
+//             href: "#",
+//             imageSrc:
+//               "https://media.gettyimages.com/photos/collection-of-capacitors-against-a-white-background-picture-id172962646?k=20&m=172962646&s=612x612&w=0&h=ES1R7bMMDkR5r3Xp3CnJD-GJTaWLtL8aQ4e-wi-Aaxo=",
+//             imageAlt: "Capacitors",
+//           },
+//           {
+//             name: "Inductors",
+//             href: "#",
+//             imageSrc:
+//               "https://qph.fs.quoracdn.net/main-qimg-d7ec636623ea2d1081f16042a4aabd38-c",
+//             imageAlt: "Inductors",
+//           },
+//           {
+//             name: "Leds",
+//             href: "#",
+//             imageSrc:
+//               "https://media.gettyimages.com/photos/high-angle-view-of-led-lights-against-white-background-picture-id1157527318?k=20&m=1157527318&s=612x612&w=0&h=LyjPCH4bSngY-LtXpphg1eKmrfMo0FICYpd_1OTISnM=",
+//             imageAlt: "Leds",
+//           },
+//         ],
+//       },
+//       {
+//         id: "microcontrollers",
+//         name: "Microcontrollers",
+//         featured: [
+//           {
+//             name: "Arduino",
+//             href: "#",
+//             imageSrc:
+//               "https://c1.wallpaperflare.com/preview/107/530/442/electronics-arduino-diy.jpg",
+//             imageAlt: "Arduino",
+//           },
+//           {
+//             name: "Esp32",
+//             href: "#",
+//             imageSrc:
+//               "https://everybitelectronics.co.uk/wp-content/uploads/2020/04/ESP32.jpg",
+//             imageAlt: "Esp32",
+//           },
+//           {
+//             name: "Raspberri pi",
+//             href: "#",
+//             imageSrc:
+//               "https://c4.wallpaperflare.com/wallpaper/672/858/376/raspberry-pi-computer-macro-wallpaper-preview.jpg",
+//             imageAlt: "Raspberri pi",
+//           },
+//           {
+//             name: "Stm32",
+//             href: "#",
+//             imageSrc:
+//               "https://th.bing.com/th/id/OIP.HC9F52kRLNEhyd5W5b0BmQHaHP?pid=ImgDet&rs=1",
+//             imageAlt: "Stm32",
+//           },
+//         ],
+//       },
+//     ],
+//   };
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -150,8 +150,8 @@ function ProductDetails() {
                         <div className="">
                             <StarIcon className="h-5 w-5 text-yellow-400" />
                         </div>
-                        <div class="ml-1 h-3 w-full bg-gray-100 rounded-full">
-                            <div class="h-full rounded-full bg-yellow-400" style={{ width: `63%`}} ></div>
+                        <div className="ml-1 h-3 w-full bg-gray-100 rounded-full">
+                            <div className="h-full rounded-full bg-yellow-400" style={{ width: `63%`}} ></div>
                         </div>
                         <p className="ml-3.5 text-base font-medium">63%</p>
                     </div>
@@ -160,8 +160,8 @@ function ProductDetails() {
                         <div className="">
                             <StarIcon className="h-5 w-5 text-yellow-400" />
                         </div>
-                        <div class="ml-1 h-3 w-full bg-gray-100 rounded-full">
-                            <div class="h-full rounded-full bg-yellow-400" style={{ width: `10%`}} ></div>
+                        <div className="ml-1 h-3 w-full bg-gray-100 rounded-full">
+                            <div className="h-full rounded-full bg-yellow-400" style={{ width: `10%`}} ></div>
                         </div>
                         <p className="ml-3.5 text-base font-medium">10%</p>
                     </div>

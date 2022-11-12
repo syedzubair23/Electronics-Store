@@ -23,7 +23,7 @@ function App() {
         <Route path="/wishlist" element={[<Wishlist />]} /> 
         <Route path="/checkout" element={[<Checkout />]} />
         <Route path="/store" element={[<Store />]} />
-        {/* <Route path="/select" element={[<CustomSelect />]} /> */}
+        <Route path="/product-details" element={[<ProductDetails />]} />
 
       </Routes>      
       <Footer />
