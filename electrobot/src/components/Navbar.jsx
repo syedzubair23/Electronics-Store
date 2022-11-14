@@ -34,7 +34,37 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { ShoppingBagIcon as ShoppingBagFillIcon, HeartIcon as HeartFillIcon } from "@heroicons/react/24/solid";
+import {
+  ShoppingBagIcon as ShoppingBagFillIcon,
+  HeartIcon as HeartFillIcon,
+} from "@heroicons/react/24/solid";
+import Subtotal from "./Subtotal";
+import CartItems from "./CartItems";
+
+// const products = [
+//   {
+//     id: 1,
+//     name: 'Throwback Hip Bag',
+//     href: '#',
+//     color: 'Salmon',
+//     price: '$90.00',
+//     quantity: 1,
+//     imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
+//     imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
+//   },
+//   {
+//     id: 2,
+//     name: 'Medium Stuff Satchel',
+//     href: '#',
+//     color: 'Blue',
+//     price: '$32.00',
+//     quantity: 1,
+//     imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
+//     imageAlt:
+//       'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
+//   },
+//   // More products...
+// ]
 
 const navigation = {
   categories: [
@@ -150,9 +180,16 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [showCart, setShowCart] = useState(false);
   // const [showCart, setShowCart] = useState(false);
+  const { cartItems, favoriteItems, removeFromCart, addQuantity } =
+    useContext(Context);
 
-  const { cartItems, favoriteItems } = useContext(Context);
+  const items_in_cart = cartItems.reduce(
+    (acc, item) => acc + (item.quantity > 0 ? Number(item.qty) || 1 : 0),
+    0
+  );
+
   const cartIcon =
     cartItems.length > 0 ? (
       <ShoppingBagFillIcon
@@ -167,7 +204,7 @@ export default function Navbar() {
     );
 
   const heartIcon =
-  favoriteItems.length > 0 ? (
+    favoriteItems.length > 0 ? (
       <HeartFillIcon
         className="h-6 w-6 flex-shrink-0 text-cyan-900"
         aria-hidden="true"
@@ -258,16 +295,13 @@ export default function Navbar() {
                                   className="object-cover object-center"
                                 />
                               </div>
-                              <a
-                                href={item.href}
-                                className="mt-6 block font-medium text-gray-900"
-                              >
+                              <button className="mt-6 block font-medium text-gray-900">
                                 <span
                                   className="absolute inset-0 z-10"
                                   aria-hidden="true"
                                 />
                                 {item.name}
-                              </a>
+                              </button>
                               <p aria-hidden="true" className="mt-1">
                                 Shop now
                               </p>
@@ -283,9 +317,9 @@ export default function Navbar() {
                   {navigation.pages.map((page) => (
                     <Link to={page.href}>
                       <div key={page.name} className="flow-root">
-                        <a className="-m-2 block p-2 font-medium text-gray-900">
+                        <button className="-m-2 block p-2 font-medium text-gray-900">
                           {page.name}
-                        </a>
+                        </button>
                       </div>
                     </Link>
                   ))}
@@ -293,25 +327,19 @@ export default function Navbar() {
 
                 <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   <div className="flow-root">
-                    <a
-                      href="#"
-                      className="-m-2 block p-2 font-medium text-gray-900"
-                    >
+                    <button className="-m-2 block p-2 font-medium text-gray-900">
                       Sign in
-                    </a>
+                    </button>
                   </div>
                   <div className="flow-root">
-                    <a
-                      href="#"
-                      className="-m-2 block p-2 font-medium text-gray-900"
-                    >
+                    <button className="-m-2 block p-2 font-medium text-gray-900">
                       Create account
-                    </a>
+                    </button>
                   </div>
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4">
-                  <a href="#" className="-m-2 flex items-center p-2">
+                  <button className="-m-2 flex items-center p-2">
                     <img
                       src="https://tailwindui.com/img/flags/flag-canada.svg"
                       alt=""
@@ -321,7 +349,7 @@ export default function Navbar() {
                       CAD
                     </span>
                     <span className="sr-only">, change currency</span>
-                  </a>
+                  </button>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
@@ -333,7 +361,7 @@ export default function Navbar() {
         <div className=" bg-cyan-900">
           <div className="h-10 mx-auto max-w-7xl flex place-content-center lg:place-content-between px-4 text-sm font-medium text-white">
             <div className="hidden lg:flex">
-              <a href="#" className="flex items-center hover:text-gray-800">
+              <button className="flex items-center hover:text-gray-800">
                 <img
                   src="https://tailwindui.com/img/flags/flag-canada.svg"
                   alt=""
@@ -341,7 +369,7 @@ export default function Navbar() {
                 />
                 <span className="ml-3 block text-sm font-medium">CAD</span>
                 <span className="sr-only">, change currency</span>
-              </a>
+              </button>
             </div>
 
             <p className="flex items-center justify-center text-center sm:px-6 lg:px-8">
@@ -349,13 +377,13 @@ export default function Navbar() {
             </p>
 
             <div className="hidden lg:flex lg:items-center lg:space-x-6">
-              <a href="#" className="text-sm font-medium hover:text-gray-800">
+              <button className="text-sm font-medium hover:text-gray-800">
                 Sign in
-              </a>
+              </button>
               <span className="h-6 w-px bg-gray-400" aria-hidden="true" />
-              <a href="#" className="text-sm font-medium hover:text-gray-800">
+              <button className="text-sm font-medium hover:text-gray-800">
                 Create account
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -378,14 +406,14 @@ export default function Navbar() {
               {/* Logo */}
               <Link to="/">
                 <div className="ml-4 flex lg:ml-0">
-                  <a href="#">
+                  <button>
                     <span className="sr-only">Your Company</span>
                     <img
                       className="h-8 w-auto"
                       src="images/Electrobot.svg"
                       alt=""
                     />
-                  </a>
+                  </button>
                 </div>
               </Link>
 
@@ -441,16 +469,13 @@ export default function Navbar() {
                                               className="object-cover object-center h-[16.25rem]"
                                             />
                                           </div>
-                                          <a
-                                            href={item.href}
-                                            className="mt-6 block font-medium text-gray-900"
-                                          >
+                                          <button className="mt-6 block font-medium text-gray-900">
                                             <span
                                               className="absolute inset-0 z-10"
                                               aria-hidden="true"
                                             />
                                             {item.name}
-                                          </a>
+                                          </button>
                                           <p
                                             aria-hidden="true"
                                             className="mt-1"
@@ -471,13 +496,13 @@ export default function Navbar() {
                   ))}
 
                   {navigation.pages.map((page) => (
-                    <a
+                    <button
                       key={page.name}
                       href={page.href}
                       className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       {page.name}
-                    </a>
+                    </button>
                   ))}
                 </div>
               </Popover.Group>
@@ -496,18 +521,18 @@ export default function Navbar() {
 
                 {/* Search */}
                 <div className="flex lg:ml-6">
-                  <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
+                  <button className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
                     <MagnifyingGlassIcon
                       className="h-6 w-6"
                       aria-hidden="true"
                     />
-                  </a>
+                  </button>
                 </div>
 
                 {/* Favorite */}
                 <div className="flex ml-4 lg:ml-6">
-                  <Link to='/wishlist'>
+                  <Link to="/wishlist">
                     <button className="p-2">
                       <span className="sr-only">Favorite</span>
                       {heartIcon}
@@ -517,16 +542,190 @@ export default function Navbar() {
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <Link to='/checkout'>
-                  <button className="group -m-2 flex items-center p-2  relative">
+                  {/* <Tab.Group> */}
+                  <button
+                    className="group -m-2 flex items-center p-2  relative"
+                    onClick={() => setShowCart(true)}
+                  >
                     {cartIcon}
                     <span className="ml-2 text-sm font-medium text-cyan-700 group-hover:text-cyan-800">
-                      {cartItems.length}
+                      {items_in_cart}
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
-                    {/* <ShoppingCart  /> */}
+                    <Transition.Root show={showCart} as={Fragment}>
+                      <Dialog
+                        as="div"
+                        className="z-30 relative"
+                        onClose={setShowCart}
+                      >
+                        <Transition.Child
+                          as={Fragment}
+                          enter="ease-in-out duration-500"
+                          enterFrom="opacity-0"
+                          enterTo="opacity-100"
+                          leave="ease-in-out duration-500"
+                          leaveFrom="opacity-100"
+                          leaveTo="opacity-0"
+                        >
+                          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                        </Transition.Child>
+
+                        <div className="fixed inset-0 overflow-hidden">
+                          <div className="absolute inset-0 overflow-hidden">
+                            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                              <Transition.Child
+                                as={Fragment}
+                                enter="transform transition ease-in-out duration-500 sm:duration-700"
+                                enterFrom="translate-x-full"
+                                enterTo="translate-x-0"
+                                leave="transform transition ease-in-out duration-500 sm:duration-700"
+                                leaveFrom="translate-x-0"
+                                leaveTo="translate-x-full"
+                              >
+                                <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
+                                  <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                                    <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+                                      <div className="flex items-start justify-between">
+                                        <Dialog.Title className="text-lg font-medium text-gray-900">
+                                          Shopping cart
+                                        </Dialog.Title>
+                                        <div className="ml-3 flex h-7 items-center">
+                                          <button
+                                            type="button"
+                                            className="-m-2 p-2 text-gray-400 hover:text-gray-500"
+                                            onClick={() => setShowCart(false)}
+                                          >
+                                            <span className="sr-only">
+                                              Close panel
+                                            </span>
+                                            <XMarkIcon
+                                              className="h-6 w-6"
+                                              aria-hidden="true"
+                                            />
+                                          </button>
+                                        </div>
+                                      </div>
+
+                                      {cartItems.length <= 0 ? (
+                                        <div className="h-full grid grid-cols-1 place-items-center">
+                                          <h2 className="text-2xl text-cyan-900 text-bold text-center px-2">
+                                            There is no item in the cart.
+                                          </h2>
+                                        </div>
+                                      ) : (
+                                        <div className="mt-8">
+                                          {/* <div className="flow-root">
+                                          <ul
+                                            role="list"
+                                            className="-my-6 divide-y divide-gray-200"
+                                          >
+                                            {cartItems.map((product) => (
+                                              <li
+                                                key={product.id}
+                                                className="flex py-6"
+                                              >
+                                                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                                  <img
+                                                    src={product.imageSrc}
+                                                    alt={product.imageAlt}
+                                                    className="h-full w-full object-cover object-center"
+                                                  />
+                                                </div>
+
+                                                <div className="ml-4 flex flex-1 flex-col">
+                                                  <div>
+                                                    <div className="flex justify-between text-base font-medium text-gray-900">
+                                                      <h3>
+                                                        <a href={product.href}>
+                                                          {product.name}
+                                                        </a>
+                                                      </h3>
+                                                      <p className="ml-4">
+                                                        {product.price}
+                                                      </p>
+                                                    </div>
+                                                    <p className="mt-1 text-sm text-gray-500">
+                                                      {product.color}
+                                                    </p>
+                                                  </div>
+                                                  <div className="flex flex-1 items-end justify-between text-sm">
+                                                    <p className="text-gray-500">
+                                                      Qty {product.quantity}
+                                                    </p>
+
+                                                    <div className="flex">
+                                                      <button
+                                                        type="button"
+                                                        className="font-medium text-cyan-400 hover:text-cyan-300"
+                                                      >
+                                                        Remove
+                                                      </button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </li>
+                                            ))}
+                                          </ul>
+                                        </div> */}
+                                          <CartItems />
+                                        </div>
+                                      )}
+                                    </div>
+
+                                    <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
+                                      <div className="flex justify-between text-base font-medium text-gray-900">
+                                        <p>Subtotal</p>
+                                        <p>
+                                          ${<Subtotal cartItems={cartItems} />}
+                                        </p>
+                                      </div>
+                                      <p className="mt-0.5 text-sm text-gray-500">
+                                        Shipping and taxes calculated at
+                                        checkout.
+                                      </p>
+                                      <Link to="/checkout">
+                                        <div className="mt-6">
+                                          <button
+                                            disabled={cartItems.length <= 0}
+                                            className="flex items-center justify-center disabled:opacity-40 disabled:focus:outline-none disabled:cursor-not-allowed w-full rounded-md border border-transparent bg-cyan-400 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-500"
+                                          >
+                                            Checkout
+                                          </button>
+                                        </div>
+                                      </Link>
+                                      <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
+                                        <p>
+                                          or
+                                          <span> </span>
+                                          <button
+                                            type="button"
+                                            className="font-medium text-cyan-400 hover:text-cyan-300"
+                                            onClick={() => setShowCart(false)}
+                                          >
+                                            Continue Shopping
+                                            <span aria-hidden="true">
+                                              {" "}
+                                              &rarr;
+                                            </span>
+                                          </button>
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Dialog.Panel>
+                              </Transition.Child>
+                            </div>
+                          </div>
+                        </div>
+                      </Dialog>
+                    </Transition.Root>
                   </button>
-                  </Link>
+                  {/* <Tab.Panels as={Fragment}>
+                    <Tab.Panel>
+                      <ShoppingCart cartState={showCart} />
+                    </Tab.Panel>
+                  </Tab.Panels>
+                  </Tab.Group> */}
                 </div>
               </div>
             </div>
@@ -719,7 +918,7 @@ export default function Navbar() {
 //                           key={category.name}
 //                           className={({ selected }) =>
 //                             classNames(
-//                               selected ? 'text-indigo-600 border-indigo-600' : 'text-gray-900 border-transparent',
+//                               selected ? 'text-cyan-400 border-cyan-400' : 'text-gray-900 border-transparent',
 //                               'flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium'
 //                             )
 //                           }
@@ -814,7 +1013,7 @@ export default function Navbar() {
 //       </Transition.Root>
 
 //       <header className="relative bg-white">
-//         <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
+//         <p className="flex h-10 items-center justify-center bg-cyan-400 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
 //           Get free delivery on orders over $100
 //         </p>
 
@@ -853,7 +1052,7 @@ export default function Navbar() {
 //                             <Popover.Button
 //                               className={classNames(
 //                                 open
-//                                   ? 'border-indigo-600 text-indigo-600'
+//                                   ? 'border-cyan-400 text-cyan-400'
 //                                   : 'border-transparent text-gray-700 hover:text-gray-800',
 //                                 'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
 //                               )}

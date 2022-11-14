@@ -7,9 +7,7 @@ function TrendingProducts() {
   const {allProducts} = useContext(Context)
 
   const card = allProducts.map((product) => ( 
-    <Link to="/product-details">
       <Card key={product.id} product={product} />
-    </Link>
   ))
 
   return (

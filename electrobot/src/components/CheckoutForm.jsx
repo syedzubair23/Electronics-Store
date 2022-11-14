@@ -9,23 +9,24 @@ const delivery_method = [
   { id: 2, delivery: "Express", business_days: "2-5", charges: "16" },
 ];
 
-const initialValues = {
-  email: "",
-  first_name: "",
-  last_name: "",
-  company: "",
-  address: "",
-  apartment: "",
-  city: "",
-  country: "",
-  state_province: "",
-  postal_code: "",
-  phone: "",
-  card_number: "",
-  name_on_card: "",
-  expiration_date: "",
-  cvc: "",
-};
+let initialValues = {
+    email: "",
+    first_name: "",
+    last_name: "",
+    company: "",
+    address: "",
+    apartment: "",
+    city: "",
+    country: "",
+    state_province: "",
+    postal_code: "",
+    phone: "",
+    delivery_Charges: "5",
+    card_number: "",
+    name_on_card: "",
+    expiration_date: "",
+    cvc: "",
+  };
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -33,26 +34,35 @@ function classNames(...classes) {
 
 function CheckoutForm() {
   const [deliveryCharges, setDeliveryCharges] = useState("5");
+  console.log(deliveryCharges);
 
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
-    useFormik({
-      initialValues,
-      validationSchema: userFormSchema,
-      onSubmit: (values, action) => {
-        console.log(
-          "🚀 ~ file: CheckoutForm.jsx ~ line 34 ~ CheckoutForm ~ values",
-          values
-        );
-        action.resetForm();
-      },
-    });
+  const {
+    values,
+    errors,
+    touched,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    resetForm,
+  } = useFormik({
+    initialValues,
+    validationSchema: userFormSchema,
+    onSubmit: (values, action) => {
+      values.delivery_Charges = deliveryCharges;
+      console.log(
+        "🚀 ~ file: CheckoutForm.jsx ~ line 34 ~ CheckoutForm ~ values",
+        values
+      );
+      action.resetForm();
+    },
+  });
   console.log(
     "🚀 ~ file: CheckoutForm.jsx ~ line 41 ~ CheckoutForm ~ errors",
     errors
   );
 
   return (
-    <form action="">
+    <form onSubmit={handleSubmit}>
       <div>
         <h2 className="text-lg text-gray-900 font-medium mb-5">
           Contact information
@@ -244,7 +254,9 @@ function CheckoutForm() {
               onBlur={handleBlur}
             />
             {errors.state_province && touched.state_province ? (
-              <p className="text-xs text-red-500 mt-1">{errors.state_province}</p>
+              <p className="text-xs text-red-500 mt-1">
+                {errors.state_province}
+              </p>
             ) : null}
           </div>
           <div>
@@ -398,7 +410,9 @@ function CheckoutForm() {
               onBlur={handleBlur}
             />
             {errors.expiration_date && touched.expiration_date ? (
-              <p className="text-xs text-red-500 mt-1">{errors.expiration_date}</p>
+              <p className="text-xs text-red-500 mt-1">
+                {errors.expiration_date}
+              </p>
             ) : null}
           </div>
           <div className="col-span-2 sm:col-span-1">
@@ -454,14 +468,14 @@ function CheckoutForm() {
               >
                 Continue
               </button> */}
-        {/* <div className="grid grid-cols-1">
-              <button
-                type="submit"
-                className="text-white bg-cyan-400 hover:bg-cyan-500 focus:ring-4 outline-none focus:ring-cyan-200 font-medium rounded-lg text-lg w-full sm:w-auto px-5 py-3 text-center"
-              >
-                Pay now
-              </button>
-              </div> */}
+        <div className="grid grid-cols-1">
+          <button
+            type="submit"
+            className="text-white bg-cyan-400 hover:bg-cyan-500 focus:ring-4 outline-none focus:ring-cyan-200 font-medium rounded-lg text-lg w-full sm:w-auto px-5 py-3 text-center"
+          >
+            Pay now
+          </button>
+        </div>
       </div>
     </form>
   );

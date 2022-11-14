@@ -28,9 +28,9 @@ const products = [
   // More products...
 ]
 
-export default function ShoppingCart() {
-  // console.log(showCart)
-  const [open, setOpen] = useState(true)
+export default function ShoppingCart({cartState}) {
+  console.log(cartState)
+  const [open, setOpen] = useState(false)
 
   return (
     <Transition.Root show={open} as={Fragment}>
