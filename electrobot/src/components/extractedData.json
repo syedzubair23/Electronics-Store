@@ -1,0 +1,1202 @@
+{
+    "categories": [
+        {
+            "id": "microcontrollers",
+            "name": "Microcontrollers",
+            "microcontrollers": [
+                {
+                    "arduino": [
+                        {
+                            "id": "ar-01",
+                            "name": "Arduino UNO Rev3",
+                            "brand": "arduino",
+                            "model": "REV3 [A000066]",
+                            "url": "https://m.media-amazon.com/images/I/71z22cRPeeL._AC_UY218_.jpg",
+                            "rating": "4.8",
+                            "reviews": "7,503",
+                            "price": "$28.50",
+                            "items_in_stock": "12",
+                            "description": "It has 14 digital input/output pins (of which 6 can be used as PWM outputs), 6 analog inputs, a 16 MHz quartz crystal, a USB connection, a power jack, an ICSP header and a reset button",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "86%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "10%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "3%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "1%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "2%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Fares",
+                                        "rating": "5",
+                                        "comments": "Item was of the most excellent quality! Delivery was notably fast. The packaging was immensely beauteous."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Frankie",
+                                        "rating": "5",
+                                        "comments": "I used this for a stranger things alphabet wall for Halloween and really looked great in the end. Takes a lot of trial and error to get anything done but it's worth it when you get it right"
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "cashcow",
+                                        "rating": "4",
+                                        "comments": "I want to know why my ARDUINO UNO R3 cannot be automatically executed after the program burning is completed and the power is restored. Therefore, I bought it twice. The same problem still exists. Please help me. Thank you"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "ar-02",
+                            "name": "Arduino Mega 2560 Rev3",
+                            "brand": "arduino",
+                            "model": "REV3 [A000067]",
+                            "url": "https://m.media-amazon.com/images/I/61HWKZzJoyL._AC_UY218_.jpg",
+                            "rating": "4.8",
+                            "reviews": "1,344",
+                            "price": "$48.40",
+                            "items_in_stock": "22",
+                            "description": "Based on the 8-bit AVR microcontroller ATmega2560, it has 54 digital I/O pins, 16 analog inputs and a larger space for your sketches. It is compatible with most shields designed for the Arduino Uno",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "87%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "7%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "2%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "2%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "2%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/f1292b83-3d2d-49d3-ac8b-565e16d2e8e3._CR0,0,500,500_SX48_.jpg",
+                                        "customer_name": "Samuel Falade",
+                                        "rating": "5",
+                                        "comments": "I just love the Arduino. So many creativity and possibilities."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "IanB",
+                                        "rating": "5",
+                                        "comments": "An Arduino that I use for railway modelling purposes. For these the Mega is great because of the larger number of I/O pins and also timers, than the Uno. It is a little expensive though."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-eu.ssl-images-amazon.com/images/S/amazon-avatars-global/38ec0a3a-e661-4e68-a4ec-df0715451b3f._CR0,0,375,375_SX48_.jpg",
+                                        "customer_name": "ATCMikeR",
+                                        "rating": "4",
+                                        "comments": "Not a clue what it does but followed the instructions for installation and download of firmware and it works brilliantly. Def recommended"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "ar-03",
+                            "name": "Arduino Nano",
+                            "brand": "arduino",
+                            "model": "REV3 [A000005]",
+                            "url": "https://m.media-amazon.com/images/I/61R1A7CuHTL._AC_SX679_.jpg",
+                            "rating": "4.7",
+                            "reviews": "800",
+                            "price": "$24.00",
+                            "items_in_stock": "10",
+                            "description": "The Arduino Nano is one of the smallest Arduino boards available on the market. Tiny form factor, complete, and breadboard-friendly board based on the ATmega328. It works with a Mini-B USB cable",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "81%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "11%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "3%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "1%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "3%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Sidewalkchalk",
+                                        "rating": "4",
+                                        "comments": "I tried using a clone but it wouldn't connect to my computer so I had to use this. I wasn't excited to pay extra for the same thing but what are you gonna do."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Brian",
+                                        "rating": "5",
+                                        "comments": "There is a bit of a learning curve to program it, but once you figure it out (or borrow code someone else has made and left online for use) it works great. I personally used mine as a controller for a NeoPixel ring I have, and am able to control every aspect of it through the Arduino."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Max Kolbecow",
+                                        "rating": "5",
+                                        "comments": "This little Nano board works great. Did not have to do anything special in plugging it it. I would buy again, if I ever needed a 2nd one."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "ar-04",
+                            "name": "Arduino Zero",
+                            "brand": "arduino",
+                            "model": "[ABX00003]",
+                            "url": "https://m.media-amazon.com/images/I/81S0SlLsy6L._AC_UY218_.jpg",
+                            "rating": "5.0",
+                            "reviews": "8",
+                            "price": "$50.00",
+                            "items_in_stock": "22",
+                            "description": "The Zero is a simple and powerful 32-bit extension of the platform established by the UNO. The Zero board expands the family by providing increased performance, enabling a variety of project opportunities for devices, and acts as a great educational tool for learning about 32-bit application development. The Zero applications span from smart IoT devices, wearable technology, high-tech automation, to crazy robotics. The board is powered by Atmel’s SAMD21 MCU, which features a 32-bit ARM Cortex M0+ core. One of its most important features is Atmel’s Embedded Debugger (EDBG), which provides a full debug interface without the need for additional hardware, significantly increasing the ease-of-use for software debugging. EDBG also supports a virtual COM port that can be used for device and bootloader programming.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "100%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "0%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "0%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "0%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "0%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "J Beck",
+                                        "rating": "5",
+                                        "comments": "Use this bad boy with Arduino IDE 2.0 and have debugging with breakpoints and memory monitors. Simply perfect!"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "ar-05",
+                            "name": "Arduino Micro with Headers",
+                            "brand": "arduino",
+                            "model": "[A000053]",
+                            "url": "https://m.media-amazon.com/images/I/61hLkN0VJIL._AC_UY218_.jpg",
+                            "rating": "4.8",
+                            "reviews": "468",
+                            "price": "$24.99",
+                            "items_in_stock": "9",
+                            "description": "The Arduino Micro is a microcontroller board based on the ATmega32U4 (datasheet), developed in conjunction with Adafruit. It has 20 digital input/output pins (of which 7 can be used as PWM outputs and 12 as analog inputs), a 16 MHz crystal oscillator, a micro USB connection, an ICSP header, and a reset button.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "87%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "7%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "2%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "2%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "2%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Chachi",
+                                        "rating": "5",
+                                        "comments": "Great little controller, plenty of analog inputs. Runs short on memory quick though - most of these controllers don't even list memory - the ones that have a lot of memory are all sold out or going for double their worth."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "L HOLLANDER",
+                                        "rating": "5",
+                                        "comments": "Good quality, good value."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Gerri B",
+                                        "rating": "5",
+                                        "comments": "My goal was to make my Logitech switch box usable since support for it is otherwise limited. I removed all the internal switch box wiring and electronics and wired in the Micro using pins D0-A3 (with two spare!)"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "ar-06",
+                            "name": "Arduino UNO Mini Limited Edition",
+                            "brand": "arduino",
+                            "model": "ABX00062",
+                            "url": "https://m.media-amazon.com/images/I/71qJZUYGTQL._AC_UY218_.jpg",
+                            "rating": "4.9",
+                            "reviews": "71",
+                            "price": "$54.99",
+                            "items_in_stock": "10",
+                            "description": "The board is powered by the ATmega328P which is an 8-bit AVR RISC based processor running at 16MHz. On board: 2KB of SRAM, 32KB Flash for your projects, 1KB EEPROM which is not erased when powered off, 2 SPI interfaces, 14 digital I/O pins (6 of which can be used as PWM outputs), 6 analog inputs, and featuring a USB-C connector to power and program the board.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "91%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "7%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "3%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "0%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "0%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Shopper",
+                                        "rating": "5",
+                                        "comments": "So amazingly small and beautiful! The perfect gift for the technology enthusiast. I hope they make this in a non-special edition for people to use in projects."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "TunaOrna",
+                                        "rating": "3",
+                                        "comments": "The text on the bottom of the box was a bit smeared. These are special limited edition units with special limited edition boxes."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "CMC",
+                                        "rating": "5",
+                                        "comments": "I love the size of this setup. Wish they weren’t twice as expensive as the normal UNO and only limited edition or I’d buy 20 more."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "ar-07",
+                            "name": "Arduino Ethernet Shield 2",
+                            "brand": "arduino",
+                            "model": "A000024",
+                            "url": "https://m.media-amazon.com/images/I/61x8bcPqc6L._AC_UY218_.jpg",
+                            "rating": "4.6",
+                            "reviews": "94",
+                            "price": "$31.46",
+                            "items_in_stock": "5",
+                            "description": "Expansion shield to bring your Arduino board online with simple-yet-reliable communication libraries, supporting TCP and UDP protocols. Rich collection of examples: browse the Internet, make a tiny web server, and send data to a cloud with little coding effort. Use its micro-SD card slot to store sensor information, serve files to 8 simultaneously connected devices, or log traffic.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "74%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "16%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "5%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "3%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "2%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "ElectroMan",
+                                        "rating": "5",
+                                        "comments": "I purchased two, separately. Lucky, because 1 died. I believe static got it. Otherwise it's plug n play. Quality is good. Programming pretty simple."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Scubaman",
+                                        "rating": "5",
+                                        "comments": "I supported arduino in my first ever attempt to use microcontrollers. I bought this uno r3 and also a WiFi rev2 and a starter kit. Much of my initial work and concept would not have been possible had I not found their site about connecting two arduino over tcp client server. So it’s only fair that I return the support. Thanks"
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Simone",
+                                        "rating": "5",
+                                        "comments": "Prodotto originale. Tutto ok transazione precisa e puntuale. Da quando mi è arrivato fino ad oggi 10gg non ha dato problemi di funzionamento"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "ar-08",
+                            "name": "Arduino MKR Zero with Headers]",
+                            "brand": "arduino",
+                            "model": " ABX00012",
+                            "url": "https://m.media-amazon.com/images/I/612upqPcgVL._AC_UY218_.jpg",
+                            "rating": "4.5",
+                            "reviews": "51",
+                            "price": "$29.10",
+                            "items_in_stock": "8",
+                            "description": "The Central Board for your Electronic Project. Powerful 32-bit Microcontroller and Micro SD Memory Card Connector. Ideal for: Music, Audio processing, robotics, art installations. Part of the Arduino Maker Board Family for IoT Devices, easy to configure with Arduino Software.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "75%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "11%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "8%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "6%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "2%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Daylight",
+                                        "rating": "5",
+                                        "comments": "Wasn't sure if this was official Arduino or a clone but now that I've received it looks as though from packaging and board markings that it is indeed genuine Arduino built in Italy. Works great and was reasonably priced."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Johncblacker",
+                                        "rating": "5",
+                                        "comments": "Arduino boards are a great choice because of the large number of users and great community support."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Dar",
+                                        "rating": "5",
+                                        "comments": "Great device for programming. NOT to be used as a AVR ISP device for regular boards."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "ar-09",
+                            "name": "Arduino UNO WiFi",
+                            "brand": "arduino",
+                            "model": "REV2 ABX00021",
+                            "url": "https://m.media-amazon.com/images/I/61hvzB244kL._AC_UY218_.jpg",
+                            "rating": "4.5",
+                            "reviews": "234",
+                            "price": "$58.00",
+                            "items_in_stock": "3",
+                            "description": "The easiest way to build a connected Arduino project. Works for WiFi and Bluetooth Low Energy applications. Safe wireless connection to the Internet thanks to its onboard cryptochip. Ideal for IoT (Internet of Things) industries such as automotive, agriculture, consumer electronics, smart home projects, or logging data. Includes a 6 axis accelerometer/gyroscope and temperature sensor to accurately measure movement: make step counters, fall sensors, door opening alarms, etc.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "73%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "17%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "2%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "2%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "6%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Mario Bernal",
+                                        "rating": "4",
+                                        "comments": "U will need to search for all the libraries for this version, ex modbus tcp ip"
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Todd_Westley",
+                                        "rating": "4",
+                                        "comments": "I wish it had space for a larger program. But it worked as advertised"
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Alexander",
+                                        "rating": "4",
+                                        "comments": "Used as a coordinator node in a greenhouse project with wireless nodes for horticulture. It keeps my internal nodes communicated through radio frequency modules and the wifi chip is used for communication with the router and sending information through the Ubidots platform. It should be clear some basics concepts to implement them in communication with IoT platforms."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "ar-10",
+                            "name": "Arduino Nano RP2040 Connect",
+                            "brand": "arduino",
+                            "model": "ABX00052",
+                            "url": "https://m.media-amazon.com/images/I/61teDsnCswL._AC_SX679_.jpg",
+                            "rating": "4.7",
+                            "reviews": "14",
+                            "price": "$43.95",
+                            "items_in_stock": "15",
+                            "description": "Arduino Nano RP2040 Connect adds Wifi and Bluetooth to the Raspberry-Pi RP2040 microcontroller, provided by a separate U-blox Nina W102 module and integrated antenna, creating the perfect IoT device, to connect sensors and actuators. Arduino Nano RP2040 comes with a dual core 32-bit Arm Cortex-M0+ processor, that has a high performance energy efficiency, while clocked at 133 MHz. It allows the exploration of embedded Machine Learning algorithms out of the box, and is perfect for learning TinyML, TensorFlow Lite or Edge Impulse.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "65%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "22%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "0%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "0%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "14%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Ebolisa",
+                                        "rating": "5",
+                                        "comments": "Just testing some new boards with micropython."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "ar-11",
+                            "name": "Arduino Portenta Breakout",
+                            "brand": "arduino",
+                            "model": "ASX00031",
+                            "url": "https://m.media-amazon.com/images/I/61fkAvrlUuL._AC_UY218_.jpg",
+                            "rating": "3.9",
+                            "reviews": "6",
+                            "price": "$55.93",
+                            "items_in_stock": "12",
+                            "description": "The Portenta Breakout allows easy debugging through the JTAG, Ethernet, and USB-A connectors. Comes with a dedicated software library to allow quick use of its functionalities. It can also be used for other protocols and pins such as I2C, UART, CAN1 and more. The Portenta Breakout board can act as the first point of entry for technician education in industrial grade control and embedded systems.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "48%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "33%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "0%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "0%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "19%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Robert Salasidis",
+                                        "rating": "5",
+                                        "comments": "Nice board, would have been better if the solder headers could have been compatible with 3.5 mm dual level terminal blocks - but this works too."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "ar-12",
+                            "name": "Arduino Portenta H7",
+                            "brand": "arduino",
+                            "model": "ABX00042",
+                            "url": "https://m.media-amazon.com/images/I/51DtdErWVsL._AC_UY218_.jpg",
+                            "rating": "4.4",
+                            "reviews": "34",
+                            "price": "$109.93",
+                            "items_in_stock": "7",
+                            "description": "Two processors that can run tasks in parallel with both cores communicating with one another. Each core can execute Arduino, mbedOS, micropython, and TensorFlow Lite code. Comes in the Arduino MKR form factor but includes two extra 80-pin high density connectors. Extend your Portenta H7 to physical interfaces like Ethernet connectors, CAN bus peripherals, extra GPIO pins, SD card, etc.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "76%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "9%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "6%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "0%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "9%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Alex",
+                                        "rating": "3",
+                                        "comments": "For those interested in purchasing this board, it is not guaranteed you will receive the Portenta H7 with the graphics accelerator. I purchased this product and received the Portenta H7 Lite Connected, which does not come with the graphics accelerator."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Nav S.",
+                                        "rating": "5",
+                                        "comments": "usb c cables not included"
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Michael C.",
+                                        "rating": "1",
+                                        "comments": "Tons of issues, very little support. Basic features don’t work, at all. Arduino absolutely hasn’t backed this product up, and for the money this is an outright joke. I don’t know who exactly this is geared for but if you actually intend on getting something done using this board, skip it. This pro line sucks"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "ar-13",
+                            "name": "Arduino Due",
+                            "brand": "arduino",
+                            "model": "A000056",
+                            "url": "https://m.media-amazon.com/images/I/71BhTyWY2SL._AC_UY218_.jpg",
+                            "rating": "5.0",
+                            "reviews": "1",
+                            "price": "$48.00",
+                            "items_in_stock": "19",
+                            "description": "The Arduino Due is a microcontroller board based on the Atmel SAM3X8E ARM Cortex-M3 CPU. It is the first Arduino board based on a 32-bit ARM core microcontroller. It has 54 digital input/output pins (of which 12 can be used as PWM outputs), 12 analog inputs, 4 UARTs (hardware serial ports), a 84 MHz clock, an USB OTG capable connection, 2 DAC (digital to analog), 2 TWI, a power jack, an SPI header, a JTAG header, a reset button and an erase button.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "100%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "0%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "0%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "0%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "0%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Jamber",
+                                        "rating": "5",
+                                        "comments": "Excellent quality product. I liked the features and would love to experiment and will try to make new projects"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "raspberri_pi": [
+                        {
+                            "id": "rp-01",
+                            "name": "Raspberry Pi Pico W ",
+                            "brand": "Raspberry Pi",
+                            "model": "RP2040 ARM Cortex",
+                            "url": "https://cdn3.botland.store/111277-pdt_540/raspberry-pi-pico-w-rp2040-arm-cortex-m0-cyw43439-wifi.jpg",
+                            "rating": "4.6",
+                            "reviews": "23",
+                            "price": "27.98",
+                            "items_in_stock": "13",
+                            "description": "A small Raspberry Pi Pico module equipped with the proprietary Raspberry RP2040 microcontroller with the CYW43439 wireless communication system. RP2040 is a dual-core ARM Cortex M0 + chip clocked at 133 MHz, with 264 KB of SRAM and 2 MB of Flash memory. Thanks to the CYW43439, WiFi IEEE 802.11 b / g / n wireless communication is possible. The system has 26 GPIO pins that work with a voltage of 3.3 V, and a built-in temperature sensor. The Raspberry Pi Pico is programmed in C / C ++ and MicroPython via the microUSB connector.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "82%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "5%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "6%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "0%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "6%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Bryant",
+                                        "rating": "5",
+                                        "comments": "Pico W is the finest board to get started and powerful too. It can be programmed in Circuit Python for ease of use."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Charlie",
+                                        "rating": "4",
+                                        "comments": "Given the price and lack of availability of the RP Pico W, I decided to take a chance on these. Note however that if you expand the picture the processor is marked RP2-B0 (actually looks like 80, if it is not B0 then its a fraud) Anyway assuming its B0, I purchased this but be aware that the B0 appears to be out of production. Current production uses the B1 processor. Good luck. I bought them Though I should add this as only one glowing review."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Xoms",
+                                        "rating": "4",
+                                        "comments": "This works perfectly with MicroPython. It was easy to setup and use. There are a lot of examples on the Web. It's a great wireless device. It's more expensive than an ESP8266 but seems to setup and program easier. I highly recommend it. Can't wait for the Pico W to become more widely available and for the price to come back down."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "rp-02",
+                            "name": "Raspberry Pi 4 (8GB)",
+                            "brand": "Raspberry Pi",
+                            "model": "Model B",
+                            "url": "https://m.media-amazon.com/images/I/51q83dEsrJS._AC_UY218_.jpg",
+                            "rating": "4.6",
+                            "reviews": "262",
+                            "price": "199.00",
+                            "items_in_stock": "3",
+                            "description": "Raspberry Pi 4 Model B, the completely upgraded, re-engineered model of the Pi family. It has more powerful processor, faster networking, supports dual 4K output, and provides different choice of RAM. It has features like BCM2711B0 (ARM Cortex-A72): 64-bit 1.5GHz quad-core, RAM: 8GB, Gigabit Ethernet, 802.11ac 2.4GHz/5GHz dual-band NIC, Bluetooth 5.0, BLE, USB 3.0 x 2, USB 2.0 x 2, micro HDMI x 2 (supports 4Kp60), PoE header (supports PoE HAT), MicroSD slot, 3.5 mm audio jack, 40PIN GPIO header, CSI camera interface, DSI display interface, USB Type C power supply (5V/3A or above)",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "70%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "21%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "6%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "1%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "2%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "nkoya",
+                                        "rating": "5",
+                                        "comments": "The Raspberry Pi 4 was waiting for half a year due to a shortage of semiconductors, and it was in stock for 16,000 yen, 1.6 times the normal price, so I bought it. After arriving, it was 20,000 yen or more at the market. The memory is 4GB, but I also want an 8GB one."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Life on the Edge",
+                                        "rating": "1",
+                                        "comments": "Product is way over-priced. Manufacturer still has an MSRP of $75 for any RPi4 8GB. Unless you want to willingly throw money away for an over-priced RPi4, you'd be best served by avoiding buying this."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "amazoneer",
+                                        "rating": "4",
+                                        "comments": "1080 HD can be just a bit sniffy, but YouTube is OK to watch. It can be used at all than Raspberry Pi3."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "rp-03",
+                            "name": "Raspberry Pi Camera Module",
+                            "brand": "Raspberry Pi",
+                            "model": "RPI-CAM-V2",
+                            "url": "https://m.media-amazon.com/images/I/81c3uxPtJiL._AC_UY218_.jpg",
+                            "rating": "4.6",
+                            "reviews": "3,385",
+                            "price": "32.49",
+                            "items_in_stock": "5",
+                            "description": "The Raspberry Pi Camera V2 features the same tiny footprint (25mm x 23mm x 9mm) as the original Pi Camera module but features an upgraded Sony IMX219 image sensor which has a native resolution of 8 megapixels The fixed-focus lens can capture 3280 x 2464 pixel images and 1080p30 720p60 and 640x480p90 video The Raspberry Pi Camera V2 connects to the CSi connector of your Raspberry Pi via a 15cm long flexible ribbon cable It is plug-and-play compatible latest version of the Raspbian operating system making it perfect for time-lapse photography recording video motion detection and security applications",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "77%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "13%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "5%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "2%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "4%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/9cc00f78-ac0a-4ef0-92f5-8e500b7d655e._CR0,0,427,427_SX48_.jpg",
+                                        "customer_name": "Mr O",
+                                        "rating": "5",
+                                        "comments": "You can't go wrong getting the legit Pi camera. No fuss, just works. Been doing timelapse in MyCodo. 1920x1080 resolution images look pretty good."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Gary L. Misch",
+                                        "rating": "3",
+                                        "comments": "Installs easily, but there seems to be no way to turn the image from sideways to upright, and no documentation. I'll bet there's a way, but who knows. . ."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Charlie Spencer",
+                                        "rating": "5",
+                                        "comments": "Very compact and easy to set up. Works great with the Pi. I set my Pi Zero up with this (you need an adapter cable) to stream to the excellent Raspberry Pi Cam Web Interface, allowing me to watch clips of birds in my nest box that had set off the motion capture software."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "rp-04",
+                            "name": "Raspberry Pi Zero W (Wireless)",
+                            "brand": "Raspberry Pi",
+                            "model": "2017 model",
+                            "url": "https://m.media-amazon.com/images/I/61IY5mYh8tL._AC_UY218_.jpg",
+                            "rating": "4.7",
+                            "reviews": "1,269",
+                            "price": "68.98",
+                            "items_in_stock": "2",
+                            "description": "The Raspberry Pi Zero Wireless extends the Pi Zero family. ?The Raspberry Pi Zero is half the size of a Model A+, with twice the utility. A tiny Raspberry Pi thats affordable enough for any project! The Pi Zero Wireless has all the functionality of the original Pi Zero but with added wireless connectivity.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "86%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "8%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "3%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "1%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "3%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/9cc00f78-ac0a-4ef0-92f5-8e500b7d655e._CR0,0,427,427_SX48_.jpg",
+                                        "customer_name": "Shawn",
+                                        "rating": "4",
+                                        "comments": "It worked perfect but the HDMI connection was a little too fragile so be careful. I tried to build a project box for it and wasn't careful. I will buy more Raspberry pi zero's"
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "A. Carner",
+                                        "rating": "5",
+                                        "comments": "First of all way over priced.. Due to supply chain issues. But either way still happy with product"
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Robert Parker",
+                                        "rating": "1",
+                                        "comments": "This Pi Zero W will not boot. No light, nothing... I heard there are some faulty Pi Zeros with the wrong BIOS and the reason they won't boot. I don't know what is wrong with this one, but it is dead!"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "rp-05",
+                            "name": "Raspberry Pi NoIR Camera Module",
+                            "brand": "Raspberry Pi",
+                            "model": "RPI3-NOIR-V2",
+                            "url": "https://m.media-amazon.com/images/I/214RGslECiL._AC_UY218_.jpg",
+                            "rating": "4.5",
+                            "reviews": "427",
+                            "price": "29.95",
+                            "items_in_stock": "8",
+                            "description": "The Raspberry Pi Camera Module v2 is a high quality 8 megapixel Sony IMX219 image sensor custom designed add-on board for Raspberry Pi, featuring a fixed focus lens. It's capable of 3280 x 2464 pixel static images, and also supports 1080p30, 720p60 and 640x480p60/90 video. It attaches to Pi by way of one of the small sockets on the board upper surface and uses the dedicated CSi interface, designed especially for interfacing to cameras.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "73%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "12%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "6%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "6%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "2%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/9cc00f78-ac0a-4ef0-92f5-8e500b7d655e._CR0,0,427,427_SX48_.jpg",
+                                        "customer_name": "GUILLERMO PUSCHEL P.",
+                                        "rating": "5",
+                                        "comments": "excelente, cumple con lo requerido"
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Jonathan W.",
+                                        "rating": "3",
+                                        "comments": "Hooks up to raspberry pi very well. Picture quality is terrible (not that I expected much from 8mp). Ribbon cable is position sensitive, so if it gets bumped the camera disconnects"
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Susan Pugh",
+                                        "rating": "5",
+                                        "comments": "My son seems very happy with this item, he is using it to record plant growth for reasons which are beyond me."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "rp-06",
+                            "name": "Raspberry Pi 3 (3B+)",
+                            "brand": "Raspberry Pi",
+                            "model": "Model B+",
+                            "url": "https://m.media-amazon.com/images/I/51bSOv1JvnL._AC_UY218_.jpg",
+                            "rating": "4.8",
+                            "reviews": "1,409",
+                            "price": "178.99",
+                            "items_in_stock": "12",
+                            "description": "1.4GHz 64-bit quad-core processor, dual-band 2.4GHz and 5GHz wireless LAN. Bluetooth 4.2/BLE, faster Ethernet, and PoE support (with separate PoE HAT). 1GB LPDDR2 SDRAM；Micro SD format for loading operating system and data storage. (Micro SD is Not included.)",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "88%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "8%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "2%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "0%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "2%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/6402f8e9-e74b-4783-bfe5-1bc77af2fd62._CR0,0,960,960_SX48_.jpg",
+                                        "customer_name": "Hope4usyet",
+                                        "rating": "4",
+                                        "comments": "My son needed this for engineering classes in college and it came quick, works great, and has been such a great resource for his homework and projects!"
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "Allan",
+                                        "rating": "4",
+                                        "comments": "RPi 3x is obsolete. I should have purchased a model 4 instead - only a few bucks more. No more model 3x for me even though they work fine - they are overpriced in this obsolete market."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/4c619090-c596-46ab-a791-7a79154dd433._CR62,0,375,375_SX48_.jpg",
+                                        "customer_name": "Javier",
+                                        "rating": "5",
+                                        "comments": "There's a reason the Raspberry Pi boards are so popular. Good value and great quality."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "rp-07",
+                            "name": "Raspberry Pi 2 Desktop 1 GB RAM",
+                            "brand": "Raspberry Pi",
+                            "model": "Model B Desktop",
+                            "url": "https://m.media-amazon.com/images/I/4133JwedpXL._AC_UY218_.jpg",
+                            "rating": "4.6",
+                            "reviews": "4,495",
+                            "price": "89.99",
+                            "items_in_stock": "5",
+                            "description": "The latest addition to the Raspberry Pi family, the Raspberry Pi 2 Model B takes the platform to a completely new level. Combining a six fold increase in processing power and a doubling of memory capacity with complete backward compatibility with the existing Model B Plus, Raspberry Pi 2 Model B is the perfect board for professionals and hobbyists alike. The new Raspberry Pi 2 Model B is jam packed with features. With a new quad core processor and twice the memory with a massive 1GB RAM. It's a whopping 6x faster than its predecessor.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "81%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "10%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "3%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "2%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "4%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/6402f8e9-e74b-4783-bfe5-1bc77af2fd62._CR0,0,960,960_SX48_.jpg",
+                                        "customer_name": "Helverth de Leon",
+                                        "rating": "5",
+                                        "comments": "The device works perfect. Fast delivery for a good price!"
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "MJacob",
+                                        "rating": "5",
+                                        "comments": "I thoroughly enjoy this product. As a computer geek, I look forward to using it to automate my house to the point where a heating pad turns on when a cat lays down in the cat bed."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/4c619090-c596-46ab-a791-7a79154dd433._CR62,0,375,375_SX48_.jpg",
+                                        "customer_name": "Fuller Family",
+                                        "rating": "5",
+                                        "comments": "Great for learning linux or single board PC's. Outdated a bit by 2021 standards but still an overall good value for kids, etc to start their learning experience. Recommend going with a Pi4 though this late in the game however the Rpi2 was the best of its class at the time and the Model B offered the highest RAM available and more port options and flexibility."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "rp-08",
+                            "name": "Raspberry Pi 3 Model B Board",
+                            "brand": "Raspberry Pi",
+                            "model": "Model B SBC",
+                            "url": "https://m.media-amazon.com/images/I/71xpIU093aL._AC_UY218_.jpg",
+                            "rating": "4.7",
+                            "reviews": "1,542",
+                            "price": "199.99",
+                            "items_in_stock": "14",
+                            "description": "The Raspberry Pi 3 Model B looks identical to the Pi 2 B at first glance. It is the same size and has much of the same components on board. So what is the difference? The new Pi 3 brings more processing power and on-board connectivity, saving you time with the development of your applications. Perfect for your Internet of Things (IoT) designs.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "85%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "9%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "2%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "1%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "3%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/6402f8e9-e74b-4783-bfe5-1bc77af2fd62._CR0,0,960,960_SX48_.jpg",
+                                        "customer_name": "Dan",
+                                        "rating": "5",
+                                        "comments": "Works great. Planning on using it as a C64 floppy drive substitute as soon as the rest of the hardware gets here. Tried it out with the Raspberry Pi O/S as a desktop computer and it works well even with streaming video."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
+                                        "customer_name": "William McCloskey",
+                                        "rating": "5",
+                                        "comments": "it was great for all my projects"
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/4c619090-c596-46ab-a791-7a79154dd433._CR62,0,375,375_SX48_.jpg",
+                                        "customer_name": "Keegan T.",
+                                        "rating": "4",
+                                        "comments": "This product is loads of fun with endless potential. The only problem I had was it quit working after a couple months. I would suggest buying a starter kit to ensure the best protection and proper use."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "rp-09",
+                            "name": "Raspberry Pi Sense HAT - AstroPi",
+                            "brand": "Raspberry Pi",
+                            "model": "FBA_2483095",
+                            "url": "https://m.media-amazon.com/images/I/81MY7pl42qL._AC_UY218_.jpg",
+                            "rating": "4.5",
+                            "reviews": "303",
+                            "price": "42.00",
+                            "items_in_stock": "16",
+                            "description": "If you own a Raspberry Pi 1, 2 or a 3, you need this add-on! This fantastic 'shield' has so much packed into such a small foot print. No need for external power input, as the shield pulls power from the Pi its self. Not only do you get an amazingly bright programmable 8x8 RGB matrix but you also get: Accelerometer, Gyroscope, Magnetometer, Pressure sensor, Thermometer, Humidity sensor, Small multi-directional joystick.",
+                            "product_reviews": {
+                                "star_ratings": [
+                                    {
+                                        "stars": "5",
+                                        "percentage": "70%"
+                                    },
+                                    {
+                                        "stars": "4",
+                                        "percentage": "16%"
+                                    },
+                                    {
+                                        "stars": "3",
+                                        "percentage": "7%"
+                                    },
+                                    {
+                                        "stars": "2",
+                                        "percentage": "3%"
+                                    },
+                                    {
+                                        "stars": "1",
+                                        "percentage": "3%"
+                                    }
+                                ],
+                                "customer_reviews": [
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/6402f8e9-e74b-4783-bfe5-1bc77af2fd62._CR0,0,960,960_SX48_.jpg",
+                                        "customer_name": "Mcljbr",
+                                        "rating": "2",
+                                        "comments": "I love just about all things Raspberry Pi, but the sensors on here (particularly the temperature and gyros) are horribly inaccurate. The pixels are fun to play with though."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/ebfae1b2-f853-4dd2-b73d-e3c513978f9a._CR0,0,375,375_SX48_.jpg",
+                                        "customer_name": "Kevin",
+                                        "rating": "4",
+                                        "comments": "Stacking this to my PI 3 and it worked smoothly. The Python and .NET libraries work without much hassles."
+                                    },
+                                    {
+                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/4c619090-c596-46ab-a791-7a79154dd433._CR62,0,375,375_SX48_.jpg",
+                                        "customer_name": "Barryc7",
+                                        "rating": "5",
+                                        "comments": "Lots of great experiments"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
