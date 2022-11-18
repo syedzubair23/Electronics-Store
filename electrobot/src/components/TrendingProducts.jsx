@@ -1,12 +1,20 @@
-import React, { useContext } from "react";
-import Card from "./Card";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "./logic_components/Context";
 import { Link } from "react-router-dom";
+import Card from "./Card";
 
 function TrendingProducts() {
-  const {allProducts} = useContext(Context)
+  const { allData } = useContext(Context)
+  const [trendingData, setTrendingData] = useState([])
 
-  const card = allProducts.map((product) => ( 
+  const trending_products = allData.filter(item => item.trending)
+
+  // useEffect(() => {
+  //   setTrendingData(trending_data)
+  // }, [])
+  
+  const card = trending_products.map((product) => (
+      // console.log(product);
       <Card key={product.id} product={product} />
   ))
 

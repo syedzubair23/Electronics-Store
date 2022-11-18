@@ -20,7 +20,7 @@ export default function Card({ product }) {
     removeFromFavorite,
   } = useContext(Context);
 
-  // console.log();
+  console.log(product);
 
   // function heartIcon() {
   //   if(product.isFavorite) {
@@ -71,10 +71,10 @@ export default function Card({ product }) {
 
   return (
     <div className="group relative p-6 border-x border-y border-gray-200">
-      <div className="min-h-64 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-64">
+      <div className="min-h-64 aspect-w-1 aspect-h-1 w-full shadow overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-64">
         <img
-          src={product.imageSrc}
-          alt={product.imageAlt}
+          src={product.url}
+          alt={product.title}
           className="h-full w-full object-cover object-center lg:h-full lg:w-full"
         />
       </div>
@@ -82,13 +82,13 @@ export default function Card({ product }) {
         <div className="mb-3 self-center">
           <h3 className="text-lg font-medium text-gray-900">
             <Link to="/product-details">
-              {product.name}
+              {product.title.substring(0, 18)}...
             </Link>
           </h3>
         </div>
         <div className="flex flex-col items-center">
           <div className="flex gap-x-0.5">
-            {Array(Number(product.rating))
+            {Array(Math.floor(Number(product.rating)))
               .fill()
               .map(() => (
                 <p>
@@ -99,9 +99,13 @@ export default function Card({ product }) {
           <p className="text-sm text-gray-500 mt-2">{`${product.reviews} reviews`}</p>
         </div>
         <div className="flex justify-between items-center mt-5 mb-4">
-          {heartIcon()}
-          <p className="text-lg font-bold text-gray-900">{`$${product.price}`}</p>
-          {cartIcon()}
+          {/* <div className="h-10 w-10 rounded-full border border-cyan-400 grid place-content-center"> */}
+            {heartIcon()}
+          {/* </div> */}
+          <p className="text-lg font-bold text-gray-900">{`$${Number(product.price).toFixed(2)}`}</p>
+          {/* <div className="h-10 w-10 rounded-full border border-cyan-400 grid place-content-center"> */}
+            {cartIcon()}
+          {/* </div> */}
         </div>
       </div>
     </div>

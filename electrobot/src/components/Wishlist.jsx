@@ -19,8 +19,8 @@ function Wishlist() {
                       <li key={item.id} className="flex py-6">
                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                           <img
-                            src={item.imageSrc}
-                            alt={item.imageAlt}
+                            src={item.url}
+                            alt={item.title}
                             className="h-full w-full object-cover object-center"
                           />
                         </div>
@@ -29,7 +29,7 @@ function Wishlist() {
                           <div>
                             <div className="flex justify-between text-sm font-medium text-gray-900">
                               <h3>
-                                <a href={item.href}>{item.name}</a>
+                                <a href={item.href}>{item.title}</a>
                               </h3>
                               <p className="ml-4">{`$${item.price}`}</p>
                             </div>
@@ -39,7 +39,7 @@ function Wishlist() {
                           </div>
                           <div className="flex flex-1 items-end justify-between text-sm">
                             <p className="text-gray-500 font-light">
-                              Qty {item.quantity}
+                              Qty: {item.items_in_stock} available
                             </p>
 
                             <div className="flex">

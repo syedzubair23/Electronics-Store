@@ -13,8 +13,8 @@ function CartItems() {
           <li key={item.id} className="flex py-6">
             <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
               <img
-                src={item.imageSrc}
-                alt={item.imageAlt}
+                src={item.url}
+                alt={item.title}
                 className="h-full w-full object-cover object-center"
               />
             </div>
@@ -23,7 +23,7 @@ function CartItems() {
               <div>
                 <div className="flex justify-between text-sm font-medium text-gray-900">
                   <h3>
-                    <a href={item.href}>{item.name}</a>
+                    <a href={item.href}>{item.title}</a>
                   </h3>
                   <p className="ml-4">{`$${item.price}`}</p>
                 </div>
@@ -53,9 +53,9 @@ function CartItems() {
                                       ))}
                                   </select>
                                 </div> */}
-                {Number(item.quantity) > 0 ? (
+                {Number(item.items_in_stock) > 0 ? (
                   <CustomSelect
-                    quantity={Number(item.quantity)}
+                    quantity={Number(item.items_in_stock)}
                     id={item.id}
                     addQuantity={addQuantity}
                   />

@@ -1,6 +1,7 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useContext } from "react";
 import { CheckIcon, StarIcon } from "@heroicons/react/24/solid";
 import { Tab, Transition } from "@headlessui/react";
+import { Context } from "./logic_components/Context";
 
 // const navigation = {
 //     categories: [
@@ -75,157 +76,166 @@ import { Tab, Transition } from "@headlessui/react";
 //     ],
 //   };
 
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-  }
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 function ProductDetails() {
+  const { allData } = useContext(Context);
+
+
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-2xl py-10 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="grid grid-cols-1 gap-y-10 lg:gap-x-16 lg:grid-cols-5">
-          <div className="col-span-3 min-h-96 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-96">
-            <img
-              src="https://c4.wallpaperflare.com/wallpaper/672/858/376/raspberry-pi-computer-macro-wallpaper-preview.jpg"
-              alt=""
-              className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-            />
-          </div>
-          <div className="col-span-2">
-            <div className="flex flex-col gap-y-4">
-              <p className="text-sm text-gray-500">
-                <span className="mr-2">Microcontrollers</span>/
-                <span className="ml-2">Raspberri pi</span>
-              </p>
-              <h2 className="text-4xl font-bold text-gray-900 mt-0.5">Raspberri Pi</h2>
-              <div className="flex items-center">
-                <h3 className="text-xl text-gray-900 font-medium">$220</h3>
-                <span className="mx-4 h-6 w-px bg-gray-500" aria-hidden="true"></span>
-                <div className="flex items-center gap-x-2.5">
-                    <div className="flex items-center text-yellow-400">
-                        <StarIcon className="h-6 w-6" />
-                        <StarIcon className="h-6 w-6" />
-                        <StarIcon className="h-6 w-6" />
-                        <StarIcon className="h-6 w-6" />
-                        <StarIcon className="h-6 w-6" />
-                    </div>
-                    <p className="text-sm text-gray-900 font-medium">1624 reviews</p>
-                </div>
-              </div>
-              <p className="text-base text-gray-500 text-justify">
-                Broadcom BCM2711, quad-core Cortex-A72 (ARM v8) 64-bit SoC @ 1.5GHz
-                Your tiny, dual-display, desktop computer and robot brains, smart home hub, media centre, networked AI core, factory controller, and much more with Raspberry Pi 4.
-              </p>
-              <div className="flex gap-x-3 items-center mt-1">
-                <CheckIcon className="w-5 h-5 text-green-500" />
+      {allData.map((product) => (
+        <div className="mx-auto max-w-2xl py-10 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
+          <div className="grid grid-cols-1 gap-y-10 lg:gap-x-16 lg:grid-cols-5">
+            <div className="col-span-3 min-h-96 aspect-w-1 aspect-h-1 w-full border border-gray-100 overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-96">
+              <img
+                // src="https://c4.wallpaperflare.com/wallpaper/672/858/376/raspberry-pi-computer-macro-wallpaper-preview.jpg"
+                src={product.url}
+                alt=""
+                className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div className="col-span-2">
+              <div className="flex flex-col gap-y-4">
                 <p className="text-sm text-gray-500">
-                  In stock and ready to ship
+                  <span className="mr-2">{product.category}</span>/
+                  <span className="ml-2">{product.subcategory}</span>
                 </p>
+                <h2 className="text-4xl font-bold text-gray-900 mt-0.5">
+                  {product.title}
+                </h2>
+                <div className="flex items-center">
+                  <h3 className="text-xl text-gray-900 font-medium">
+                    ${product.price}
+                  </h3>
+                  <span
+                    className="mx-4 h-6 w-px bg-gray-500"
+                    aria-hidden="true"
+                  ></span>
+                  <div className="flex items-center gap-x-2.5">
+                    <div className="flex items-center text-yellow-400">
+                      {Array(Math.floor(Number(product.rating)))
+                        .fill()
+                        .map(() => (
+                          <p>
+                            <StarIcon className="h-6 w-6 text-yellow-400" />
+                          </p>
+                        ))}
+                    </div>
+                    <p className="text-sm text-gray-900 font-medium self-end">
+                      {product.reviews} reviews
+                    </p>
+                  </div>
+                </div>
+                <p className="text-base text-gray-500 text-justify">
+                  {product.description}
+                </p>
+                <div className="flex gap-x-3 items-center mt-1">
+                  <CheckIcon className="w-5 h-5 text-green-500" />
+                  <p className="text-sm text-gray-500">
+                    In stock and ready to ship
+                  </p>
+                </div>
+                <button className="my-6 outline-none text-center w-full rounded-lg border border-transparent bg-cyan-400 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-500">
+                  Pay now
+                </button>
               </div>
-              <button
-                className="my-6 outline-none text-center w-full rounded-lg border border-transparent bg-cyan-400 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-500"
-              >
-                Pay now
-              </button>
+            </div>
+          </div>
+          <div className="my-32">
+            <div className="grid grid-cols-1 gap-y-10 lg:gap-x-16 lg:grid-cols-5">
+              <div className="col-span-2 flex flex-col gap-y-3.5">
+                <h2 className="font-bold text-2xl">Customer Reviews</h2>
+                <div className="flex items-center gap-x-2.5">
+                  <div className="flex items-center text-yellow-400">
+                    {Array(Math.floor(Number(product.rating)))
+                      .fill()
+                      .map(() => (
+                        <p>
+                          <StarIcon className="h-5 w-5 text-yellow-400" />
+                        </p>
+                      ))}
+                  </div>
+                  <p className="text-sm text-gray-900 font-medium">
+                    Based on {product.reviews} reviews
+                  </p>
+                </div>
+                <div className="flex flex-col gap-y-[20px] mt-4">
+                  {product.product_reviews.star_ratings.map((s_rating) => (
+                    <div className="flex items-center gap-x-2.5">
+                      <p className="text-base font-medium w-3">{s_rating.stars}</p>
+                      <div className="">
+                        <StarIcon className="h-5 w-5 text-yellow-400" />
+                      </div>
+                      <div className="mx-1 h-3 w-full bg-gray-100 rounded-full">
+                        <div
+                          className="h-full rounded-full bg-yellow-400"
+                          style={{ width: `${s_rating.percentage}` }}
+                        ></div>
+                      </div>
+                      <p className="text-base font-medium w-16 text-right">{s_rating.percentage}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-7">
+                  <h3 className="text-lg font-medium">Share your thoughts</h3>
+                  <p className="mt-2 text-sm text-gray-500 max-w-[45ch]">
+                    If you've used this product, share your thoughts with other
+                    customers
+                  </p>
+                </div>
+                <button disabled={true} className="mt-4 broder-px cursor-not-allowed disabled:hover:bg-transparent disabled:opacity-40 border-cyan-400 text-center w-full rounded-lg border px-6 py-2.5 text-base font-medium text-gray-900 shadow-sm hover:bg-cyan-500">
+                  Write a review
+                </button>
+              </div>
+              <div className="col-span-3 flex flex-col">
+                {product.product_reviews.customer_reviews.map((c_review, i) => (
+                <div className="flex flex-col gap-y-4">
+                  <div className="flex gap-x-3.5 items-center">
+                    <div className="h-12 w-12 rounded-full bg-gray-400">
+                      <img
+                        // src="https://avatars.githubusercontent.com/u/92371583?s=400&u=3bfbe4078a3fd92304b410b05a09a3aeea0c8c9a&v=4"
+                        src={c_review.avatar_url}
+                        alt="avatar"
+                        className="w-full h-full rounded-full object-center object-fill"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-y-1.5">
+                      <h3 className="text-sm font-bold text-gray-900">
+                        {c_review.customer_name}
+                      </h3>
+                      <div className="flex items-center text-yellow-400">
+                      {Array(Math.floor(Number(c_review.rating)))
+                      .fill()
+                      .map(() => (
+                        <p>
+                          <StarIcon className="h-5 w-5 text-yellow-400" />
+                        </p>
+                      ))}
+                      </div>
+                    </div>
+                  </div>
+                    <p className="text-base text-gray-500 italic">
+                    {c_review.comments}
+                  </p>
+                  <hr className={`h-1 text-gray-200 w-full my-12 ${((product.product_reviews.customer_reviews.length === 1) || ((product.product_reviews.customer_reviews.length - 1) === i)) ? "hidden": "block"}`} />
+                </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-        <div className="my-32">
-            <div className="grid grid-cols-1 gap-y-10 lg:gap-x-16 lg:grid-cols-5">
-                <div className="col-span-2 flex flex-col gap-y-3.5">
-                    <h2 className="font-bold text-2xl">Customer Reviews</h2>
-                    <div className="flex items-center gap-x-2.5">
-                        <div className="flex items-center text-yellow-400">
-                            <StarIcon className="h-5 w-5" />
-                            <StarIcon className="h-5 w-5" />
-                            <StarIcon className="h-5 w-5" />
-                            <StarIcon className="h-5 w-5" />
-                            <StarIcon className="h-5 w-5" />
-                        </div>
-                        <p className="text-sm text-gray-900 font-medium">Based on 1624 reviews</p>
-                    </div>
-                    <div className="flex flex-col gap-y-[20px] mt-4">
-                    <div className="flex items-center gap-x-2.5">
-                        <p className="text-base font-medium">5</p>
-                        <div className="">
-                            <StarIcon className="h-5 w-5 text-yellow-400" />
-                        </div>
-                        <div className="ml-1 h-3 w-full bg-gray-100 rounded-full">
-                            <div className="h-full rounded-full bg-yellow-400" style={{ width: `63%`}} ></div>
-                        </div>
-                        <p className="ml-3.5 text-base font-medium">63%</p>
-                    </div>
-                    <div className="flex items-center gap-x-2.5">
-                        <p className="text-base font-medium">5</p>
-                        <div className="">
-                            <StarIcon className="h-5 w-5 text-yellow-400" />
-                        </div>
-                        <div className="ml-1 h-3 w-full bg-gray-100 rounded-full">
-                            <div className="h-full rounded-full bg-yellow-400" style={{ width: `10%`}} ></div>
-                        </div>
-                        <p className="ml-3.5 text-base font-medium">10%</p>
-                    </div>
-                    </div>
-                    <div className="mt-7">
-                        <h3 className="text-lg font-medium">Share your thoughts</h3>
-                        <p className="mt-2 text-sm text-gray-500 max-w-[45ch]">If you've used this product, share your thoughts with other customers</p>
-                    </div>
-                    <button
-                        className="mt-4 broder-px border-cyan-400 text-center w-full rounded-lg border px-6 py-2.5 text-base font-medium text-gray-900 shadow-sm hover:bg-cyan-500"
-                    >
-                        Write a review
-                    </button>
-
-                </div>
-                <div className="col-span-3 flex flex-col">
-                    <div className="flex flex-col gap-y-4">
-                        <div className="flex gap-x-3.5 items-center">
-                        <div className="h-12 w-12 rounded-full bg-gray-400">
-                            <img src="https://avatars.githubusercontent.com/u/92371583?s=400&u=3bfbe4078a3fd92304b410b05a09a3aeea0c8c9a&v=4" alt="" className="w-full h-full rounded-full object-center object-fill" />
-                        </div>
-                        <div className="flex flex-col gap-y-1.5">
-                            <h3 className="text-sm font-bold text-gray-900">Syed Zubair</h3>
-                            <div className="flex items-center text-yellow-400">
-                                <StarIcon className="h-5 w-5" />
-                                <StarIcon className="h-5 w-5" />
-                                <StarIcon className="h-5 w-5" />
-                                <StarIcon className="h-5 w-5" />
-                                <StarIcon className="h-5 w-5" />
-                            </div>
-                        </div>
-                        </div>
-                        <p className="text-base text-gray-500 italic">This is the bag of my dreams. I took it on my last vacation and was able to fit an absurd amount of snacks for the many long and hungry flights.</p>
-                    </div>
-                    <hr className="h-1 text-gray-200 w-full my-12" />
-                    <div className="flex flex-col gap-y-4">
-                        <div className="flex gap-x-3.5 items-center">
-                        <div className="h-12 w-12 rounded-full bg-gray-400">
-                            <img src="https://avatars.githubusercontent.com/u/92371583?s=400&u=3bfbe4078a3fd92304b410b05a09a3aeea0c8c9a&v=4" alt="" className="w-full h-full rounded-full object-center object-fill" />
-                        </div>
-                        <div className="flex flex-col gap-y-1.5">
-                            <h3 className="text-sm font-bold text-gray-900">Syed Zubair</h3>
-                            <div className="flex items-center text-yellow-400">
-                                <StarIcon className="h-5 w-5" />
-                                <StarIcon className="h-5 w-5" />
-                                <StarIcon className="h-5 w-5" />
-                                <StarIcon className="h-5 w-5" />
-                                <StarIcon className="h-5 w-5" />
-                            </div>
-                        </div>
-                        </div>
-                        <p className="text-base text-gray-500 italic">This is the bag of my dreams. I took it on my last vacation and was able to fit an absurd amount of snacks for the many long and hungry flights.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }
 
 export default ProductDetails;
 
-{/* <div className="grid grid-cols-1 gap-y-12 gap-x-8 lg:grid-cols-5 xl:gap-x-8">
+{
+  /* <div className="grid grid-cols-1 gap-y-12 gap-x-8 lg:grid-cols-5 xl:gap-x-8">
             
             
             <Tab.Group as="div" className="mt-2">
@@ -287,4 +297,5 @@ export default ProductDetails;
                     ))}
                   </Tab.Panels>
                 </Tab.Group>
-        </div> */}
+        </div> */
+}

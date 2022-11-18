@@ -8,6 +8,7 @@ import ShoppingCart from "./components/ShoppingCart"
 import Checkout from "./components/Checkout"
 import ProductDetails from "./components/ProductDetails"
 import Store from "./pages/Store"
+import Sensors from "./pages/Sensors"
 import { Routes, Route } from "react-router-dom"
 import TrendingProducts from "./components/TrendingProducts"
 import Frontpage from "./pages/Frontpage"
@@ -23,7 +24,10 @@ function App() {
         <Route path="/wishlist" element={[<Wishlist />]} /> 
         <Route path="/checkout" element={[<Checkout />]} />
         <Route path="/store" element={[<Store />]} />
+        <Route path="/sensors" element={[<Sensors /> ]} />
         <Route path="/product-details" element={[<ProductDetails />]} />
+      {/* <Route path="/" element={[<TrendingProducts /> ]} /> */}
+
         {/* <Route path="/shopping-cart" element={[<ShoppingCart />]} /> */}
 
       </Routes>      

@@ -118,12 +118,12 @@ function Checkout() {
     .reduce(
       (acc, item) =>
         acc +
-        (item.quantity > 0 ? Number(item.qty) || 1 : 0) * Number(item.price),
+        (item.items_in_stock > 0 ? Number(item.qty) || 1 : 0) * Number(item.price),
       0
     )
     .toFixed(2);
-  // const shipping_charges = Number(deliveryCharges).toFixed(2);
-  const shipping_charges = Number("5").toFixed(2);
+  const shipping_charges = Number(deliveryCharges).toFixed(2);
+  
   const taxes =
     subtotal < 500
       ? ((subtotal * 2.2) / 100).toFixed(2)

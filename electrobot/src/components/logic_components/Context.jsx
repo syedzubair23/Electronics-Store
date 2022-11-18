@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import products from "../productsData";
-import data from "../data/data.json"
+import data from "../data/extractedData_v2"
 
 const Context = React.createContext();
 
@@ -32,9 +32,9 @@ function ContextProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
   const [favoriteItems, setFavoriteItems] = useState([]);
 
-  //   useEffect(() => {
-  //     setAllProducts(products);
-  //   }, []);
+    // useEffect(() => {
+    //   setAllProducts(products);
+    // }, []);
 
   //   function toggleFavorite(id) {
   //     console.log(id);
@@ -86,7 +86,7 @@ function ContextProvider({ children }) {
     <Context.Provider
       value={{
         allData,
-        allProducts,
+        // allProducts,
         // toggleFavorite,
         cartItems,
         addToCart,

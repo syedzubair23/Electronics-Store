@@ -42,6 +42,13 @@ export default [
             "rating": "4",
             "comments": "Gets heatup easily.",
           },
+          {
+            "avatar_url":
+              "https://avatars.githubusercontent.com/u/92371583?s=400&u=3bfbe4078a3fd92304b410b05a09a3aeea0c8c9a&v=4",
+            "customer_name": "Syed Zubair",
+            "rating": "5",
+            "comments": "I tested the transistor and its working fine. Looking forward to utilize this small but powerful component in my future hobby projects.",
+          },
         ],
       },
       "category": "components",
@@ -133,7 +140,7 @@ export default [
         "customer_reviews": [
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Brosky",
             "rating": "5",
             "comments": "Too fragile but does its work.",
@@ -181,7 +188,7 @@ export default [
         "customer_reviews": [
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Loki",
             "rating": "5",
             "comments": "Works Efficiently.",
@@ -230,7 +237,7 @@ export default [
         "customer_reviews": [
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Balki",
             "rating": "4",
             "comments": "Voltage ranges are perfect.",
@@ -278,7 +285,7 @@ export default [
         "customer_reviews": [
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Balki",
             "rating": "5",
             "comments":
@@ -327,7 +334,7 @@ export default [
         "customer_reviews": [
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Milan",
             "rating": "5",
             "comments": "That's the exact value inductor I was looking for.",
@@ -375,7 +382,7 @@ export default [
         "customer_reviews": [
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Ramsi",
             "rating": "5",
             "comments":
@@ -425,7 +432,7 @@ export default [
         "customer_reviews": [
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Brina",
             "rating": "5",
             "comments":
@@ -451,8 +458,8 @@ export default [
       "brand": "Chanzon",
       "model": "CH-1.5",
       "url": "https://m.media-amazon.com/images/I/71Jwmn9EiuL._AC_SX679_.jpg",
-      "rating": "113",
-      "reviews": "4.6",
+      "rating": "4.6",
+      "reviews": "113",
       "price": "5.53",
       "items_in_stock": "21",
       "description":
@@ -483,14 +490,14 @@ export default [
         "customer_reviews": [
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Simba",
             "rating": "5",
             "comments": "Justo lo que buscaba para mis hobbies",
           },
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "MrMega",
             "rating": "5",
             "comments":
@@ -539,7 +546,7 @@ export default [
         "customer_reviews": [
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "RWR",
             "rating": "5",
             "comments":
@@ -588,7 +595,7 @@ export default [
         "customer_reviews": [
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Shamsi",
             "rating": "5",
             "comments":
@@ -638,14 +645,14 @@ export default [
         "customer_reviews": [
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Celia Crane",
             "rating": "5",
             "comments": "Great value, nice container!",
           },
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Steven R. Cypherd",
             "rating": "5",
             "comments":
@@ -694,7 +701,7 @@ export default [
         "customer_reviews": [
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Leroy",
             "rating": "5",
             "comments": "Liked the shape of the led.",
@@ -712,7 +719,7 @@ export default [
       "url": "https://m.media-amazon.com/images/I/71z22cRPeeL._AC_UY218_.jpg",
       "rating": "4.8",
       "reviews": "7,503",
-      "price": "$28.50",
+      "price": "28.50",
       "items_in_stock": "12",
       "description":
         "It has 14 digital input/output pins (of which 6 can be used as PWM outputs), 6 analog inputs, a 16 MHz quartz crystal, a USB connection, a power jack, an ICSP header and a reset button",
@@ -778,7 +785,7 @@ export default [
       "url": "https://m.media-amazon.com/images/I/61HWKZzJoyL._AC_UY218_.jpg",
       "rating": "4.8",
       "reviews": "1,344",
-      "price": "$48.40",
+      "price": "48.40",
       "items_in_stock": "22",
       "description":
         "Based on the 8-bit AVR microcontroller ATmega2560, it has 54 digital I/O pins, 16 analog inputs and a larger space for your sketches. It is compatible with most shields designed for the Arduino Uno",
@@ -843,7 +850,7 @@ export default [
       "url": "https://m.media-amazon.com/images/I/61R1A7CuHTL._AC_SX679_.jpg",
       "rating": "4.7",
       "reviews": "800",
-      "price": "$24.00",
+      "price": "24.00",
       "items_in_stock": "10",
       "description":
         "The Arduino Nano is one of the smallest Arduino boards available on the market. Tiny form factor, complete, and breadboard-friendly board based on the ATmega328. It works with a Mini-B USB cable",
@@ -909,7 +916,7 @@ export default [
       "url": "https://m.media-amazon.com/images/I/81S0SlLsy6L._AC_UY218_.jpg",
       "rating": "5.0",
       "reviews": "8",
-      "price": "$50.00",
+      "price": "50.00",
       "items_in_stock": "22",
       "description":
         "The Zero is a simple and powerful 32-bit extension of the platform established by the UNO. The Zero board expands the family by providing increased performance, enabling a variety of project opportunities for devices, and acts as a great educational tool for learning about 32-bit application development. The Zero applications span from smart IoT devices, wearable technology, high-tech automation, to crazy robotics. The board is powered by Atmel’s SAMD21 MCU, which features a 32-bit ARM Cortex M0+ core. One of its most important features is Atmel’s Embedded Debugger (EDBG), which provides a full debug interface without the need for additional hardware, significantly increasing the ease-of-use for software debugging. EDBG also supports a virtual COM port that can be used for device and bootloader programming.",
@@ -958,7 +965,7 @@ export default [
       "url": "https://m.media-amazon.com/images/I/61hLkN0VJIL._AC_UY218_.jpg",
       "rating": "4.8",
       "reviews": "468",
-      "price": "$24.99",
+      "price": "24.99",
       "items_in_stock": "9",
       "description":
         "The Arduino Micro is a microcontroller board based on the ATmega32U4 (datasheet), developed in conjunction with Adafruit. It has 20 digital input/output pins (of which 7 can be used as PWM outputs and 12 as analog inputs), a 16 MHz crystal oscillator, a micro USB connection, an ICSP header, and a reset button.",
@@ -1022,7 +1029,7 @@ export default [
       "url": "https://m.media-amazon.com/images/I/71qJZUYGTQL._AC_UY218_.jpg",
       "rating": "4.9",
       "reviews": "71",
-      "price": "$54.99",
+      "price": "54.99",
       "items_in_stock": "10",
       "description":
         "The board is powered by the ATmega328P which is an 8-bit AVR RISC based processor running at 16MHz. On board: 2KB of SRAM, 32KB Flash for your projects, 1KB EEPROM which is not erased when powered off, 2 SPI interfaces, 14 digital I/O pins (6 of which can be used as PWM outputs), 6 analog inputs, and featuring a USB-C connector to power and program the board.",
@@ -1087,7 +1094,7 @@ export default [
       "url": "https://m.media-amazon.com/images/I/61x8bcPqc6L._AC_UY218_.jpg",
       "rating": "4.6",
       "reviews": "94",
-      "price": "$31.46",
+      "price": "31.46",
       "items_in_stock": "5",
       "description":
         "Expansion shield to bring your Arduino board online with simple-yet-reliable communication libraries, supporting TCP and UDP protocols. Rich collection of examples: browse the Internet, make a tiny web server, and send data to a cloud with little coding effort. Use its micro-SD card slot to store sensor information, serve files to 8 simultaneously connected devices, or log traffic.",
@@ -1152,7 +1159,7 @@ export default [
       "url": "https://m.media-amazon.com/images/I/612upqPcgVL._AC_UY218_.jpg",
       "rating": "4.5",
       "reviews": "51",
-      "price": "$29.10",
+      "price": "29.10",
       "items_in_stock": "8",
       "description":
         "The Central Board for your Electronic Project. Powerful 32-bit Microcontroller and Micro SD Memory Card Connector. Ideal for: Music, Audio processing, robotics, art installations. Part of the Arduino Maker Board Family for IoT Devices, easy to configure with Arduino Software.",
@@ -1217,7 +1224,7 @@ export default [
       "url": "https://m.media-amazon.com/images/I/61hvzB244kL._AC_UY218_.jpg",
       "rating": "4.5",
       "reviews": "234",
-      "price": "$58.00",
+      "price": "58.00",
       "items_in_stock": "3",
       "description":
         "The easiest way to build a connected Arduino project. Works for WiFi and Bluetooth Low Energy applications. Safe wireless connection to the Internet thanks to its onboard cryptochip. Ideal for IoT (Internet of Things) industries such as automotive, agriculture, consumer electronics, smart home projects, or logging data. Includes a 6 axis accelerometer/gyroscope and temperature sensor to accurately measure movement: make step counters, fall sensors, door opening alarms, etc.",
@@ -1282,7 +1289,7 @@ export default [
       "url": "https://m.media-amazon.com/images/I/61teDsnCswL._AC_SX679_.jpg",
       "rating": "4.7",
       "reviews": "14",
-      "price": "$43.95",
+      "price": "43.95",
       "items_in_stock": "15",
       "description":
         "Arduino Nano RP2040 Connect adds Wifi and Bluetooth to the Raspberry-Pi RP2040 microcontroller, provided by a separate U-blox Nina W102 module and integrated antenna, creating the perfect IoT device, to connect sensors and actuators. Arduino Nano RP2040 comes with a dual core 32-bit Arm Cortex-M0+ processor, that has a high performance energy efficiency, while clocked at 133 MHz. It allows the exploration of embedded Machine Learning algorithms out of the box, and is perfect for learning TinyML, TensorFlow Lite or Edge Impulse.",
@@ -1330,7 +1337,7 @@ export default [
       "url": "https://m.media-amazon.com/images/I/61fkAvrlUuL._AC_UY218_.jpg",
       "rating": "3.9",
       "reviews": "6",
-      "price": "$55.93",
+      "price": "55.93",
       "items_in_stock": "12",
       "description":
         "The Portenta Breakout allows easy debugging through the JTAG, Ethernet, and USB-A connectors. Comes with a dedicated software library to allow quick use of its functionalities. It can also be used for other protocols and pins such as I2C, UART, CAN1 and more. The Portenta Breakout board can act as the first point of entry for technician education in industrial grade control and embedded systems.",
@@ -1379,7 +1386,7 @@ export default [
       "url": "https://m.media-amazon.com/images/I/51DtdErWVsL._AC_UY218_.jpg",
       "rating": "4.4",
       "reviews": "34",
-      "price": "$109.93",
+      "price": "109.93",
       "items_in_stock": "7",
       "description":
         "Two processors that can run tasks in parallel with both cores communicating with one another. Each core can execute Arduino, mbedOS, micropython, and TensorFlow Lite code. Comes in the Arduino MKR form factor but includes two extra 80-pin high density connectors. Extend your Portenta H7 to physical interfaces like Ethernet connectors, CAN bus peripherals, extra GPIO pins, SD card, etc.",
@@ -1443,7 +1450,7 @@ export default [
       "url": "https://m.media-amazon.com/images/I/71BhTyWY2SL._AC_UY218_.jpg",
       "rating": "5.0",
       "reviews": "1",
-      "price": "$48.00",
+      "price": "48.00",
       "items_in_stock": "19",
       "description":
         "The Arduino Due is a microcontroller board based on the Atmel SAM3X8E ARM Cortex-M3 CPU. It is the first Arduino board based on a 32-bit ARM core microcontroller. It has 54 digital input/output pins (of which 12 can be used as PWM outputs), 12 analog inputs, 4 UARTs (hardware serial ports), a 84 MHz clock, an USB OTG capable connection, 2 DAC (digital to analog), 2 TWI, a power jack, an SPI header, a JTAG header, a reset button and an erase button.",
@@ -2805,7 +2812,7 @@ export default [
         "customer_reviews": [
           {
             "avatar_url":
-              "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+              "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "B. Clark",
             "rating": "5",
             "comments":

@@ -71,80 +71,86 @@ const navigation = {
     {
       id: "components",
       name: "Components",
-      featured: ""
-      // featured: [
-      //   {
-      //     id: "fc01",
-      //     name: "Resistors",
-      //     href: "#",
-      //     imageSrc:
-      //       "https://media.gettyimages.com/photos/electronic-component-electric-heating-elements-of-various-models-picture-id1339847300?k=20&m=1339847300&s=612x612&w=0&h=aukuydVEoGuY3m6c8VXpwsIzBsRSivMEBfX2f4ihrvw=",
-      //     imageAlt: "Resistors",
-      //   },
-      //   {
-      //     id: "fc02",
-      //     name: "Capcitors",
-      //     href: "#",
-      //     imageSrc:
-      //       "https://media.gettyimages.com/photos/collection-of-capacitors-against-a-white-background-picture-id172962646?k=20&m=172962646&s=612x612&w=0&h=ES1R7bMMDkR5r3Xp3CnJD-GJTaWLtL8aQ4e-wi-Aaxo=",
-      //     imageAlt: "Capacitors",
-      //   },
-      //   {
-      //     id: "fc03",
-      //     name: "Inductors",
-      //     href: "#",
-      //     imageSrc:
-      //       "https://qph.fs.quoracdn.net/main-qimg-d7ec636623ea2d1081f16042a4aabd38-c",
-      //     imageAlt: "Inductors",
-      //   },
-      //   {
-      //     id: "fc04",
-      //     name: "Leds",
-      //     href: "#",
-      //     imageSrc:
-      //       "https://media.gettyimages.com/photos/high-angle-view-of-led-lights-against-white-background-picture-id1157527318?k=20&m=1157527318&s=612x612&w=0&h=LyjPCH4bSngY-LtXpphg1eKmrfMo0FICYpd_1OTISnM=",
-      //     imageAlt: "Leds",
-      //   },
-      // ],
+      featured: [
+        // {
+        //   id: "fc01",
+        //   name: "Resistors",
+        //   href: "#",
+        //   imageSrc:
+        //     "https://media.gettyimages.com/photos/electronic-component-electric-heating-elements-of-various-models-picture-id1339847300?k=20&m=1339847300&s=612x612&w=0&h=aukuydVEoGuY3m6c8VXpwsIzBsRSivMEBfX2f4ihrvw=",
+        //   imageAlt: "Resistors",
+        // },
+        {
+          id: "fc01",
+          name: "Transistors",
+          href: "#",
+          imageSrc:
+            "https://media.istockphoto.com/id/1057911984/photo/electronic-transistor-isolated.jpg?b=1&s=612x612&w=0&k=20&c=Yo6xShmYmkS-EJzuBrIPk561gqwFcQ63aWgnS8blCLQ=",
+          imageAlt: "Transistors",
+        },
+        {
+          id: "fc02",
+          name: "Capcitors",
+          href: "#",
+          imageSrc:
+            "https://media.gettyimages.com/photos/collection-of-capacitors-against-a-white-background-picture-id172962646?k=20&m=172962646&s=612x612&w=0&h=ES1R7bMMDkR5r3Xp3CnJD-GJTaWLtL8aQ4e-wi-Aaxo=",
+          imageAlt: "Capacitors",
+        },
+        {
+          id: "fc03",
+          name: "Inductors",
+          href: "#",
+          imageSrc:
+            "https://qph.fs.quoracdn.net/main-qimg-d7ec636623ea2d1081f16042a4aabd38-c",
+          imageAlt: "Inductors",
+        },
+        {
+          id: "fc04",
+          name: "Leds",
+          href: "#",
+          imageSrc:
+            "https://media.gettyimages.com/photos/high-angle-view-of-led-lights-against-white-background-picture-id1157527318?k=20&m=1157527318&s=612x612&w=0&h=LyjPCH4bSngY-LtXpphg1eKmrfMo0FICYpd_1OTISnM=",
+          imageAlt: "Leds",
+        },
+      ],
     },
     {
       id: "microcontrollers",
       name: "Microcontrollers",
-      featured: ""
-      // featured: [
-      //   {
-      //     id: "fm01",
-      //     name: "Arduino",
-      //     href: "#",
-      //     imageSrc:
-      //       "https://c1.wallpaperflare.com/preview/107/530/442/electronics-arduino-diy.jpg",
-      //     imageAlt: "Arduino",
-      //   },
-      //   {
-      //     id: "fm02",
-      //     name: "Esp32",
-      //     href: "#",
-      //     imageSrc:
-      //       "https://everybitelectronics.co.uk/wp-content/uploads/2020/04/ESP32.jpg",
-      //     imageAlt: "Esp32",
-      //   },
-      //   {
-      //     id: "fm03",
-      //     name: "Raspberri pi",
-      //     href: "#",
-      //     imageSrc:
-      //       "https://c4.wallpaperflare.com/wallpaper/672/858/376/raspberry-pi-computer-macro-wallpaper-preview.jpg",
-      //     imageAlt: "Raspberri pi",
-      //   },
-      //   {
-      //     id: "fm04",
-      //     name: "Stm32",
-      //     href: "#",
-      //     imageSrc:
-      //       "https://th.bing.com/th/id/OIP.HC9F52kRLNEhyd5W5b0BmQHaHP?pid=ImgDet&rs=1",
-      //     imageAlt: "Stm32",
-      //   },
-      // ],
+      featured: [
+        {
+          id: "fm01",
+          name: "Arduino",
+          href: "#",
+          imageSrc:
+            "https://c1.wallpaperflare.com/preview/107/530/442/electronics-arduino-diy.jpg",
+          imageAlt: "Arduino",
+        },
+        {
+          id: "fm02",
+          name: "Esp series",
+          href: "#",
+          imageSrc:
+            "https://everybitelectronics.co.uk/wp-content/uploads/2020/04/ESP32.jpg",
+          imageAlt: "Esp32",
+        },
+        {
+          id: "fm03",
+          name: "Raspberri pi",
+          href: "#",
+          imageSrc:
+            "https://c4.wallpaperflare.com/wallpaper/672/858/376/raspberry-pi-computer-macro-wallpaper-preview.jpg",
+          imageAlt: "Raspberri pi",
+        },
+        {
+          id: "fm04",
+          name: "Stm32",
+          href: "#",
+          imageSrc:
+            "https://th.bing.com/th/id/OIP.HC9F52kRLNEhyd5W5b0BmQHaHP?pid=ImgDet&rs=1",
+          imageAlt: "Stm32",
+        },
+      ],
     },
     // {
     //   id: "sensors",
@@ -187,7 +193,7 @@ const navigation = {
   ],
   pages: [
     { id: "sensors", name: "Sensors", href: "/sensors" },
-    { id: "store", name: "Store", href: "/store" },
+    { id: "store", name: "Store", href: "/store" }
   ],
 };
 
@@ -199,11 +205,11 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [showCart, setShowCart] = useState(false);
   // const [showCart, setShowCart] = useState(false);
-  const { allData, cartItems, favoriteItems, removeFromCart, addQuantity } =
+  const { cartItems, favoriteItems, removeFromCart, addQuantity } =
     useContext(Context);
 
   const items_in_cart = cartItems.reduce(
-    (acc, item) => acc + (item.quantity > 0 ? Number(item.qty) || 1 : 0),
+    (acc, item) => acc + (item.items_in_stock > 0 ? Number(item.qty) || 1 : 0),
     0
   );
 
@@ -232,17 +238,6 @@ export default function Navbar() {
         aria-hidden="true"
       />
     );
-  
-  const featured_components = allData.filter((product) => product.featured && product.category === "components")  
-  const featured_microcontrollers = allData.filter((product) => product.featured && product.category === "microcontrollers")  
-  const featured_products = navigation.categories.map((category) => {
-    if (category.id === "components") {
-      return featured_components
-    } else if (category.id === "microcontrollers"){
-      return featured_microcontrollers
-    }
-})
-  const sensors = allData.filter((product) => product.category === "sensors")  
 
   return (
     <div className="bg-white">
@@ -289,7 +284,7 @@ export default function Navbar() {
                     <Tab.List className="-mb-px flex space-x-1 px-2">
                       {navigation.categories.map((category) => (
                         <Tab
-                          key={category.id}
+                          key={category.name}
                           className={({ selected }) =>
                             classNames(
                               selected
@@ -307,19 +302,19 @@ export default function Navbar() {
                   <Tab.Panels as={Fragment}>
                     {navigation.categories.map((category) => (
                       <Tab.Panel
-                        key={category.id}
+                        key={category.name}
                         className="space-y-10 px-4 pt-10 pb-8"
                       >
                         <div className="grid grid-cols-2 gap-4">
-                          {(category.id === "components" ? featured_components : featured_microcontrollers).map((item) => (
+                          {category.featured.map((item) => (
                             <div
-                              key={item.id}
+                              key={item.name}
                               className="group relative text-sm"
                             >
-                              <div className="aspect-w-1 aspect-h-1 h-32 overflow-hidden rounded-lg border border-gray-100 shadow bg-gray-100 group-hover:opacity-75">
+                              <div className="aspect-w-1 aspect-h-1 h-32 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                 <img
-                                  src={item.url}
-                                  alt={item.title}
+                                  src={item.imageSrc}
+                                  alt={item.imageAlt}
                                   className="object-cover object-center"
                                 />
                               </div>
@@ -328,7 +323,7 @@ export default function Navbar() {
                                   className="absolute inset-0 z-10"
                                   aria-hidden="true"
                                 />
-                                {item.title}
+                                {item.name}
                               </button>
                               <p aria-hidden="true" className="mt-1">
                                 Shop now
@@ -449,7 +444,7 @@ export default function Navbar() {
               <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
                 <div className="flex h-full space-x-8">
                   {navigation.categories.map((category) => (
-                    <Popover key={category.id} className="flex">
+                    <Popover key={category.name} className="flex">
                       {({ open }) => (
                         <>
                           <div className="relative flex">
@@ -485,15 +480,15 @@ export default function Navbar() {
                                 <div className="mx-auto max-w-7xl px-8">
                                   <div className="grid grid-cols-1 gap-y-10 gap-x-8 py-16">
                                     <div className="col-start-1 grid grid-cols-4 gap-x-8">
-                                      {(category.id === "components" ? featured_components : featured_microcontrollers).map((item) => (
+                                      {category.featured.map((item) => (
                                         <div
-                                          key={item.id}
+                                          key={item.name}
                                           className="group relative text-base sm:text-sm"
                                         >
-                                          <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg border border-gray-100 shadow bg-gray-100 group-hover:opacity-75">
+                                          <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                             <img
-                                              src={item.url}
-                                              alt={item.title}
+                                              src={item.imageSrc}
+                                              alt={item.imageAlt}
                                               className="object-cover object-center h-full"
                                             />
                                           </div>
@@ -502,7 +497,7 @@ export default function Navbar() {
                                               className="absolute inset-0 z-10"
                                               aria-hidden="true"
                                             />
-                                            {item.title}
+                                            {item.name}
                                           </button>
                                           <p
                                             aria-hidden="true"
