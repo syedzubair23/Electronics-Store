@@ -7,7 +7,9 @@ import { Context } from "../components/logic_components/Context";
 export default function Store() {
   const { allData } = useContext(Context);
 
-  const card = allData.map((product) => (
+  const sensors = allData.filter((product) => product.category === "sensors")  
+
+  const card = sensors.map((product) => (
     <Card key={product.id} product={product} />
   ));
 

@@ -1,11 +1,13 @@
-{
+export default {
     "categories": [
         {
             "id": "components",
             "name": "Components",
-            "components": [
-                {
-                    "transistors": [
+            "subcategories": [
+                {   
+                    "id": "transistors",
+                    "name": "Transistors",
+                    "products": [
                         {
                             "id": "tr-01",
                             "name": "P-MOSFET IRF9Z34",
@@ -94,8 +96,12 @@
                                 ]
                             }
                         }
-                    ],
-                    "capacitors": [
+                    ]
+                },
+                {
+                    "id": "capacitors",
+                    "name": "Capacitors",
+                    "products": [
                         {
                             "id": "cap-01",
                             "name": "Ceramic condenser 1,5nF/50V THT",
@@ -272,8 +278,12 @@
                                 ]
                             }
                         }
-                    ],
-                    "inductors": [
+                    ]
+                },
+                {
+                    "id": "inductors",
+                    "name": "Inductors",
+                    "products": [
                         {
                             "id": "ind-01",
                             "name": "inductor FerroCore 100uH / 5A wire",
@@ -412,250 +422,256 @@
                                 ]
                             }
                         }
-                    ],
-                    "leds": [
-                        {
-                            "id": "led-01",
-                            "name": "Blinking Red LED Diode Lights",
-                            "brand": "Chanzon",
-                            "model": "CH-1.5",
-                            "url": "https://m.media-amazon.com/images/I/71Jwmn9EiuL._AC_SX679_.jpg",
-                            "rating": "113",
-                            "reviews": "4.6",
-                            "price": "5.53",
-                            "items_in_stock": "21",
-                            "description": "Overview: Single Color Flicker 1.5 Hz(Blinks 90 Times Per Min), Red Wave Length: 620nm - 625nm, Luminous Intensity(Brightness): 2000-3000 mcd , Viewing Angle: 20 Degrees,Super Bright, 5mmled. Parameters : DC 1.8V - 2V Volt 20 mA, Polarity (3 V) : Anode '+' (Longer Leg) | Cathode '-' (Shorter Leg), Clear Transparent Round Small Lens",
-                            "product_reviews": {
-                                "star_ratings": [
-                                    {
-                                        "stars": "5",
-                                        "percentage": "68%"
-                                    },
-                                    {
-                                        "stars": "4",
-                                        "percentage": "22%"
-                                    },
-                                    {
-                                        "stars": "3",
-                                        "percentage": "7%"
-                                    },
-                                    {
-                                        "stars": "2",
-                                        "percentage": "3%"
-                                    },
-                                    {
-                                        "stars": "1",
-                                        "percentage": "0%"
-                                    }
-                                ],
-                                "customer_reviews": [
-                                    {
-                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
-                                        "customer_name": "Simba",
-                                        "rating": "5",
-                                        "comments": "Justo lo que buscaba para mis hobbies"
-                                    },
-                                    {
-                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
-                                        "customer_name": "MrMega",
-                                        "rating": "5",
-                                        "comments": "Easy to tell polarity, not flimsy metal leads. No bad ones yet. Great deal for the home project peeps"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "id": "led-02",
-                            "name": "3mm LED Light Emitting Diodes Bulb",
-                            "brand": "Brilinker",
-                            "model": "BR-3mm",
-                            "url": "https://m.media-amazon.com/images/I/51vcxF5SgkL._AC_SX679_.jpg",
-                            "rating": "4.6",
-                            "reviews": "9",
-                            "price": "4.89",
-                            "items_in_stock": "15",
-                            "description": "3mm LED diode lamp classification kit DC (20mA), round lens (transparent and transparent) 2 leads, viewing angle: 30 degrees, wavelength range: 450-455nm. The drop-shaped round head is clear; forward voltage W/G/B: 2.8 V-3.2 V; R/Y: 1.8V-2.2V; working voltage: 9v-12v, current: 20mA. hese LEDs can be widely used in various applications, including DIY projects, scientific projects, electrical experiments, commercial applications, indicator lights and PCB circuits",
-                            "product_reviews": {
-                                "star_ratings": [
-                                    {
-                                        "stars": "5",
-                                        "percentage": "60%"
-                                    },
-                                    {
-                                        "stars": "4",
-                                        "percentage": "40%"
-                                    },
-                                    {
-                                        "stars": "3",
-                                        "percentage": "0%"
-                                    },
-                                    {
-                                        "stars": "2",
-                                        "percentage": "0%"
-                                    },
-                                    {
-                                        "stars": "1",
-                                        "percentage": "0%"
-                                    }
-                                ],
-                                "customer_reviews": [
-                                    {
-                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
-                                        "customer_name": "RWR",
-                                        "rating": "5",
-                                        "comments": "Worked, good for projects. These are for a Boy Scout Merit badge project.."
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "id": "led-03",
-                            "name": "Electronic LED 1W 3000K Warm White",
-                            "brand": "Bridgelux",
-                            "model": "BL-3000K",
-                            "url": "https://m.media-amazon.com/images/I/61CPliiyUzL._AC_SX569_.jpg",
-                            "rating": "5",
-                            "reviews": "3",
-                            "price": "6.80",
-                            "items_in_stock": "12",
-                            "description": "Reading lights (car, bus, aircraft). Portable (flashlight, bicycle). Uplighters/ Downlighters. Decorative/ Entertainment. Bollards/ Security/ Garden Indoor/ Outdoor Commercial and Residential Architecture",
-                            "product_reviews": {
-                                "star_ratings": [
-                                    {
-                                        "stars": "5",
-                                        "percentage": "100%"
-                                    },
-                                    {
-                                        "stars": "4",
-                                        "percentage": "0%"
-                                    },
-                                    {
-                                        "stars": "3",
-                                        "percentage": "0%"
-                                    },
-                                    {
-                                        "stars": "2",
-                                        "percentage": "0%"
-                                    },
-                                    {
-                                        "stars": "1",
-                                        "percentage": "0%"
-                                    }
-                                ],
-                                "customer_reviews": [
-                                    {
-                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
-                                        "customer_name": "Shamsi",
-                                        "rating": "5",
-                                        "comments": "Great little high luminosity bulb, exactly as described. Ordered it for use in a light traffic control circuit."
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "id": "led-04",
-                            "name": "5mm LED Diode Lights Assored Kit Pack",
-                            "brand": "BOJACK",
-                            "model": "BO-5mm",
-                            "url": "https://m.media-amazon.com/images/I/71eprUbIR5L._SX466_.jpg",
-                            "rating": "4.7",
-                            "reviews": "266",
-                            "price": "12.99",
-                            "items_in_stock": "22",
-                            "description": "Lamp Diameter: 5 mm Round. Forward Voltage: R/Y 2.0-2.2V; B/G/W 3.0-3.2V. Max Current： 20 mA. Emitting Color:White/Red/Yellow/Green/Blue. Polarity : Anode (Longer Part) /Cathode (Shorter Part)",
-                            "product_reviews": {
-                                "star_ratings": [
-                                    {
-                                        "stars": "5",
-                                        "percentage": "80%"
-                                    },
-                                    {
-                                        "stars": "4",
-                                        "percentage": "14%"
-                                    },
-                                    {
-                                        "stars": "3",
-                                        "percentage": "4%"
-                                    },
-                                    {
-                                        "stars": "2",
-                                        "percentage": "1%"
-                                    },
-                                    {
-                                        "stars": "1",
-                                        "percentage": "1%"
-                                    }
-                                ],
-                                "customer_reviews": [
-                                    {
-                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
-                                        "customer_name": "Celia Crane",
-                                        "rating": "5",
-                                        "comments": "Great value, nice container!"
-                                    },
-                                    {
-                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
-                                        "customer_name": "Steven R. Cypherd",
-                                        "rating": "5",
-                                        "comments": "The colors are so pretty for what ever showing. Some of the colors have a higher Forword Voltage so you will need 4.5 or 6 volts to run them. They will not run on 3 volts. A 470 - 680 resistor on the Anode lead makes beautiful lights."
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "id": "led-05",
-                            "name": "Rectangular Bright Clear LED",
-                            "brand": "PATKIL",
-                            "model": "PAT-70mm",
-                            "url": "https://m.media-amazon.com/images/I/71EHu5BKrKL._SX466_.jpg",
-                            "rating": "5",
-                            "reviews": "3",
-                            "price": "9.49",
-                            "items_in_stock": "8",
-                            "description": "LED Size: 2*5*7mm / 0.07*0.19*0.27 inch (Thickness*Width*Length); Pin Length: 17mm / 0.67'. Made of high-temperature resistant material. The package contains a large number of bulbs that can be used at will, the bulbs are tiny but bright light, with low power consumptio'. Connect the correct positive and negative poles, use the corresponding suitable DC voltage and current. If you have a higher voltage power supply, add a voltage limiting resistor(not included'. Widely used for indicator light, science experiments, DIY, repair equipment and appliance'. Pay attention to using the corresponding voltage and current, and add a voltage limiting resistor (not included)",
-                            "product_reviews": {
-                                "star_ratings": [
-                                    {
-                                        "stars": "5",
-                                        "percentage": "100%"
-                                    },
-                                    {
-                                        "stars": "4",
-                                        "percentage": "0%"
-                                    },
-                                    {
-                                        "stars": "3",
-                                        "percentage": "0%"
-                                    },
-                                    {
-                                        "stars": "2",
-                                        "percentage": "0%"
-                                    },
-                                    {
-                                        "stars": "1",
-                                        "percentage": "0%"
-                                    }
-                                ],
-                                "customer_reviews": [
-                                    {
-                                        "avatar_url": "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
-                                        "customer_name": "Leroy",
-                                        "rating": "5",
-                                        "comments": "Liked the shape of the led."
-                                    }
-                                ]
-                            }
-                        }
                     ]
+                },
+                {
+                    "id": "leds",
+                    "name": "Leds",
+                    "products": [
+                    {
+                        "id": "led-01",
+                        "name": "Blinking Red LED Diode Lights",
+                        "brand": "Chanzon",
+                        "model": "CH-1.5",
+                        "url": "https://m.media-amazon.com/images/I/71Jwmn9EiuL._AC_SX679_.jpg",
+                        "rating": "113",
+                        "reviews": "4.6",
+                        "price": "5.53",
+                        "items_in_stock": "21",
+                        "description": "Overview: Single Color Flicker 1.5 Hz(Blinks 90 Times Per Min), Red Wave Length: 620nm - 625nm, Luminous Intensity(Brightness): 2000-3000 mcd , Viewing Angle: 20 Degrees,Super Bright, 5mmled. Parameters : DC 1.8V - 2V Volt 20 mA, Polarity (3 V) : Anode '+' (Longer Leg) | Cathode '-' (Shorter Leg), Clear Transparent Round Small Lens",
+                        "product_reviews": {
+                            "star_ratings": [
+                                {
+                                    "stars": "5",
+                                    "percentage": "68%"
+                                },
+                                {
+                                    "stars": "4",
+                                    "percentage": "22%"
+                                },
+                                {
+                                    "stars": "3",
+                                    "percentage": "7%"
+                                },
+                                {
+                                    "stars": "2",
+                                    "percentage": "3%"
+                                },
+                                {
+                                    "stars": "1",
+                                    "percentage": "0%"
+                                }
+                            ],
+                            "customer_reviews": [
+                                {
+                                    "avatar_url": "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+                                    "customer_name": "Simba",
+                                    "rating": "5",
+                                    "comments": "Justo lo que buscaba para mis hobbies"
+                                },
+                                {
+                                    "avatar_url": "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+                                    "customer_name": "MrMega",
+                                    "rating": "5",
+                                    "comments": "Easy to tell polarity, not flimsy metal leads. No bad ones yet. Great deal for the home project peeps"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": "led-02",
+                        "name": "3mm LED Light Emitting Diodes Bulb",
+                        "brand": "Brilinker",
+                        "model": "BR-3mm",
+                        "url": "https://m.media-amazon.com/images/I/51vcxF5SgkL._AC_SX679_.jpg",
+                        "rating": "4.6",
+                        "reviews": "9",
+                        "price": "4.89",
+                        "items_in_stock": "15",
+                        "description": "3mm LED diode lamp classification kit DC (20mA), round lens (transparent and transparent) 2 leads, viewing angle: 30 degrees, wavelength range: 450-455nm. The drop-shaped round head is clear; forward voltage W/G/B: 2.8 V-3.2 V; R/Y: 1.8V-2.2V; working voltage: 9v-12v, current: 20mA. hese LEDs can be widely used in various applications, including DIY projects, scientific projects, electrical experiments, commercial applications, indicator lights and PCB circuits",
+                        "product_reviews": {
+                            "star_ratings": [
+                                {
+                                    "stars": "5",
+                                    "percentage": "60%"
+                                },
+                                {
+                                    "stars": "4",
+                                    "percentage": "40%"
+                                },
+                                {
+                                    "stars": "3",
+                                    "percentage": "0%"
+                                },
+                                {
+                                    "stars": "2",
+                                    "percentage": "0%"
+                                },
+                                {
+                                    "stars": "1",
+                                    "percentage": "0%"
+                                }
+                            ],
+                            "customer_reviews": [
+                                {
+                                    "avatar_url": "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+                                    "customer_name": "RWR",
+                                    "rating": "5",
+                                    "comments": "Worked, good for projects. These are for a Boy Scout Merit badge project.."
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": "led-03",
+                        "name": "Electronic LED 1W 3000K Warm White",
+                        "brand": "Bridgelux",
+                        "model": "BL-3000K",
+                        "url": "https://m.media-amazon.com/images/I/61CPliiyUzL._AC_SX569_.jpg",
+                        "rating": "5",
+                        "reviews": "3",
+                        "price": "6.80",
+                        "items_in_stock": "12",
+                        "description": "Reading lights (car, bus, aircraft). Portable (flashlight, bicycle). Uplighters/ Downlighters. Decorative/ Entertainment. Bollards/ Security/ Garden Indoor/ Outdoor Commercial and Residential Architecture",
+                        "product_reviews": {
+                            "star_ratings": [
+                                {
+                                    "stars": "5",
+                                    "percentage": "100%"
+                                },
+                                {
+                                    "stars": "4",
+                                    "percentage": "0%"
+                                },
+                                {
+                                    "stars": "3",
+                                    "percentage": "0%"
+                                },
+                                {
+                                    "stars": "2",
+                                    "percentage": "0%"
+                                },
+                                {
+                                    "stars": "1",
+                                    "percentage": "0%"
+                                }
+                            ],
+                            "customer_reviews": [
+                                {
+                                    "avatar_url": "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+                                    "customer_name": "Shamsi",
+                                    "rating": "5",
+                                    "comments": "Great little high luminosity bulb, exactly as described. Ordered it for use in a light traffic control circuit."
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": "led-04",
+                        "name": "5mm LED Diode Lights Assored Kit Pack",
+                        "brand": "BOJACK",
+                        "model": "BO-5mm",
+                        "url": "https://m.media-amazon.com/images/I/71eprUbIR5L._SX466_.jpg",
+                        "rating": "4.7",
+                        "reviews": "266",
+                        "price": "12.99",
+                        "items_in_stock": "22",
+                        "description": "Lamp Diameter: 5 mm Round. Forward Voltage: R/Y 2.0-2.2V; B/G/W 3.0-3.2V. Max Current： 20 mA. Emitting Color:White/Red/Yellow/Green/Blue. Polarity : Anode (Longer Part) /Cathode (Shorter Part)",
+                        "product_reviews": {
+                            "star_ratings": [
+                                {
+                                    "stars": "5",
+                                    "percentage": "80%"
+                                },
+                                {
+                                    "stars": "4",
+                                    "percentage": "14%"
+                                },
+                                {
+                                    "stars": "3",
+                                    "percentage": "4%"
+                                },
+                                {
+                                    "stars": "2",
+                                    "percentage": "1%"
+                                },
+                                {
+                                    "stars": "1",
+                                    "percentage": "1%"
+                                }
+                            ],
+                            "customer_reviews": [
+                                {
+                                    "avatar_url": "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+                                    "customer_name": "Celia Crane",
+                                    "rating": "5",
+                                    "comments": "Great value, nice container!"
+                                },
+                                {
+                                    "avatar_url": "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+                                    "customer_name": "Steven R. Cypherd",
+                                    "rating": "5",
+                                    "comments": "The colors are so pretty for what ever showing. Some of the colors have a higher Forword Voltage so you will need 4.5 or 6 volts to run them. They will not run on 3 volts. A 470 - 680 resistor on the Anode lead makes beautiful lights."
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": "led-05",
+                        "name": "Rectangular Bright Clear LED",
+                        "brand": "PATKIL",
+                        "model": "PAT-70mm",
+                        "url": "https://m.media-amazon.com/images/I/71EHu5BKrKL._SX466_.jpg",
+                        "rating": "5",
+                        "reviews": "3",
+                        "price": "9.49",
+                        "items_in_stock": "8",
+                        "description": "LED Size: 2*5*7mm / 0.07*0.19*0.27 inch (Thickness*Width*Length); Pin Length: 17mm / 0.67'. Made of high-temperature resistant material. The package contains a large number of bulbs that can be used at will, the bulbs are tiny but bright light, with low power consumptio'. Connect the correct positive and negative poles, use the corresponding suitable DC voltage and current. If you have a higher voltage power supply, add a voltage limiting resistor(not included'. Widely used for indicator light, science experiments, DIY, repair equipment and appliance'. Pay attention to using the corresponding voltage and current, and add a voltage limiting resistor (not included)",
+                        "product_reviews": {
+                            "star_ratings": [
+                                {
+                                    "stars": "5",
+                                    "percentage": "100%"
+                                },
+                                {
+                                    "stars": "4",
+                                    "percentage": "0%"
+                                },
+                                {
+                                    "stars": "3",
+                                    "percentage": "0%"
+                                },
+                                {
+                                    "stars": "2",
+                                    "percentage": "0%"
+                                },
+                                {
+                                    "stars": "1",
+                                    "percentage": "0%"
+                                }
+                            ],
+                            "customer_reviews": [
+                                {
+                                    "avatar_url": "https://images-na.ssl-images-amazon.com/images/I/519ClEEnV8L._CR0,0.0,333,333_SX48_.jpg",
+                                    "customer_name": "Leroy",
+                                    "rating": "5",
+                                    "comments": "Liked the shape of the led."
+                                }
+                            ]
+                        }
+                    }
+                ]
                 }
             ]
         },
         {
             "id": "microcontrollers",
             "name": "Microcontrollers",
-            "microcontrollers": [
+            "subcategories": [
                 {
-                    "arduino": [
+                    "id": "arduino",
+                    "name": "Arduino",
+                    "products": [
                         {
                             "id": "ar-01",
                             "name": "Arduino UNO Rev3",
@@ -1339,7 +1355,9 @@
                     ]
                 },
                 {
-                    "raspberri_pi": [
+                    "id": "raspberri_pi",
+                    "name": "Raspberri Pi",
+                    "products": [
                         {
                             "id": "rp-01",
                             "name": "Raspberry Pi Pico W ",
@@ -1847,7 +1865,9 @@
                     ]
                 },
                 {
-                    "esp": [
+                    "id": "esp",
+                    "name": "Esp Series",
+                    "products": [
                         {
                             "id": "esp-01",
                             "name": "ESP32-DevKitC",
@@ -2157,7 +2177,9 @@
                     ]
                 },
                 {
-                    "stm32": [
+                    "id": "stm32",
+                    "name": "Stm32",
+                    "products": [
                         {
                             "id": "stm-01",
                             "name": "STM32F411CEU6 - development board",
@@ -2487,7 +2509,9 @@
                     ]
                 }
             ]
-        },
+        }
+    ],
+    "sensors": [
         {
             "id": "sensors",
             "name": "Sensors",
