@@ -71,17 +71,17 @@ export default function Card({ product }) {
 
   return (
     <div className="group relative p-6 border-x border-y border-gray-200">
-      <div className="min-h-64 aspect-w-1 aspect-h-1 w-full shadow overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-64">
+      <div className="min-h-64 aspect-w-1 aspect-h-1 w-full shadow overflow-hidden rounded-lg bg-white group-hover:opacity-75 lg:aspect-none lg:h-64">
         <img
           src={product.url}
           alt={product.title}
-          className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+          className="h-full w-full object-contain object-center lg:h-full lg:w-full"
         />
       </div>
       <div className="mt-8 flex flex-col">
         <div className="mb-3 self-center">
           <h3 className="text-lg font-medium text-gray-900">
-            <Link to="/product-details">
+            <Link to={`/product-details/${product.id}`}>
               {product.title.substring(0, 18)}...
             </Link>
           </h3>
@@ -92,7 +92,7 @@ export default function Card({ product }) {
               .fill()
               .map(() => (
                 <p>
-                  <StarIcon className="h-5 w-5 text-yellow-300" />
+                  <StarIcon className="h-5 w-5 text-yellow-400" />
                 </p>
               ))}
           </div>

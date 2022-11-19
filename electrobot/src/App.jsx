@@ -25,7 +25,7 @@ function App() {
         <Route path="/checkout" element={[<Checkout />]} />
         <Route path="/store" element={[<Store />]} />
         <Route path="/sensors" element={[<Sensors /> ]} />
-        <Route path="/product-details" element={[<ProductDetails />]} />
+        <Route path="/product-details/:id" element={[<ProductDetails />]} />
       {/* <Route path="/" element={[<TrendingProducts /> ]} /> */}
 
         {/* <Route path="/shopping-cart" element={[<ShoppingCart />]} /> */}

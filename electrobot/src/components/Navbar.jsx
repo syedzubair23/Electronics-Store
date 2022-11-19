@@ -519,13 +519,13 @@ export default function Navbar() {
                   ))}
 
                   {navigation.pages.map((page) => (
-                    <button
+                    <a
                       key={page.id}
                       href={page.href}
                       className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       {page.name}
-                    </button>
+                    </a>
                   ))}
                 </div>
               </Popover.Group>

@@ -10,7 +10,7 @@ export default [
       "price": "0.45",
       "items_in_stock": "14",
       "description":
-        "Unipolar P-MOSFET transistor with voltage Vds: -55 V and current ID: -19 A. Enclosed in TO-220 housing.",
+        "IRF9Z34 is new generation of high voltage MOSFET family that is utilizing an advanced charge balance mechanism for outstanding low on-resistance and lower gate charge performance. This advanced technology has been tailored to minimize conduction loss, provide superior switching performance, and withstand extreme dv/dt rate and higher avalanche energy. It is very suitable for various AC/DC power conversion in switching mode operation for system miniaturization and higher efficiency. Unipolar P-MOSFET transistor with voltage Vds: -55 V and current ID: -19 A. Enclosed in TO-220 housing.",
       "product_reviews": {
         "star_ratings": [
           {
@@ -60,12 +60,12 @@ export default [
       "title": "IRF640 MOSFET",
       "brand": "Fujitsu",
       "model": "IRF640",
-      "url": "https://m.media-amazon.com/images/I/41BuPjTmYYL._SX466_.jpg",
+      "url": "https://m.media-amazon.com/images/I/31W9k9qnJVL._SX466_.jpg",
       "rating": "5",
       "reviews": "4",
       "price": "0.85",
       "items_in_stock": "13",
-      "description": "RF640NPBF IRF640N TO-220 TO220 IRF640 MOSFET",
+      "description": "IRF640 is an N Channel MOSFET designed for high speed switching purposes. This high speed switching capability can be very useful in application where switching speed is crucial, for example in a UPS circuit or in any other application where use wants to change the load input power from one source to another.",
       "product_reviews": {
         "star_ratings": [
           {
@@ -104,16 +104,16 @@ export default [
     },
     {
       "id": "cap-01",
-      "title": "Ceramic condenser 1,5nF/50V THT",
+      "title": "Ceramic condenser 1.5nF/50V THT",
       "brand": "Fujitsu",
       "model": "CC-1.5",
-      "url": "https://cdn2.botland.store/76311-pdt_540/ceramic-condenser-15nf50v-tht-10pcs.jpg",
+      "url": "https://www.niden.ro/5794-thickbox_default/condensator-ceramic-22nf-50v.jpg",
       "rating": "5",
       "reviews": "1",
       "price": "0.21",
       "items_in_stock": "12",
       "description":
-        "Through hole ceramic capacitor of 1,5 nF / 50 V. The price for 10 pieces.",
+        "A ceramic capacitor is a fixed-value capacitor in which ceramic material acts as the dielectric. It is constructed of two or more alternating layers of ceramic and a metal layer acting as the electrodes. The composition of the ceramic material defines the electrical behavior and therefore applications. Through hole ceramic capacitor of 1.5 nF / 50 V.",
       "product_reviews": {
         "star_ratings": [
           {
@@ -298,7 +298,7 @@ export default [
     },
     {
       "id": "ind-01",
-      "title": "inductor FerroCore 100uH / 5A wire",
+      "title": "Inductor FerroCore 100uH / 5A wire",
       "brand": "Texas Instruments",
       "model": "DTPU100A5",
       "url": "https://cdn3.botland.store/54250-pdt_540/inductor-ferrocore-100uh-5a-wire-dtpu100a5.jpg",
@@ -307,7 +307,7 @@ export default [
       "price": "5.53",
       "items_in_stock": "2",
       "description":
-        "Inductance: 100uH. Max current: 5A. Diameter: 30mm, height: 13mm. Tolerance: ± 20%. Resistance: 0.059Ω",
+        "Inductance: 100uH. Max current: 5A. Diameter: 30mm, height: 13mm. Tolerance: ± 20%. Resistance: 0.059Ω. Switching power output smoothing circuits. Wide Inductance range, high current capability low magnetic leakage. High-reliability leaded inductor low-resistance leaded inductor. Axial leaded power inductor radial leaded power inductor ul-polyolefin shrinking tubing leaded inductor.",
       "product_reviews": {
         "star_ratings": [
           {
@@ -457,7 +457,7 @@ export default [
       "title": "Blinking Red LED Diode Lights",
       "brand": "Chanzon",
       "model": "CH-1.5",
-      "url": "https://m.media-amazon.com/images/I/71Jwmn9EiuL._AC_SX679_.jpg",
+      "url": "https://m.media-amazon.com/images/I/71rt0ZG4uBL._AC_SX425_.jpg",
       "rating": "4.6",
       "reviews": "113",
       "price": "5.53",
@@ -513,7 +513,7 @@ export default [
       "title": "3mm LED Light Emitting Diodes Bulb",
       "brand": "Brilinker",
       "model": "BR-3mm",
-      "url": "https://m.media-amazon.com/images/I/51vcxF5SgkL._AC_SX679_.jpg",
+      "url": "https://th.bing.com/th/id/R.5fa33bbd31f7989e0b2eaf5c8c894765?rik=aCGXmtRrfRaaTg&pid=ImgRaw&r=0",
       "rating": "4.6",
       "reviews": "9",
       "price": "4.89",
@@ -1447,7 +1447,7 @@ export default [
       "title": "Arduino Due",
       "brand": "arduino",
       "model": "A000056",
-      "url": "https://m.media-amazon.com/images/I/71BhTyWY2SL._AC_UY218_.jpg",
+      "url": "https://cdn.shopify.com/s/files/1/0438/4735/2471/products/A000062_00.front_618x464.jpg?v=1637829924",
       "rating": "5.0",
       "reviews": "1",
       "price": "48.00",
@@ -1627,7 +1627,7 @@ export default [
       "title": "Raspberry Pi Camera Module",
       "brand": "Raspberry Pi",
       "model": "RPI-CAM-V2",
-      "url": "https://m.media-amazon.com/images/I/81c3uxPtJiL._AC_UY218_.jpg",
+      "url": "https://th.bing.com/th/id/OIP.LtAJ5xeY18cyJor_Mhp0RAHaEK?pid=ImgDet&rs=1",
       "rating": "4.6",
       "reviews": "3,385",
       "price": "32.49",
@@ -1757,7 +1757,7 @@ export default [
       "title": "Raspberry Pi NoIR Camera Module",
       "brand": "Raspberry Pi",
       "model": "RPI3-NOIR-V2",
-      "url": "https://m.media-amazon.com/images/I/214RGslECiL._AC_UY218_.jpg",
+      "url": "https://th.bing.com/th/id/OIP.FNbeqDqStdlDJTHJNgpfWgHaHa?pid=ImgDet&rs=1",
       "rating": "4.5",
       "reviews": "427",
       "price": "29.95",
@@ -2144,7 +2144,7 @@ export default [
       "title": "ESP8266 NodeMCU CP2102 Development Board",
       "brand": "HiLetgo",
       "model": "ESP-12E",
-      "url": "https://cdn1.botland.store/108868-pdt_540/esp32-s3-devkitc-1-n8-wifi-bluetooth-development-board-with-esp32-s3-wroom-11u-chip.jpg",
+      "url": "https://www.electronicscomp.com/image/cache/catalog/nodemcu-esp8266-wifi-board-cp2102-ic-based-400x400.jpg",
       "rating": "4.6",
       "reviews": "2,138",
       "price": "16.39",
@@ -2209,7 +2209,7 @@ export default [
       "title": "ESP32-S3 ESP32-S3-DevKitC-1",
       "brand": "Stemedu",
       "model": "RPI-CAM-V2",
-      "url": "https://m.media-amazon.com/images/I/81c3uxPtJiL._AC_UY218_.jpg",
+      "url": "https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/_images/esp32-s3-devkitc-1-v1.1-isometric.png",
       "rating": "3.7",
       "reviews": "2",
       "price": "27.99",
@@ -2258,7 +2258,7 @@ export default [
       "title": "ESP32-S3-DevKitM-1-N8",
       "brand": "Geekstory",
       "model": "ESP32-S3-MINI-1/1U",
-      "url": "https://m.media-amazon.com/images/I/61k2-u-54CL._AC_SX679_.jpg",
+      "url": "https://eu.mouser.com/images/espressifsystems/images/ESP32-S3-DEVKITM-1_SPL.jpg",
       "rating": "5",
       "reviews": "1",
       "price": "26.99",
@@ -2510,7 +2510,7 @@ export default [
       "title": "STM32F3 - Discovery",
       "brand": "Stm32",
       "model": "STM32F3DISCOVERY",
-      "url": "https://m.media-amazon.com/images/I/81c3uxPtJiL._AC_UY218_.jpg",
+      "url": "https://media.digikey.com/Photos/STMicro%20Photos/MFG_STM32%20F3%20Discovery.jpg",
       "rating": "4.7",
       "reviews": "12",
       "price": "23.85",
@@ -2941,7 +2941,7 @@ export default [
       "title": "PH Sensor",
       "brand": "H Electrode",
       "model": "PH-014",
-      "url": "https://m.media-amazon.com/images/I/413J1PM5ueL._SX466_.jpg",
+      "url": "https://leetechbd.com/wp-content/uploads/2018/01/PH-Sensor-Module-Probe-BNC-for-Arduino.jpg",
       "rating": "4.4",
       "reviews": "2",
       "price": "36.99",
@@ -2989,7 +2989,7 @@ export default [
       "title": "NO/NC Adjustable Water Level Sensor",
       "brand": "GAGALOR",
       "model": "FSSS-01",
-      "url": "https://m.media-amazon.com/images/I/51KPODujalL._SX466_.jpg",
+      "url": "https://images-na.ssl-images-amazon.com/images/I/61WMd9FbaBL._SL1353_.jpg",
       "rating": "5",
       "reviews": "1",
       "price": "19.99",
@@ -3038,7 +3038,7 @@ export default [
       "title": "Turbidity Sensor Module",
       "brand": "KEYESTUDIO",
       "model": "TS-V1",
-      "url": "https://cdn3.botland.store/62731-pdt_540/stm32l0-discovery-lora-b-l072z-lrwan1.jpg",
+      "url": "https://th.bing.com/th/id/OIP.oODinZnzYV46iNuKFQ7WiwAAAA?pid=ImgDet&rs=1",
       "rating": "4.1",
       "reviews": "24",
       "price": "9.99",
