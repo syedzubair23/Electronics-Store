@@ -53,7 +53,6 @@ export default [
       },
       "category": "components",
       "subcategory": "transistors",
-      "featured": true,
     },
     {
       "id": "tr-02",
@@ -605,7 +604,6 @@ export default [
       },
       "category": "components",
       "subcategory": "leds",
-      "featured": true,
     },
     {
       "id": "led-04",
@@ -775,7 +773,6 @@ export default [
       },
       "category": "microcontrollers",
       "subcategory": "arduino",
-      "featured": true,
     },
     {
       "id": "ar-02",
@@ -2137,7 +2134,6 @@ export default [
       },
       "category": "microcontrollers",
       "subcategory": "esp series",
-      "featured": true,
     },
     {
       "id": "esp-02",

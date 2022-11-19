@@ -1,15 +1,19 @@
 import { Fragment, useState, useContext } from "react";
 import {
+  // HomeIcon,
   CheckIcon,
   HeartIcon as HeartFillIcon,
   StarIcon,
 } from "@heroicons/react/24/solid";
-import { Tab, Transition } from "@headlessui/react";
+import { Tab } from "@headlessui/react";
 import { Context } from "./logic_components/Context";
 import { useParams } from "react-router-dom";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import CustomSelect from "./CustomSelect";
 import { XMarkIcon } from "@heroicons/react/20/solid";
+import FeaturedProducts from "./FeaturedProducts"
+import {HomeIcon} from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 // const navigation = {
 //     categories: [
@@ -125,7 +129,7 @@ function ProductDetails() {
   return (
     <div className="bg-white">
       {selected_product.map((product) => (
-        <div className="mx-auto max-w-2xl py-10 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="mx-auto max-w-2xl py-10 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8 border-b border-gray-100">
           <div className="grid grid-cols-1 gap-y-10 lg:gap-x-16 lg:grid-cols-5">
             <div className="col-span-3  border border-gray-100 rounded-lg bg-white group-hover:opacity-75 flex items-center">
               <div className="min-h-96 aspect-w-1 aspect-h-1 w-full  overflow-hidden lg:aspect-none lg:h-96">
@@ -139,10 +143,14 @@ function ProductDetails() {
             </div>
             <div className="col-span-2">
               <div className="flex flex-col gap-y-4">
-                <p className="text-sm text-gray-500">
-                  <span className="mr-2 capitalize">{product.category}</span>/
-                  <span className="ml-2 capitalize">{product.subcategory}</span>
-                </p>
+                <div className="text-sm text-gray-500 flex items-center gap-x-2 capitalize">
+                  <Link to="/">
+                    <HomeIcon className="h-4 w-4 text-center" />
+                  </Link>
+                  /
+                  <p >{product.category}</p>/
+                  <p >{product.subcategory}</p>
+                </div>
                 <h2 className="text-4xl font-bold text-gray-900 mt-0.5">
                   {product.title}
                 </h2>
@@ -187,30 +195,66 @@ function ProductDetails() {
                     </>
                   )}
                 </div>
-                <div className="my-6 grid grid-cols-2 gap-x-6 items-center">
-                  <div className="">
+                <div className="my-6 flex gap-x-6 items-center justify-start">
+                  <div className="w-64">
                     <button
-                      className="outline-none text-center w-full rounded-lg border border-transparent bg-cyan-400 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-500 hover:shadow"
+                      className="outline-none text-center w-full rounded-lg border border-transparent bg-cyan-400 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-500"
                       onClick={() => addToCart(product)}
                     >
                       Add to Basket
                     </button>
                   </div>
-                  <div className="">
+                  {heartIcon()}
+                  {/* <div className="">
                     <button
                       className="outline-none text-center w-full rounded-lg border border-cyan-400 px-6 py-3 text-base font-medium text-cyan-400 shadow-sm hover:bg-cyan-100 hover:text-cyan-900 hover:border-none hover:shadow"
                       onClick={() => addToFavorite(product)}
                     >
                       Add to Wishlist
                     </button>
-                  </div>
-                  {/* {heartIcon()} */}
+                  </div> */}
                 </div>
               </div>
             </div>
           </div>
-          <div className="my-32">
-            <div className="grid grid-cols-1 gap-y-10 lg:gap-x-16 lg:grid-cols-5">
+
+          <div className="my-32 w-full">
+          <Tab.Group>
+        <Tab.List className="flex space-x-6 px-4 border-b border-gray-200">
+            <Tab
+              className={({ selected }) =>
+                classNames(
+                  'px-8 py-4 text-base font-medium leading-5 text-cyan-400',
+                  selected
+                    ? "border-cyan-400 text-cyan-400"
+                    : "border-transparent text-gray-700 hover:text-gray-800",
+                    "flex items-center whitespace-nowrap border-b-2 transition-colors duration-200 ease-out"
+                )
+              }
+            >
+              Reviews
+            </Tab>
+            <Tab
+              className={({ selected }) =>
+                classNames(
+                  'px-8 py-4 text-base font-medium leading-5 text-cyan-400',
+                  selected
+                    ? "border-cyan-400 text-cyan-400"
+                    : "border-transparent text-gray-700 hover:text-gray-800",
+                    "flex items-center whitespace-nowrap border-b-2 transition-colors duration-200 ease-out"
+                )
+              }
+            >
+              Description
+            </Tab>
+        </Tab.List>
+        <Tab.Panels className="mt-16">
+            <Tab.Panel
+              className={classNames(
+                'rounded-xl bg-white'
+              )}
+            >
+             <div className="grid grid-cols-1 gap-y-10 lg:gap-x-16 lg:grid-cols-5">
               <div className="col-span-2 flex flex-col gap-y-3.5">
                 <h2 className="font-bold text-2xl">Customer Reviews</h2>
                 <div className="flex items-center gap-x-2.5">
@@ -304,10 +348,28 @@ function ProductDetails() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> 
+            </Tab.Panel>
+            <Tab.Panel
+              className={classNames(
+                'rounded-xl bg-gray-100 p-3'
+              )}
+            >
+              <div className="py-24 bg-gray-100">
+                <p className="text-lg text-gray-500 mx-auto max-w-prose pl-4 border-l-8 rounded-md border-cyan-900">
+                    {product.description}
+                </p>
+              </div>
+            </Tab.Panel>
+        </Tab.Panels>
+      </Tab.Group>
           </div>
+          {/* <div className="my-32">
+            
+          </div> */}
         </div>
       ))}
+      <FeaturedProducts />
     </div>
   );
 }

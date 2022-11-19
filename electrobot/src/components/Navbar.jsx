@@ -338,31 +338,29 @@ export default function Navbar() {
 
                 <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   {navigation.pages.map((page) => (
-                    <Link to={page.href}>
-                      <div key={page.id} className="flow-root">
-                        <button className="-m-2 block p-2 font-medium text-gray-900">
+                    <div key={page.id} className="flow-root">
+                        <Link to={page.href} className="-m-2 block p-2 font-medium text-gray-900">
                           {page.name}
-                        </button>
-                      </div>
-                    </Link>
+                        </Link>
+                    </div>
                   ))}
                 </div>
 
                 <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   <div className="flow-root">
-                    <button className="-m-2 block p-2 font-medium text-gray-900">
+                    <a className="-m-2 block p-2 font-medium text-gray-900">
                       Sign in
-                    </button>
+                    </a>
                   </div>
                   <div className="flow-root">
-                    <button className="-m-2 block p-2 font-medium text-gray-900">
+                    <a className="-m-2 block p-2 font-medium text-gray-900">
                       Create account
-                    </button>
+                    </a>
                   </div>
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4">
-                  <button className="-m-2 flex items-center p-2">
+                  <a className="-m-2 flex items-center p-2">
                     <img
                       src="https://tailwindui.com/img/flags/flag-canada.svg"
                       alt=""
@@ -371,8 +369,8 @@ export default function Navbar() {
                     <span className="ml-3 block text-base font-medium text-gray-900">
                       CAD
                     </span>
-                    <span className="sr-only">, change currency</span>
-                  </button>
+                    <span className="sr-only">, Canadian currency</span>
+                  </a>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
@@ -384,15 +382,15 @@ export default function Navbar() {
         <div className=" bg-cyan-900">
           <div className="h-10 mx-auto max-w-7xl flex place-content-center lg:place-content-between px-4 text-sm font-medium text-white">
             <div className="hidden lg:flex">
-              <button className="flex items-center hover:text-gray-800">
+              <a className="flex items-center hover:text-white/90">
                 <img
                   src="https://tailwindui.com/img/flags/flag-canada.svg"
                   alt=""
                   className="block h-auto w-5 flex-shrink-0"
                 />
                 <span className="ml-3 block text-sm font-medium">CAD</span>
-                <span className="sr-only">, change currency</span>
-              </button>
+                <span className="sr-only">, Canadian currency</span>
+              </a>
             </div>
 
             <p className="flex items-center justify-center text-center sm:px-6 lg:px-8">
@@ -400,13 +398,13 @@ export default function Navbar() {
             </p>
 
             <div className="hidden lg:flex lg:items-center lg:space-x-6">
-              <button className="text-sm font-medium hover:text-gray-800">
+              <a className="text-sm font-medium hover:text-white/90">
                 Sign in
-              </button>
+              </a>
               <span className="h-6 w-px bg-gray-400" aria-hidden="true" />
-              <button className="text-sm font-medium hover:text-gray-800">
+              <a className="text-sm font-medium hover:text-white/90">
                 Create account
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -434,7 +432,7 @@ export default function Navbar() {
                     <img
                       className="h-8 w-auto"
                       src="images/Electrobot.svg"
-                      alt=""
+                      alt="Electrobot ecommerce Company Logo"
                     />
                   </button>
                 </div>
@@ -519,13 +517,13 @@ export default function Navbar() {
                   ))}
 
                   {navigation.pages.map((page) => (
-                    <a
+                    <Link
                       key={page.id}
-                      href={page.href}
+                      to={page.href}
                       className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       {page.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </Popover.Group>
@@ -711,6 +709,7 @@ export default function Navbar() {
                                           <button
                                             disabled={cartItems.length <= 0}
                                             className="flex items-center justify-center disabled:opacity-40 disabled:focus:outline-none disabled:cursor-not-allowed w-full rounded-md border border-transparent bg-cyan-400 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-500"
+                                            onClick={() => setShowCart(false)}
                                           >
                                             Checkout
                                           </button>

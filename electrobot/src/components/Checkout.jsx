@@ -123,7 +123,7 @@ function Checkout() {
     )
     .toFixed(2);
   const shipping_charges = Number(deliveryCharges).toFixed(2);
-  
+
   const taxes =
     subtotal < 500
       ? ((subtotal * 2.2) / 100).toFixed(2)
@@ -515,7 +515,7 @@ function Checkout() {
                       CVC
                     </label>
                     <input
-                      type="text"
+                      type="password"
                       pattern="[0-9]*"
                       id="cvc"
                       name="cvc"
