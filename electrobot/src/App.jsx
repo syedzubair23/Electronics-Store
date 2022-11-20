@@ -26,19 +26,11 @@ function App() {
         <Route path="/store" element={[<Store />]} />
         <Route path="/sensors" element={[<Sensors /> ]} />
         <Route path="/product-details/:id" element={[<ProductDetails />]} />
-      {/* <Route path="/" element={[<TrendingProducts /> ]} /> */}
-
-        {/* <Route path="/shopping-cart" element={[<ShoppingCart />]} /> */}
 
       </Routes>      
       <Footer />
 
-      {/* <ProductDetails /> */}
-      {/* <Hero />
-      <Card />
-      <Brands />
-      <Incentives />
-      <Footer /> */}
+   
     </div>
   )
 }

@@ -8,13 +8,8 @@ function TrendingProducts() {
   const [trendingData, setTrendingData] = useState([])
 
   const trending_products = allData.filter(item => item.trending)
-
-  // useEffect(() => {
-  //   setTrendingData(trending_data)
-  // }, [])
   
   const card = trending_products.map((product) => (
-      // console.log(product);
       <Card key={product.id} product={product} />
   ))
 

@@ -20,15 +20,6 @@ export default function Card({ product }) {
     heartIcon
   } = useContext(Context);
 
-  // console.log(product);
-
-  // function heartIcon() {
-  //   if(product.isFavorite) {
-  //       return <HeartFillIcon className="h-6 w-6 text-cyan-400 cursor-pointer" onClick={() => toggleFavorite(product.id)} />
-  //   } else {
-  //       return <HeartIcon className="h-6 w-6 text-cyan-400 cursor-pointer" onClick={() => toggleFavorite(product.id)} />
-  //   }
-
   function cartIcon() {
     const alreadyInCart = cartItems.some((item) => item.id === product.id);
     if (alreadyInCart) {
@@ -78,13 +69,9 @@ export default function Card({ product }) {
           <p className="text-sm text-gray-500 mt-2">{`${product.reviews} reviews`}</p>
         </div>
         <div className="flex justify-between items-center mt-5 mb-4">
-          {/* <div className="h-10 w-10 rounded-full border border-cyan-400 grid place-content-center"> */}
             {heartIcon(product)}
-          {/* </div> */}
           <p className="text-lg font-bold text-gray-900">{`$${Number(product.price).toFixed(2)}`}</p>
-          {/* <div className="h-10 w-10 rounded-full border border-cyan-400 grid place-content-center"> */}
             {cartIcon()}
-          {/* </div> */}
         </div>
       </div>
     </div>

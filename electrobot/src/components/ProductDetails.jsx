@@ -15,78 +15,6 @@ import FeaturedProducts from "./FeaturedProducts"
 import {HomeIcon} from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
-// const navigation = {
-//     categories: [
-//       {
-//         id: "components",
-//         name: "Components",
-//         featured: [
-//           {
-//             name: "Resistors",
-//             href: "#",
-//             imageSrc:
-//               "https://media.gettyimages.com/photos/electronic-component-electric-heating-elements-of-various-models-picture-id1339847300?k=20&m=1339847300&s=612x612&w=0&h=aukuydVEoGuY3m6c8VXpwsIzBsRSivMEBfX2f4ihrvw=",
-//             imageAlt: "Resistors",
-//           },
-//           {
-//             name: "Capcitors",
-//             href: "#",
-//             imageSrc:
-//               "https://media.gettyimages.com/photos/collection-of-capacitors-against-a-white-background-picture-id172962646?k=20&m=172962646&s=612x612&w=0&h=ES1R7bMMDkR5r3Xp3CnJD-GJTaWLtL8aQ4e-wi-Aaxo=",
-//             imageAlt: "Capacitors",
-//           },
-//           {
-//             name: "Inductors",
-//             href: "#",
-//             imageSrc:
-//               "https://qph.fs.quoracdn.net/main-qimg-d7ec636623ea2d1081f16042a4aabd38-c",
-//             imageAlt: "Inductors",
-//           },
-//           {
-//             name: "Leds",
-//             href: "#",
-//             imageSrc:
-//               "https://media.gettyimages.com/photos/high-angle-view-of-led-lights-against-white-background-picture-id1157527318?k=20&m=1157527318&s=612x612&w=0&h=LyjPCH4bSngY-LtXpphg1eKmrfMo0FICYpd_1OTISnM=",
-//             imageAlt: "Leds",
-//           },
-//         ],
-//       },
-//       {
-//         id: "microcontrollers",
-//         name: "Microcontrollers",
-//         featured: [
-//           {
-//             name: "Arduino",
-//             href: "#",
-//             imageSrc:
-//               "https://c1.wallpaperflare.com/preview/107/530/442/electronics-arduino-diy.jpg",
-//             imageAlt: "Arduino",
-//           },
-//           {
-//             name: "Esp32",
-//             href: "#",
-//             imageSrc:
-//               "https://everybitelectronics.co.uk/wp-content/uploads/2020/04/ESP32.jpg",
-//             imageAlt: "Esp32",
-//           },
-//           {
-//             name: "Raspberri pi",
-//             href: "#",
-//             imageSrc:
-//               "https://c4.wallpaperflare.com/wallpaper/672/858/376/raspberry-pi-computer-macro-wallpaper-preview.jpg",
-//             imageAlt: "Raspberri pi",
-//           },
-//           {
-//             name: "Stm32",
-//             href: "#",
-//             imageSrc:
-//               "https://th.bing.com/th/id/OIP.HC9F52kRLNEhyd5W5b0BmQHaHP?pid=ImgDet&rs=1",
-//             imageAlt: "Stm32",
-//           },
-//         ],
-//       },
-//     ],
-//   };
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -126,10 +54,7 @@ function ProductDetails() {
             <div className="col-span-2">
               <div className="flex flex-col gap-y-4">
                 <div className="text-sm text-gray-500 flex items-center gap-x-2 capitalize">
-                  {/* <Link to="/"> */}
                     <HomeIcon className="h-4 w-4 text-center cursor-pointer" onClick={() => navigate("/")} />
-                  {/* </Link> */}
-                  /
                   <p >{product.category}</p>/
                   <p >{product.subcategory}</p>
                 </div>
@@ -187,14 +112,6 @@ function ProductDetails() {
                     </button>
                   </div>
                   {heartIcon(product)}
-                  {/* <div className="">
-                    <button
-                      className="outline-none text-center w-full rounded-lg border border-cyan-400 px-6 py-3 text-base font-medium text-cyan-400 shadow-sm hover:bg-cyan-100 hover:text-cyan-900 hover:border-none hover:shadow"
-                      onClick={() => addToFavorite(product)}
-                    >
-                      Add to Wishlist
-                    </button>
-                  </div> */}
                 </div>
               </div>
             </div>
@@ -346,9 +263,6 @@ function ProductDetails() {
         </Tab.Panels>
       </Tab.Group>
           </div>
-          {/* <div className="my-32">
-            
-          </div> */}
         </div>
       ))}
       <FeaturedProducts />
@@ -358,68 +272,3 @@ function ProductDetails() {
 
 export default ProductDetails;
 
-{
-  /* <div className="grid grid-cols-1 gap-y-12 gap-x-8 lg:grid-cols-5 xl:gap-x-8">
-            
-            
-            <Tab.Group as="div" className="mt-2">
-                  <div className="border-b border-gray-200">
-                    <Tab.List className="-mb-px flex space-x-1 px-2">
-                      {navigation.categories.map((category) => (
-                        <Tab
-                          key={category.name}
-                          className={({ selected }) =>
-                            classNames(
-                              selected
-                                ? "text-cyan-400 border-cyan-400"
-                                : "text-gray-900 border-transparent",
-                              "flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium"
-                            )
-                          }
-                        >
-                          {category.name}
-                        </Tab>
-                      ))}
-                    </Tab.List>
-                  </div>
-                  <Tab.Panels as={Fragment}>
-                    {navigation.categories.map((category) => (
-                      <Tab.Panel
-                        key={category.name}
-                        className="space-y-10 px-4 pt-10 pb-8"
-                      >
-                        <div className="grid grid-cols-2 gap-4">
-                          {category.featured.map((item) => (
-                            <div
-                              key={item.name}
-                              className="group relative text-sm"
-                            >
-                              <div className="aspect-w-1 aspect-h-1 h-32 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                                <img
-                                  src={item.imageSrc}
-                                  alt={item.imageAlt}
-                                  className="object-cover object-center"
-                                />
-                              </div>
-                              <a
-                                href={item.href}
-                                className="mt-6 block font-medium text-gray-900"
-                              >
-                                <span
-                                  className="absolute inset-0 z-10"
-                                  aria-hidden="true"
-                                />
-                                {item.name}
-                              </a>
-                              <p aria-hidden="true" className="mt-1">
-                                Shop now
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      </Tab.Panel>
-                    ))}
-                  </Tab.Panels>
-                </Tab.Group>
-        </div> */
-}

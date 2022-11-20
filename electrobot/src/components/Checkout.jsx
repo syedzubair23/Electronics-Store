@@ -12,33 +12,6 @@ import { userFormSchema } from "./form_validation_schema/formValidation";
 import Subtotal from "./Subtotal";
 import CartItems from "./CartItems";
 
-// const products = [
-//   {
-//     id: 1,
-//     name: "Throwback Hip Bag",
-//     href: "#",
-//     color: "Salmon",
-//     price: "$90.00",
-//     quantity: 1,
-//     imageSrc:
-//       "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
-//     imageAlt:
-//       "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
-//   },
-//   {
-//     id: 2,
-//     name: "Medium Stuff Satchel",
-//     href: "#",
-//     color: "Blue",
-//     price: "$32.00",
-//     quantity: 1,
-//     imageSrc:
-//       "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
-//     imageAlt:
-//       "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
-//   },
-//   // More products...
-// ];
 
 const delivery_method = [
   { id: 1, delivery: "Standard", business_days: "4-10", charges: "5" },
@@ -69,9 +42,7 @@ function classNames(...classes) {
 }
 
 function Checkout() {
-  // const [{basket}, dispatch] = useStateValue();
   const { cartItems, removeFromCart, addQuantity } = useContext(Context);
-  // const [qty, setQty] = useState(1);
   const [deliveryCharges, setDeliveryCharges] = useState("5");
 
   const {
@@ -88,32 +59,18 @@ function Checkout() {
     onSubmit: (values, action) => {
       values.delivery_Charges = deliveryCharges;
       console.log(
-        "🚀 ~ file: CheckoutForm.jsx ~ line 90 ~ CheckoutForm ~ values",
+        "🚀 ~ file: CheckoutForm.jsx ~ line 62 ~ CheckoutForm ~ values",
         values
       );
       action.resetForm();
     },
   });
   console.log(
-    "🚀 ~ file: CheckoutForm.jsx ~ line 97 ~ Checkout ~ errors",
+    "🚀 ~ file: CheckoutForm.jsx ~ line 68 ~ Checkout ~ errors",
     errors
   );
 
-  // const removeFromBasket = () => {
-  //   // remove items from basket
-  //   dispatch({
-  //     type: "REMOVE_FROM_BASKET",
-  //     id: products.id,
-  //   });
-  // };
-
-  //   const product_quantity = cartItems.map((product) =>
-  //   Number(product.quantity) > 0 && [...Array(Number(product.quantity)).keys()].map((qt) => (
-  //     <option key={qt+1} value={qt+1}>{qt+1}</option>
-  //   ))
-  //       )
-  // console.log(product_quantity)
-
+  
   const subtotal = cartItems
     .reduce(
       (acc, item) =>
@@ -530,44 +487,6 @@ function Checkout() {
                   </div>
                 </div>
 
-                {/* <div className="flex items-start mb-6">
-                <div className="flex items-center h-5">
-                  <input
-                    id="remember"
-                    type="checkbox"
-                    value=""
-                    className="outline-none w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-2 focus:ring-cyan-200"
-                    required=""
-                  />
-                </div>
-                <label
-                  htmlFor="remember"
-                  className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-                >
-                  I agree with the{" "}
-                  <a
-                    href="#"
-                    className="text-cyan-400 hover:underline outline-none focus:ring-2 focus:ring-cyan-200"
-                  >
-                    terms and conditions
-                  </a>
-                  .
-                </label>
-              </div> */}
-                {/* <button
-                type="submit"
-                className="text-white bg-cyan-400 hover:bg-cyan-500 focus:ring-4 outline-none focus:ring-cyan-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
-              >
-                Continue
-              </button> */}
-                {/* <div className="grid grid-cols-1">
-                  <button
-                    type="submit"
-                    className="text-white bg-cyan-400 hover:bg-cyan-500 focus:ring-4 outline-none focus:ring-cyan-200 font-medium rounded-lg text-lg w-full sm:w-auto px-5 py-3 text-center"
-                  >
-                    Pay now
-                  </button>
-                </div> */}
               </div>
             </div>
 
@@ -614,7 +533,7 @@ function Checkout() {
                             ).toFixed(2)}
                           </p>
                         </div>
-                        {/* <hr className="h-[1px] bg-gray-200" /> */}
+                    
                       </div>
                     </div>
 

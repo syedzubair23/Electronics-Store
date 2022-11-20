@@ -15,17 +15,9 @@ export default function CustomSelect({ quantity, id, addQuantity, qty }) {
             .replace(/\s+/g, "")
             .includes(query.replace(/\s+/g, ""))
         );
-
-  // useEffect(() => {
-  //   const data = window.localStorage.getItem('QTY')
-  //   setSelected(JSON.parse(data))
-  //   addQuantity(id, data);
-  // }, [])
         
   const selected_qty = useEffect(() => {
     addQuantity(id, selected);
-    // window.localStorage.setItem("QTY", JSON.stringify(selected))
-    // console.log(selected)
   }, [selected]);
 
   

@@ -438,36 +438,6 @@ function CheckoutForm() {
           </div>
         </div>
 
-        {/* <div className="flex items-start mb-6">
-                <div className="flex items-center h-5">
-                  <input
-                    id="remember"
-                    type="checkbox"
-                    value=""
-                    className="outline-none w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-2 focus:ring-cyan-200"
-                    required=""
-                  />
-                </div>
-                <label
-                  htmlFor="remember"
-                  className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-                >
-                  I agree with the{" "}
-                  <a
-                    href="#"
-                    className="text-cyan-400 hover:underline outline-none focus:ring-2 focus:ring-cyan-200"
-                  >
-                    terms and conditions
-                  </a>
-                  .
-                </label>
-              </div> */}
-        {/* <button
-                type="submit"
-                className="text-white bg-cyan-400 hover:bg-cyan-500 focus:ring-4 outline-none focus:ring-cyan-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
-              >
-                Continue
-              </button> */}
         <div className="grid grid-cols-1">
           <button
             type="submit"

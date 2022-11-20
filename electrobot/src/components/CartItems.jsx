@@ -33,27 +33,7 @@ function CartItems() {
                 </p>
               </div>
               <div className="flex flex-1 items-end justify-between text-sm">
-                {/* <p className="text-gray-500 font-light">
-                                  Qty {item.quantity}
-                                </p> */}
-                {/* <div className="w-14 lg:max-w-sm">
-                                  <select
-                                    className="py-1 px-2 w-full text-sm transition
-                                    ease-in-out text-gray-500 divide-y divide-gray-100
-                                    bg-white border rounded-md shadow-sm outline-none focus:border-cyan-400"
-                                    value={qty}
-                                    onChange={(e) => setQty(e.target.value)}
-                                  >
-                                    {Number(item.quantity) > 0 &&
-                                      [
-                                        ...Array(Number(item.quantity)).keys(),
-                                      ].map((qt) => (
-                                        <option className="text-sm" key={qt + 1} value={qt + 1}>
-                                          {qt + 1}
-                                        </option>
-                                      ))}
-                                  </select>
-                                </div> */}
+              
                 {Number(item.items_in_stock) > 0 ? (
                   <CustomSelect
                     quantity={Number(item.items_in_stock)}
