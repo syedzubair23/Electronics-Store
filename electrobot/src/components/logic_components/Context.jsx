@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import products from "../productsData";
 import data from "../data/extractedData_v2"
+import { HeartIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
+import {
+  HeartIcon as HeartFillIcon,
+  ShoppingBagIcon as ShoppingBagFillIcon,
+} from "@heroicons/react/24/solid";
+import CustomSelect from "../CustomSelect";
 
 const Context = React.createContext();
 
@@ -53,7 +59,6 @@ function ContextProvider({ children }) {
     const updatedArr = cartItems.map((product) => {
       if (product.id === id) {
         return { ...product, qty: qty };
-        setCartItems(product);
       }
       return product;
     });
@@ -61,7 +66,10 @@ function ContextProvider({ children }) {
   }
 
   function addToCart(newItem) {
-    setCartItems((prevItems) => [...prevItems, newItem]);
+    const alreadyInCart = cartItems.some((item) => item.id === newItem.id);
+    if (!alreadyInCart) {
+    return setCartItems((prevItems) => [...prevItems, newItem]);
+    } 
   }
   console.log(cartItems);
 
@@ -82,6 +90,29 @@ function ContextProvider({ children }) {
     setFavoriteItems((prevItems) => prevItems.filter((item) => item.id !== id));
   }
 
+  function heartIcon(product) {
+    const alreadyInFavorite = favoriteItems.some(
+      (item) => item.id === product.id
+    );
+    if (alreadyInFavorite) {
+      return (
+        <HeartFillIcon
+          className="h-6 w-6 text-cyan-400 cursor-pointer"
+          onClick={() => removeFromFavorite(product.id)}
+        />
+      );
+    } else {
+      return (
+        <HeartIcon
+          className="h-6 w-6 text-cyan-400 cursor-pointer"
+          onClick={() => addToFavorite(product)}
+        />
+      );
+    }
+  }
+
+  
+
   return (
     <Context.Provider
       value={{
@@ -96,6 +127,7 @@ function ContextProvider({ children }) {
         addToFavorite,
         removeFromFavorite,
         addQuantity,
+        heartIcon,
       }}
     >
       {children}

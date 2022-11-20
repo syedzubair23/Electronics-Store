@@ -6,12 +6,13 @@ import { XMarkIcon } from "@heroicons/react/20/solid";
 
 function CartItems() {
   const { cartItems, removeFromCart, addQuantity } = useContext(Context);
+
   return (
     <div className="flow-root">
       <ul role="list" className="-my-6 divide-y divide-gray-200">
         {cartItems.map((item) => (
           <li key={item.id} className="flex py-6">
-            <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+            <div className="h-auto w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
               <img
                 src={item.url}
                 alt={item.title}
@@ -22,7 +23,7 @@ function CartItems() {
             <div className="ml-4 flex flex-1 flex-col">
               <div>
                 <div className="flex justify-between text-sm font-medium text-gray-900">
-                  <h3>
+                  <h3 className="leading-tight">
                     <a href={item.href}>{item.title}</a>
                   </h3>
                   <p className="ml-4">{`$${item.price}`}</p>
@@ -58,6 +59,8 @@ function CartItems() {
                     quantity={Number(item.items_in_stock)}
                     id={item.id}
                     addQuantity={addQuantity}
+                    items_in_stock={item.items_in_stock}
+                    qty={item.qty}
                   />
                 ) : (
                   <div className="flex gap-x-3 items-center">

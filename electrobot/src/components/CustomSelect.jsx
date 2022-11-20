@@ -2,10 +2,9 @@ import { Fragment, useState, useEffect } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 
-export default function CustomSelect({ quantity, id, addQuantity }) {
+export default function CustomSelect({ quantity, id, addQuantity, qty }) {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState(1);
-
   const quantity_array = [...Array(quantity).keys()];
 
   const filteredQuantity =
@@ -17,14 +16,25 @@ export default function CustomSelect({ quantity, id, addQuantity }) {
             .includes(query.replace(/\s+/g, ""))
         );
 
+  // useEffect(() => {
+  //   const data = window.localStorage.getItem('QTY')
+  //   setSelected(JSON.parse(data))
+  //   addQuantity(id, data);
+  // }, [])
+        
   const selected_qty = useEffect(() => {
     addQuantity(id, selected);
+    // window.localStorage.setItem("QTY", JSON.stringify(selected))
+    // console.log(selected)
   }, [selected]);
 
+  
+
+  
   return (
     <div className="w-[70px]">
       <Combobox value={selected} onChange={setSelected}>
-        {/* {console.log("item id :", id, "item quantity :", selected)} */}
+        {console.log("item id :", id, "item quantity :", selected)}
         {selected_qty}
         <div className="relative mt-1">
           <div className="relative w-full cursor-default overflow-hidden rounded-md bg-white text-left shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
@@ -32,12 +42,12 @@ export default function CustomSelect({ quantity, id, addQuantity }) {
               className="w-full border outline-cyan-400 rounded-md py-1.5 pl-3 pr-7 text-sm leading-5 text-gray-900 focus:ring-0"
               displayValue={(qt) => qt}
               onChange={(event) => setQuery(event.target.value)}
-            />
+              />
             <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
               <ChevronDownIcon
                 className="h-5 w-5 text-gray-400"
                 aria-hidden="true"
-              />
+                />
             </Combobox.Button>
           </div>
           <Transition

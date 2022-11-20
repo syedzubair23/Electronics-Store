@@ -26,7 +26,7 @@ import { Fragment, useState, useContext } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import ShoppingCart from "./ShoppingCart";
 import { Context } from "./logic_components/Context";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Bars3Icon,
   HeartIcon,
@@ -207,6 +207,8 @@ export default function Navbar() {
   // const [showCart, setShowCart] = useState(false);
   const { cartItems, favoriteItems, removeFromCart, addQuantity } =
     useContext(Context);
+  
+    const navigate = useNavigate()
 
   const items_in_cart = cartItems.reduce(
     (acc, item) => acc + (item.items_in_stock > 0 ? Number(item.qty) || 1 : 0),
@@ -432,7 +434,7 @@ export default function Navbar() {
                     <img
                       className="h-8 w-auto"
                       src="images/Electrobot.svg"
-                      alt="Electrobot ecommerce Company Logo"
+                      alt="Electrobot"
                     />
                   </button>
                 </div>
@@ -704,17 +706,17 @@ export default function Navbar() {
                                         Shipping and taxes calculated at
                                         checkout.
                                       </p>
-                                      <Link to="/checkout">
                                         <div className="mt-6">
                                           <button
                                             disabled={cartItems.length <= 0}
                                             className="flex items-center justify-center disabled:opacity-40 disabled:focus:outline-none disabled:cursor-not-allowed w-full rounded-md border border-transparent bg-cyan-400 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-500"
-                                            onClick={() => setShowCart(false)}
+                                            onClick={() => {
+                                              navigate("/checkout");
+                                              setShowCart(false)}}
                                           >
                                             Checkout
                                           </button>
                                         </div>
-                                      </Link>
                                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                                         <p>
                                           or

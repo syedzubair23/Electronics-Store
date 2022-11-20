@@ -7,7 +7,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { Tab } from "@headlessui/react";
 import { Context } from "./logic_components/Context";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import CustomSelect from "./CustomSelect";
 import { XMarkIcon } from "@heroicons/react/20/solid";
@@ -100,31 +100,13 @@ function ProductDetails() {
     removeFromFavorite,
     favoriteItems,
     addQuantity,
+    heartIcon
   } = useContext(Context);
   const { id } = useParams();
+  const navigate=useNavigate();
 
   const selected_product = allData.filter((item) => item.id === id);
 
-  function heartIcon() {
-    const alreadyInFavorite = favoriteItems.some(
-      (item) => item.id === selected_product.id
-    );
-    if (alreadyInFavorite) {
-      return (
-        <HeartFillIcon
-          className="h-6 w-6 text-cyan-400 cursor-pointer"
-          onClick={() => removeFromFavorite(selected_product.id)}
-        />
-      );
-    } else {
-      return (
-        <HeartIcon
-          className="h-6 w-6 text-cyan-400 cursor-pointer"
-          onClick={() => addToFavorite(selected_product)}
-        />
-      );
-    }
-  }
 
   return (
     <div className="bg-white">
@@ -144,9 +126,9 @@ function ProductDetails() {
             <div className="col-span-2">
               <div className="flex flex-col gap-y-4">
                 <div className="text-sm text-gray-500 flex items-center gap-x-2 capitalize">
-                  <Link to="/">
-                    <HomeIcon className="h-4 w-4 text-center" />
-                  </Link>
+                  {/* <Link to="/"> */}
+                    <HomeIcon className="h-4 w-4 text-center cursor-pointer" onClick={() => navigate("/")} />
+                  {/* </Link> */}
                   /
                   <p >{product.category}</p>/
                   <p >{product.subcategory}</p>
@@ -204,7 +186,7 @@ function ProductDetails() {
                       Add to Basket
                     </button>
                   </div>
-                  {heartIcon()}
+                  {heartIcon(product)}
                   {/* <div className="">
                     <button
                       className="outline-none text-center w-full rounded-lg border border-cyan-400 px-6 py-3 text-base font-medium text-cyan-400 shadow-sm hover:bg-cyan-100 hover:text-cyan-900 hover:border-none hover:shadow"

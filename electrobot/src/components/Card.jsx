@@ -3,11 +3,10 @@ import { HeartIcon, ShoppingCartIcon, ShoppingBagIcon } from "@heroicons/react/2
 import {
   StarIcon,
   HeartIcon as HeartFillIcon,
-  ShoppingCartIcon as ShoppingCartFillIcon,
+  ShoppingBagIcon as ShoppingBagFillIcon,
 } from "@heroicons/react/24/solid";
 import { Context } from "./logic_components/Context";
 import { Link } from "react-router-dom";
-import { ShoppingBagIcon as ShoppingBagFillIcon } from "@heroicons/react/20/solid";
 
 export default function Card({ product }) {
   const {
@@ -18,9 +17,10 @@ export default function Card({ product }) {
     favoriteItems,
     addToFavorite,
     removeFromFavorite,
+    heartIcon
   } = useContext(Context);
 
-  console.log(product);
+  // console.log(product);
 
   // function heartIcon() {
   //   if(product.isFavorite) {
@@ -28,27 +28,6 @@ export default function Card({ product }) {
   //   } else {
   //       return <HeartIcon className="h-6 w-6 text-cyan-400 cursor-pointer" onClick={() => toggleFavorite(product.id)} />
   //   }
-
-  function heartIcon() {
-    const alreadyInFavorite = favoriteItems.some(
-      (item) => item.id === product.id
-    );
-    if (alreadyInFavorite) {
-      return (
-        <HeartFillIcon
-          className="h-6 w-6 text-cyan-400 cursor-pointer"
-          onClick={() => removeFromFavorite(product.id)}
-        />
-      );
-    } else {
-      return (
-        <HeartIcon
-          className="h-6 w-6 text-cyan-400 cursor-pointer"
-          onClick={() => addToFavorite(product)}
-        />
-      );
-    }
-  }
 
   function cartIcon() {
     const alreadyInCart = cartItems.some((item) => item.id === product.id);
@@ -100,7 +79,7 @@ export default function Card({ product }) {
         </div>
         <div className="flex justify-between items-center mt-5 mb-4">
           {/* <div className="h-10 w-10 rounded-full border border-cyan-400 grid place-content-center"> */}
-            {heartIcon()}
+            {heartIcon(product)}
           {/* </div> */}
           <p className="text-lg font-bold text-gray-900">{`$${Number(product.price).toFixed(2)}`}</p>
           {/* <div className="h-10 w-10 rounded-full border border-cyan-400 grid place-content-center"> */}
