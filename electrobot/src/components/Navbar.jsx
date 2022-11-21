@@ -158,15 +158,12 @@ function classNames(...classes) {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [showCart, setShowCart] = useState(false);
-  const { cartItems, favoriteItems, removeFromCart, addQuantity } =
+  const { cartItems, favoriteItems, removeFromCart, addQuantity, cartQuantity } =
     useContext(Context);
   
     const navigate = useNavigate()
 
-  const items_in_cart = cartItems.reduce(
-    (acc, item) => acc + (item.items_in_stock > 0 ? Number(item.qty) || 1 : 0),
-    0
-  );
+  
 
   const cartIcon =
     cartItems.length > 0 ? (
@@ -515,7 +512,7 @@ export default function Navbar() {
                   >
                     {cartIcon}
                     <span className="ml-2 text-sm font-medium text-cyan-700 group-hover:text-cyan-800">
-                      {items_in_cart}
+                      {cartQuantity}
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                     <Transition.Root show={showCart} as={Fragment}>

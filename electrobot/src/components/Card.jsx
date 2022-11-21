@@ -10,13 +10,9 @@ import { Link } from "react-router-dom";
 
 export default function Card({ product }) {
   const {
-    toggleFavorite,
     cartItems,
     addToCart,
     removeFromCart,
-    favoriteItems,
-    addToFavorite,
-    removeFromFavorite,
     heartIcon
   } = useContext(Context);
 

@@ -5,7 +5,7 @@ import CustomSelect from "./CustomSelect";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 
 function CartItems() {
-  const { cartItems, removeFromCart, addQuantity } = useContext(Context);
+  const { cartItems, removeFromCart, addQuantity, getItemQuantity } = useContext(Context);
 
   return (
     <div className="flow-root">
@@ -41,6 +41,7 @@ function CartItems() {
                     addQuantity={addQuantity}
                     items_in_stock={item.items_in_stock}
                     qty={item.qty}
+                    getItemQuantity={getItemQuantity}
                   />
                 ) : (
                   <div className="flex gap-x-3 items-center">

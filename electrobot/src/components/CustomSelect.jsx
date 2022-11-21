@@ -2,7 +2,7 @@ import { Fragment, useState, useEffect } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 
-export default function CustomSelect({ quantity, id, addQuantity, qty }) {
+export default function CustomSelect({ quantity, id, addQuantity, qty, getItemQuantity }) {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState(1);
   const quantity_array = [...Array(quantity).keys()];
@@ -25,7 +25,7 @@ export default function CustomSelect({ quantity, id, addQuantity, qty }) {
   
   return (
     <div className="w-[70px]">
-      <Combobox value={selected} onChange={setSelected}>
+      <Combobox value={getItemQuantity(id)} onChange={setSelected}>
         {console.log("item id :", id, "item quantity :", selected)}
         {selected_qty}
         <div className="relative mt-1">

@@ -1,6 +1,6 @@
 import { Fragment, useState, useContext } from "react";
 import {
-  // HomeIcon,
+  HomeIcon,
   CheckIcon,
   HeartIcon as HeartFillIcon,
   StarIcon,
@@ -12,7 +12,7 @@ import { HeartIcon } from "@heroicons/react/24/outline";
 import CustomSelect from "./CustomSelect";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import FeaturedProducts from "./FeaturedProducts"
-import {HomeIcon} from "@heroicons/react/24/outline";
+// import {HomeIcon} from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
 
@@ -54,7 +54,7 @@ function ProductDetails() {
             <div className="col-span-2">
               <div className="flex flex-col gap-y-4">
                 <div className="text-sm text-gray-500 flex items-center gap-x-2 capitalize">
-                    <HomeIcon className="h-4 w-4 text-center cursor-pointer" onClick={() => navigate("/")} />
+                    <HomeIcon className="h-4 w-4 text-center cursor-pointer" onClick={() => navigate("/")} />/
                   <p >{product.category}</p>/
                   <p >{product.subcategory}</p>
                 </div>

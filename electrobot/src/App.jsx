@@ -26,7 +26,7 @@ function App() {
         <Route path="/store" element={[<Store />]} />
         <Route path="/sensors" element={[<Sensors /> ]} />
         <Route path="/product-details/:id" element={[<ProductDetails />]} />
-
+        
       </Routes>      
       <Footer />
 

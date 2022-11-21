@@ -6,15 +6,27 @@ import {
   ShoppingBagIcon as ShoppingBagFillIcon,
 } from "@heroicons/react/24/solid";
 import CustomSelect from "../CustomSelect";
+import ShoppingCart from "../ShoppingCart";
+import useLocalStorage from "../../hooks/useLocalStorage";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const Context = React.createContext();
 
 
 function ContextProvider({ children }) {
   const [allData, setAllData] = useState(data);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useLocalStorage("shopping-cart", []);
   const [favoriteItems, setFavoriteItems] = useState([]);
+  const [showCart, setShowCart] = useState(false);
 
+
+  const openCart = () => setShowCart(true)
+  const closeCart = () => setShowCart(false)
+
+
+  function getItemQuantity(id) {
+    return cartItems.find(item => item.id === id)?.qty || 0
+  }
 
   function addQuantity(id, qty=1) {
     console.log(id);
@@ -27,11 +39,26 @@ function ContextProvider({ children }) {
     setCartItems(updatedArr);
   }
 
-  function addToCart(newItem) {
-    const alreadyInCart = cartItems.some((item) => item.id === newItem.id);
-    if (!alreadyInCart) {
-    return setCartItems((prevItems) => [...prevItems, newItem]);
-    } 
+  const cartQuantity = cartItems.reduce(
+    (acc, item) => acc + (item.items_in_stock > 0 ? Number(item.qty) || 1 : 0),
+    0
+  );
+
+  function addToCart(product) {
+    setCartItems(currItems => {
+      if (currItems.find(item => item.id === product.id) == null) {
+        console.log([...currItems, {...product, qty: 1}])
+        return [...currItems, {...product , qty: 1}]
+      } else {
+        return currItems.map(item => {
+          if (item.id === product.id) {
+            return {...item, qty: item.qty + 1}
+          } else {
+            return item
+          }
+        })
+      }
+    })
   }
   console.log(cartItems);
 
@@ -79,6 +106,7 @@ function ContextProvider({ children }) {
     <Context.Provider
       value={{
         allData,
+        getItemQuantity,
         cartItems,
         addToCart,
         removeFromCart,
@@ -88,9 +116,15 @@ function ContextProvider({ children }) {
         removeFromFavorite,
         addQuantity,
         heartIcon,
+        cartQuantity,
+        // openCart,
+        // closeCart,
       }}
     >
       {children}
+      {/* <Router> */}
+        {/* <ShoppingCart showCart={showCart} /> */}
+      {/* </Router> */}
     </Context.Provider>
   );
 }
