@@ -35,7 +35,7 @@ const navigation = {
         //   imageAlt: "Resistors",
         // },
         {
-          id: "fc01",
+          id: "transistors",
           name: "Transistors",
           href: "#",
           imageSrc:
@@ -43,15 +43,15 @@ const navigation = {
           imageAlt: "Transistors",
         },
         {
-          id: "fc02",
-          name: "Capcitors",
+          id: "capacitors",
+          name: "Capacitors",
           href: "#",
           imageSrc:
             "https://media.gettyimages.com/photos/collection-of-capacitors-against-a-white-background-picture-id172962646?k=20&m=172962646&s=612x612&w=0&h=ES1R7bMMDkR5r3Xp3CnJD-GJTaWLtL8aQ4e-wi-Aaxo=",
           imageAlt: "Capacitors",
         },
         {
-          id: "fc03",
+          id: "inductors",
           name: "Inductors",
           href: "#",
           imageSrc:
@@ -59,7 +59,7 @@ const navigation = {
           imageAlt: "Inductors",
         },
         {
-          id: "fc04",
+          id: "leds",
           name: "Leds",
           href: "#",
           imageSrc:
@@ -73,7 +73,7 @@ const navigation = {
       name: "Microcontrollers",
       featured: [
         {
-          id: "fm01",
+          id: "arduino",
           name: "Arduino",
           href: "#",
           imageSrc:
@@ -81,7 +81,7 @@ const navigation = {
           imageAlt: "Arduino",
         },
         {
-          id: "fm02",
+          id: "esp series",
           name: "Esp series",
           href: "#",
           imageSrc:
@@ -89,7 +89,7 @@ const navigation = {
           imageAlt: "Esp32",
         },
         {
-          id: "fm03",
+          id: "raspberri pi",
           name: "Raspberri pi",
           href: "#",
           imageSrc:
@@ -97,7 +97,7 @@ const navigation = {
           imageAlt: "Raspberri pi",
         },
         {
-          id: "fm04",
+          id: "stm32",
           name: "Stm32",
           href: "#",
           imageSrc:
@@ -158,7 +158,7 @@ function classNames(...classes) {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [showCart, setShowCart] = useState(false);
-  const { cartItems, favoriteItems, removeFromCart, addQuantity, cartQuantity } =
+  const { cartItems, favoriteItems, cartQuantity } =
     useContext(Context);
   
     const navigate = useNavigate()
@@ -270,13 +270,13 @@ export default function Navbar() {
                                   className="object-cover object-center"
                                 />
                               </div>
-                              <button className="mt-6 block font-medium text-gray-900">
+                              <Link to={`/category/${item.id}`} className="mt-6 block font-medium text-gray-900">
                                 <span
                                   className="absolute inset-0 z-10"
                                   aria-hidden="true"
                                 />
                                 {item.name}
-                              </button>
+                              </Link>
                               <p aria-hidden="true" className="mt-1">
                                 Shop now
                               </p>
@@ -442,13 +442,13 @@ export default function Navbar() {
                                               className="object-cover object-center h-full"
                                             />
                                           </div>
-                                          <button className="mt-6 block font-medium text-gray-900">
+                                          <Link to={`/category/${item.id}`} className="mt-6 block font-medium text-gray-900">
                                             <span
                                               className="absolute inset-0 z-10"
                                               aria-hidden="true"
                                             />
                                             {item.name}
-                                          </button>
+                                          </Link>
                                           <p
                                             aria-hidden="true"
                                             className="mt-1"

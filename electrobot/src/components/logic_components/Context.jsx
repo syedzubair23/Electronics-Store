@@ -5,10 +5,7 @@ import {
   HeartIcon as HeartFillIcon,
   ShoppingBagIcon as ShoppingBagFillIcon,
 } from "@heroicons/react/24/solid";
-import CustomSelect from "../CustomSelect";
-import ShoppingCart from "../ShoppingCart";
 import useLocalStorage from "../../hooks/useLocalStorage";
-import { BrowserRouter as Router } from "react-router-dom";
 
 const Context = React.createContext();
 
@@ -16,19 +13,13 @@ const Context = React.createContext();
 function ContextProvider({ children }) {
   const [allData, setAllData] = useState(data);
   const [cartItems, setCartItems] = useLocalStorage("shopping-cart", []);
-  const [favoriteItems, setFavoriteItems] = useState([]);
-  const [showCart, setShowCart] = useState(false);
-
-
-  const openCart = () => setShowCart(true)
-  const closeCart = () => setShowCart(false)
-
+  const [favoriteItems, setFavoriteItems] = useLocalStorage("favorite-items", []);
 
   function getItemQuantity(id) {
     return cartItems.find(item => item.id === id)?.qty || 0
   }
 
-  function addQuantity(id, qty=1) {
+  function addQuantity(id, qty) {
     console.log(id);
     const updatedArr = cartItems.map((product) => {
       if (product.id === id) {
@@ -117,14 +108,9 @@ function ContextProvider({ children }) {
         addQuantity,
         heartIcon,
         cartQuantity,
-        // openCart,
-        // closeCart,
       }}
     >
       {children}
-      {/* <Router> */}
-        {/* <ShoppingCart showCart={showCart} /> */}
-      {/* </Router> */}
     </Context.Provider>
   );
 }

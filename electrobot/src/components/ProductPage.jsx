@@ -20,7 +20,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function ProductDetails() {
+function ProductPage() {
   const {
     allData,
     addToCart,
@@ -270,5 +270,5 @@ function ProductDetails() {
   );
 }
 
-export default ProductDetails;
+export default ProductPage;
 

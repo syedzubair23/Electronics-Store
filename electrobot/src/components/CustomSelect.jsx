@@ -1,10 +1,11 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 
-export default function CustomSelect({ quantity, id, addQuantity, qty, getItemQuantity }) {
+export default function CustomSelect({ quantity, id, addQuantity, getItemQuantity }) {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState(1);
+  
   const quantity_array = [...Array(quantity).keys()];
 
   const filteredQuantity =
@@ -15,19 +16,15 @@ export default function CustomSelect({ quantity, id, addQuantity, qty, getItemQu
             .replace(/\s+/g, "")
             .includes(query.replace(/\s+/g, ""))
         );
-        
-  const selected_qty = useEffect(() => {
-    addQuantity(id, selected);
-  }, [selected]);
-
-  
-
   
   return (
     <div className="w-[70px]">
-      <Combobox value={getItemQuantity(id)} onChange={setSelected}>
+      <Combobox value={getItemQuantity(id)} onChange={(value) => {
+        setSelected(value)
+        addQuantity(id, value);
+      }
+        }>
         {console.log("item id :", id, "item quantity :", selected)}
-        {selected_qty}
         <div className="relative mt-1">
           <div className="relative w-full cursor-default overflow-hidden rounded-md bg-white text-left shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
             <Combobox.Input
