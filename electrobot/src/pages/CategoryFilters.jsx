@@ -1,73 +1,208 @@
-import { Fragment, useState } from 'react'
-import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
+import { Fragment, useState, useContext } from "react";
+import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronDownIcon,
+  FunnelIcon,
+  MinusIcon,
+  PlusIcon,
+  Squares2X2Icon,
+} from "@heroicons/react/20/solid";
+import { Context } from "../components/logic_components/Context";
+import Card from "../components/Card";
 
 const sortOptions = [
-  { name: 'Most Popular', href: '#', current: true },
-  { name: 'Best Rating', href: '#', current: false },
-  { name: 'Newest', href: '#', current: false },
-  { name: 'Price: Low to High', href: '#', current: false },
-  { name: 'Price: High to Low', href: '#', current: false },
-]
+  { name: "Most Popular", href: "#", current: true },
+  //   { name: 'Trending', href: '#', current: true },
+  { name: "Featured", href: "#", current: false },
+  { name: "Best Rating", href: "#", current: false },
+  { name: "Price: Low to High", href: "#", current: false },
+  { name: "Price: High to Low", href: "#", current: false },
+];
 const subCategories = [
-  { name: 'Totes', href: '#' },
-  { name: 'Backpacks', href: '#' },
-  { name: 'Travel Bags', href: '#' },
-  { name: 'Hip Bags', href: '#' },
-  { name: 'Laptop Sleeves', href: '#' },
-]
-const filters = [
-  {
-    id: 'color',
-    name: 'Color',
-    options: [
-      { value: 'white', label: 'White', checked: false },
-      { value: 'beige', label: 'Beige', checked: false },
-      { value: 'blue', label: 'Blue', checked: true },
-      { value: 'brown', label: 'Brown', checked: false },
-      { value: 'green', label: 'Green', checked: false },
-      { value: 'purple', label: 'Purple', checked: false },
-    ],
-  },
-  {
-    id: 'category',
-    name: 'Category',
-    options: [
-      { value: 'new-arrivals', label: 'New Arrivals', checked: false },
-      { value: 'sale', label: 'Sale', checked: false },
-      { value: 'travel', label: 'Travel', checked: true },
-      { value: 'organization', label: 'Organization', checked: false },
-      { value: 'accessories', label: 'Accessories', checked: false },
-    ],
-  },
-  {
-    id: 'size',
-    name: 'Size',
-    options: [
-      { value: '2l', label: '2L', checked: false },
-      { value: '6l', label: '6L', checked: false },
-      { value: '12l', label: '12L', checked: false },
-      { value: '18l', label: '18L', checked: false },
-      { value: '20l', label: '20L', checked: false },
-      { value: '40l', label: '40L', checked: true },
-    ],
-  },
-]
+  { name: "Totes", href: "#" },
+  { name: "Backpacks", href: "#" },
+  { name: "Travel Bags", href: "#" },
+  { name: "Hip Bags", href: "#" },
+  { name: "Laptop Sleeves", href: "#" },
+];
+// const filters = [
+//   {
+//     id: "brand",
+//     name: "Brand",
+//     options: [
+//       { value: "arduino", label: "Arduino", checked: false },
+//       { value: "sparkfun", label: "Sparkfun", checked: false },
+//       { value: "raspberri pi", label: "Raspberri pi", checked: true },
+//       { value: "fujitsu", label: "Fujitsu", checked: false },
+//     ],
+//   },
+//   {
+//     id: "category",
+//     name: "Category",
+//     options: [
+//       { value: "new-arrivals", label: "New Arrivals", checked: false },
+//       { value: "sale", label: "Sale", checked: false },
+//       { value: "travel", label: "Travel", checked: true },
+//       { value: "organization", label: "Organization", checked: false },
+//       { value: "accessories", label: "Accessories", checked: false },
+//     ],
+//   },
+//   {
+//     id: "size",
+//     name: "Size",
+//     options: [
+//       { value: "2l", label: "2L", checked: false },
+//       { value: "6l", label: "6L", checked: false },
+//       { value: "12l", label: "12L", checked: false },
+//       { value: "18l", label: "18L", checked: false },
+//       { value: "20l", label: "20L", checked: false },
+//       { value: "40l", label: "40L", checked: true },
+//     ],
+//   },
+// ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function CategoryFilters() {
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const { allData } = useContext(Context);
+  const [filterData, setFilterData] = useState(allData)
+  const [combineArray, setCombineArray] = useState([])
+
+  const getUniqueData = (data, property) => {
+    let newVal = data.map((currElem) => {
+      return currElem[property];
+    });
+    // let uniqueVal = new Set(newVal)
+    const slicedVal = [...new Set(newVal)].slice(8);
+    property === "subcategory"
+      ? (newVal = ["All", ...slicedVal])
+      : (newVal = [...new Set(newVal)]);
+    return newVal;
+  };
+
+  const categoryOnlyData = getUniqueData(allData, "category");
+  const subCategoryOnlyData = getUniqueData(allData, "subcategory");
+  const brandsOnlyData = getUniqueData(allData, "brand");
+  const [categoryIds, setCategoryIds] = useState([])
+
+  const filters = [
+    {
+      id: "brand",
+      name: "Brand",
+      options: brandsOnlyData
+    },
+    {
+      id: "category",
+      name: "Category",
+      options: categoryOnlyData
+    }
+  ];
+
+  const getCatogriedProducts = (filterValue, brandsOnlyData, categoryOnlyData) => {
+      //   setCombineArray(categoryArray)
+      //   console.log("Combined Array", combineArray?.concat(brandsArray))
+      
+      
+    //   const brandsArray = allData.filter((item) => item.brand === filterValue);
+    //   setCombineArray(brandsArray)
+    //   const reduceBrandArray = combineArray.reduce((acc, currItem) => {
+    //         acc = acc.concat(allData.filter((item) => item.brand === currItem))
+    //     }, [])
+    //     console.log("reduceBrand Array ", reduceBrandArray)
+        
+    //     const categoryArray = allData.filter((item) => item.category === filterValue)
+    //     setCombineArray(categoryArray)
+    //     const reduceCategoryArray = combineArray.reduce((acc, currItem) => {
+    //             acc = acc.concat(allData.filter((item) => item.category === currItem))
+    //     }, [])
+    //     console.log("reduceCategory Array ", reduceCategoryArray)
+
+
+    // const categoriedProductReducer = (acc, currItem) => {
+    //     acc = acc.concat(productsArray);
+    //     return acc;
+    // }
+
+    // if(categoryOnlyData.length === 0) {
+    //     setFilterData(allData)
+    //     return allData
+    // }
+    // else{
+    //     const filterReduced = categoryOnlyData.reduce(categoriedProductReducer, [])
+    //     setFilterData(filterReduced)
+    //     return filterReduced
+    // }
+}
+
+const resetState = () => {
+    setCategoryIds([])
+    setFilterData([])
+}
+
+  const updateFilterValue = (event) => {
+    resetState()
+    let name = event.target.name;
+    let value = event.target.value;
+
+    const filterDataArray = filteredData(value);
+
+    setFilterData(filterDataArray)
+
+    return filterDataArray;
+  };
+
+  const filteredData = (filterProperty) => {
+    let filterArray =
+      filterProperty === "All"
+        ? allData.filter((product) => product.category === "sensors")
+        : allData.filter((product) => product.subcategory === filterProperty);
+    console.log(filterArray);
+    return filterArray;
+  };
+
+  const brandData = (filterBrand) => {
+    return allData.filter((product) => (product.brand === filterBrand || product.category === filterBrand))
+  }
+
+  const handleCategory = e => {
+    resetState()
+    const currentCategoryChecked = e.target.value
+    const allCategoriesChecked = [...categoryIds]
+    const indexFound = allCategoriesChecked.indexOf(currentCategoryChecked);
+
+    let updatedCategoryIds;
+    if (indexFound === -1) {
+        updatedCategoryIds = [...categoryIds, currentCategoryChecked]
+        setCategoryIds(updatedCategoryIds)
+    } else {
+        updatedCategoryIds = [...categoryIds]
+        updatedCategoryIds.splice(indexFound, 1)
+        setCategoryIds(updatedCategoryIds)
+    }
+    const DataArray = updatedCategoryIds.map((item) => brandData(item))
+    // const branddata = [...new Set([].concat(...DataArray))] // old of doing it
+    const branddata = [...new Set(DataArray.flat())]    // new way of doing it
+    branddata.length < 1 ? setFilterData(allData) : setFilterData(branddata)
+  }
+
+  const card = filterData?.map((product) => (
+    <Card key={product.id} product={product} />
+  ));
 
   return (
     <div className="bg-white">
       <div>
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-40 lg:hidden" onClose={setMobileFiltersOpen}>
+          <Dialog
+            as="div"
+            className="relative z-40 lg:hidden"
+            onClose={setMobileFiltersOpen}
+          >
             <Transition.Child
               as={Fragment}
               enter="transition-opacity ease-linear duration-300"
@@ -92,7 +227,9 @@ export default function CategoryFilters() {
               >
                 <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
                   <div className="flex items-center justify-between px-4">
-                    <h2 className="text-lg font-medium text-gray-900">Filters</h2>
+                    <h2 className="text-lg font-medium text-gray-900">
+                      Filters
+                    </h2>
                     <button
                       type="button"
                       className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
@@ -106,49 +243,74 @@ export default function CategoryFilters() {
                   {/* Filters */}
                   <form className="mt-4 border-t border-gray-200">
                     <h3 className="sr-only">Categories</h3>
-                    <ul role="list" className="px-2 py-3 font-medium text-gray-900">
-                      {subCategories.map((category) => (
-                        <li key={category.name}>
-                          <a href={category.href} className="block px-2 py-3">
-                            {category.name}
-                          </a>
+                    <ul
+                      role="list"
+                      className="px-2 py-3 font-medium text-gray-900"
+                    >
+                      {subCategoryOnlyData.map((subcategory) => (
+                        <li key={subcategory}>
+                          <button
+                            type="button"
+                            name="subcategory"
+                            value={subcategory}
+                            onClick={updateFilterValue}
+                            className="block px-2 py-3 capitalize"
+                          >
+                            {subcategory}
+                          </button>
                         </li>
                       ))}
                     </ul>
 
                     {filters.map((section) => (
-                      <Disclosure as="div" key={section.id} className="border-t border-gray-200 px-4 py-6">
+                      <Disclosure
+                        as="div"
+                        key={section.id}
+                        className="border-t border-gray-200 px-4 py-6"
+                      >
                         {({ open }) => (
                           <>
                             <h3 className="-mx-2 -my-3 flow-root">
                               <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
-                                <span className="font-medium text-gray-900">{section.name}</span>
+                                <span className="font-medium text-gray-900">
+                                  {section.name}
+                                </span>
                                 <span className="ml-6 flex items-center">
                                   {open ? (
-                                    <MinusIcon className="h-5 w-5" aria-hidden="true" />
+                                    <MinusIcon
+                                      className="h-5 w-5"
+                                      aria-hidden="true"
+                                    />
                                   ) : (
-                                    <PlusIcon className="h-5 w-5" aria-hidden="true" />
+                                    <PlusIcon
+                                      className="h-5 w-5"
+                                      aria-hidden="true"
+                                    />
                                   )}
                                 </span>
                               </Disclosure.Button>
                             </h3>
                             <Disclosure.Panel className="pt-6">
-                              <div className="space-y-6">
+                              <div className={`max-h-64 space-y-6 ${section.options.length > 5 ? "overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-400 scrollbar-track-slate-100 scrollbar-track-rounded-full scrollbar-thumb-rounded-full hover:scrollbar-thumb-cyan-500" : "overflow-hidden"}`}>
                                 {section.options.map((option, optionIdx) => (
-                                  <div key={option.value} className="flex items-center">
+                                  <div
+                                    key={option}
+                                    className="flex items-center"
+                                  >
                                     <input
                                       id={`filter-mobile-${section.id}-${optionIdx}`}
-                                      name={`${section.id}[]`}
-                                      defaultValue={option.value}
+                                      name={`${option}[]`}
                                       type="checkbox"
-                                      defaultChecked={option.checked}
+                                      value={option}
+                                      checked={categoryIds.includes(option)}
                                       className="h-4 w-4 rounded border-gray-300 text-cyan-400 focus:ring-cyan-300"
+                                      onChange={handleCategory}
                                     />
                                     <label
                                       htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                      className="ml-3 min-w-0 flex-1 text-gray-500"
+                                      className="ml-3 min-w-0 flex-1 text-gray-500 capitalize"
                                     >
-                                      {option.label}
+                                      {option}
                                     </label>
                                   </div>
                                 ))}
@@ -167,7 +329,9 @@ export default function CategoryFilters() {
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between border-b border-gray-200 pt-24 pb-6">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900">Store</h1>
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+              Store
+            </h1>
 
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
@@ -198,10 +362,13 @@ export default function CategoryFilters() {
                             <a
                               href={option.href}
                               className={classNames(
-                                option.current ? 'font-medium text-gray-900' : 'text-gray-500',
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm'
+                                option.current
+                                  ? "font-medium text-gray-900"
+                                  : "text-gray-500",
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm"
                               )}
+                              onClick={console.log(option.name)}
                             >
                               {option.name}
                             </a>
@@ -213,7 +380,10 @@ export default function CategoryFilters() {
                 </Transition>
               </Menu>
 
-              <button type="button" className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7">
+              <button
+                type="button"
+                className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
+              >
                 <span className="sr-only">View grid</span>
                 <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
               </button>
@@ -237,47 +407,74 @@ export default function CategoryFilters() {
               {/* Filters */}
               <form className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
-                <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
-                  {subCategories.map((category) => (
-                    <li key={category.name}>
-                      <a href={category.href}>{category.name}</a>
+                <ul
+                  role="list"
+                  className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
+                >
+                  {subCategoryOnlyData.map((subcategory) => (
+                    <li key={subcategory}>
+                      <button
+                        type="button"
+                        name="subcategory"
+                        value={subcategory}
+                        onClick={updateFilterValue}
+                        className="capitalize"
+                      >
+                        {subcategory}
+                      </button>
                     </li>
                   ))}
                 </ul>
 
                 {filters.map((section) => (
-                  <Disclosure as="div" key={section.id} className="border-b border-gray-200 py-6">
+                  <Disclosure
+                    as="div"
+                    key={section.id}
+                    className="border-b border-gray-200 py-6"
+                  >
                     {({ open }) => (
                       <>
                         <h3 className="-my-3 flow-root">
                           <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                            <span className="font-medium text-gray-900">{section.name}</span>
+                            <span className="font-medium text-gray-900">
+                              {section.name}
+                            </span>
                             <span className="ml-6 flex items-center">
                               {open ? (
-                                <MinusIcon className="h-5 w-5" aria-hidden="true" />
+                                <MinusIcon
+                                  className="h-5 w-5"
+                                  aria-hidden="true"
+                                />
                               ) : (
-                                <PlusIcon className="h-5 w-5" aria-hidden="true" />
+                                <PlusIcon
+                                  className="h-5 w-5"
+                                  aria-hidden="true"
+                                />
                               )}
                             </span>
                           </Disclosure.Button>
                         </h3>
                         <Disclosure.Panel className="pt-6">
-                          <div className="space-y-4">
+                          <div className={`max-h-64 space-y-4 ${section.options.length > 5 ? "overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-400 scrollbar-track-slate-100 scrollbar-track-rounded-full scrollbar-thumb-rounded-full hover:scrollbar-thumb-cyan-500" : "overflow-hidden"}`}>
                             {section.options.map((option, optionIdx) => (
-                              <div key={option.value} className="flex items-center">
+                              <div
+                                key={option}
+                                className="flex items-center"
+                              >
                                 <input
                                   id={`filter-${section.id}-${optionIdx}`}
                                   name={`${section.id}[]`}
-                                  defaultValue={option.value}
                                   type="checkbox"
-                                  defaultChecked={option.checked}
+                                  value={option}
+                                  checked={categoryIds.includes(option)}
                                   className="h-4 w-4 rounded border-gray-300 text-cyan-400 focus:ring-cyan-300"
+                                  onChange={handleCategory}
                                 />
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
-                                  className="ml-3 text-sm text-gray-600"
+                                  className="ml-3 text-sm text-gray-600 capitalize"
                                 >
-                                  {option.label}
+                                  {option}
                                 </label>
                               </div>
                             ))}
@@ -292,7 +489,10 @@ export default function CategoryFilters() {
               {/* Product grid */}
               <div className="lg:col-span-3">
                 {/* Replace with your content */}
-                <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 lg:h-full" />
+                <div className="grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-2 md:grid-cols-3 xl:gap-x-8">
+                  {card}
+                </div>
+                {/* <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 lg:h-full" /> */}
                 {/* /End replace */}
               </div>
             </div>
@@ -300,5 +500,5 @@ export default function CategoryFilters() {
         </main>
       </div>
     </div>
-  )
+  );
 }

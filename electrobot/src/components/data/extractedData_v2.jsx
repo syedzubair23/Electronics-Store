@@ -346,8 +346,8 @@ export default [
     {
       "id": "ind-02",
       "title": "100uH Radial Leaded Power Inductors",
-      "brand": "Xcell",
-      "model": "UXcell0394",
+      "brand": "Uxcell",
+      "model": "Uxcell0394",
       "url": "https://m.media-amazon.com/images/I/61D9yTlgIbL._SX466_.jpg",
       "rating": "5",
       "reviews": "2",
@@ -2978,7 +2978,7 @@ export default [
         ],
       },
       "category": "sensors",
-      "subcategory": "ph sensors",
+      "subcategory": "PH sensors",
     },
     {
       "id": "sensor-05",

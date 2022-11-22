@@ -1,6 +1,4 @@
 import { useContext } from "react";
-import { HeartIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
-import { StarIcon } from "@heroicons/react/24/solid";
 import Card from "../components/Card";
 import { Context } from "../components/logic_components/Context";
 

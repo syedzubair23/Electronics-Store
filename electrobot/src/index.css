@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .visible-scrollbar::-webkit-scrollbar-thumb {
+      width: 2px;
+      height: 40px;
+    }
+}

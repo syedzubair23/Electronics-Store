@@ -48,7 +48,7 @@ export default function CustomSelect({ quantity, id, addQuantity, getItemQuantit
           >
             <Combobox.Options
               className={`
-            absolute z-50 mt-1 max-h-40 overflow-auto w-24 rounded-md bg-white py-1 text-sm shadow-md ring-1 ring-cyan-400 ring-opacity-5 focus:outline-none sm:text-sm`}
+            absolute z-50 mt-1 max-h-40 overflow-auto scrollbar-thin visible-scrollbar scrollbar-thumb-gray-300 scrollbar-track-slate-100 scrollbar-track-rounded-full scrollbar-thumb-rounded-full hover:scrollbar-thumb-gray-400 w-24 rounded-md bg-white py-1 text-sm shadow-md ring-1 ring-cyan-400 ring-opacity-5 focus:outline-none sm:text-sm`}
             >
               {filteredQuantity.length === 0 && query != "" ? (
                 <div className="relative cursor-default select-none py-2 px-4 text-cyan-900 text-center">

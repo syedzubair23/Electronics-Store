@@ -1,5 +1,9 @@
 import { useState, useContext } from "react";
-import { HeartIcon, ShoppingCartIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
+import {
+  HeartIcon,
+  ShoppingCartIcon,
+  ShoppingBagIcon,
+} from "@heroicons/react/24/outline";
 import {
   StarIcon,
   HeartIcon as HeartFillIcon,
@@ -9,12 +13,8 @@ import { Context } from "./logic_components/Context";
 import { Link } from "react-router-dom";
 
 export default function Card({ product }) {
-  const {
-    cartItems,
-    addToCart,
-    removeFromCart,
-    heartIcon
-  } = useContext(Context);
+  const { cartItems, addToCart, removeFromCart, heartIcon } =
+    useContext(Context);
 
   function cartIcon() {
     const alreadyInCart = cartItems.some((item) => item.id === product.id);
@@ -46,11 +46,15 @@ export default function Card({ product }) {
       </div>
       <div className="mt-8 flex flex-col">
         <div className="mb-3 self-center">
-          <h3 className="text-lg font-medium text-gray-900">
-            <Link to={`/product-details/${product.id}`}>
-              {product.title.substring(0, 18)}...
-            </Link>
-          </h3>
+          <Link to={`/product-details/${product.id}`}>
+            <h3 className="text-lg font-medium text-gray-900">
+              <span className="hidden sm:block">
+                {product.title.substring(0, 17)}
+                {product.title.length > 20 ? "..." : null}
+              </span>
+              <span className="block sm:hidden">{product.title}</span>
+            </h3>
+          </Link>
         </div>
         <div className="flex flex-col items-center">
           <div className="flex gap-x-0.5">
@@ -65,9 +69,11 @@ export default function Card({ product }) {
           <p className="text-sm text-gray-500 mt-2">{`${product.reviews} reviews`}</p>
         </div>
         <div className="flex justify-between items-center mt-5 mb-4">
-            {heartIcon(product)}
-          <p className="text-lg font-bold text-gray-900">{`$${Number(product.price).toFixed(2)}`}</p>
-            {cartIcon()}
+          {heartIcon(product)}
+          <p className="text-lg font-bold text-gray-900">{`$${Number(
+            product.price
+          ).toFixed(2)}`}</p>
+          {cartIcon()}
         </div>
       </div>
     </div>
