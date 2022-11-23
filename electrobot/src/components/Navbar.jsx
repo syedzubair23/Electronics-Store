@@ -6,7 +6,7 @@ import ShoppingCart from "./ShoppingCart";
 import { Context } from "./logic_components/Context";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  Bars3Icon,
+  Bars3BottomLeftIcon,
   HeartIcon,
   MagnifyingGlassIcon,
   ShoppingBagIcon,
@@ -162,7 +162,7 @@ export default function Navbar() {
     useContext(Context);
   
     const navigate = useNavigate()
-
+  
   
 
   const cartIcon =
@@ -373,7 +373,7 @@ export default function Navbar() {
                 onClick={() => setOpen(true)}
               >
                 <span className="sr-only">Open menu</span>
-                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                <Bars3BottomLeftIcon className="h-6 w-6" aria-hidden="true" />
               </button>
 
               {/* Logo */}
@@ -515,6 +515,7 @@ export default function Navbar() {
                       {cartQuantity}
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
+                  </button>
                     <Transition.Root show={showCart} as={Fragment}>
                       <Dialog
                         as="div"
@@ -630,7 +631,6 @@ export default function Navbar() {
                         </div>
                       </Dialog>
                     </Transition.Root>
-                  </button>
                 </div>
               </div>
             </div>

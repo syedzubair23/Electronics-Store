@@ -5,7 +5,11 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        "custom": '0 0 0 2px #06b6d4'
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),

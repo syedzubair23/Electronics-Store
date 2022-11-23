@@ -1,15 +1,20 @@
 import { Fragment, useState, useContext } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon, StarIcon } from "@heroicons/react/24/outline";
 import {
+  Bars3Icon,
+  Bars4Icon,
   ChevronDownIcon,
   FunnelIcon,
   MinusIcon,
   PlusIcon,
   Squares2X2Icon,
+  StarIcon as StarFillIcon,
 } from "@heroicons/react/20/solid";
 import { Context } from "../components/logic_components/Context";
 import Card from "../components/Card";
+import * as Slider from "@radix-ui/react-slider";
+import { useEffect } from "react";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -68,15 +73,21 @@ function classNames(...classes) {
 
 export default function CategoryFilters() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const { allData } = useContext(Context);
-  const [filterData, setFilterData] = useState(allData)
-  const [combineArray, setCombineArray] = useState([])
+  const { allData, minPrice, maxPrice } = useContext(Context);
+  const [filterData, setFilterData] = useState(allData);
+  const [categoryIds, setCategoryIds] = useState([]);
+  const [starRating, setStarRating] = useState(null);
+  const [changeView, setChangeView] = useState(false);
+  const [values, setValues] = useState([minPrice, maxPrice]);
+
+  const all_data = [...allData];
+
+  
 
   const getUniqueData = (data, property) => {
     let newVal = data.map((currElem) => {
       return currElem[property];
     });
-    // let uniqueVal = new Set(newVal)
     const slicedVal = [...new Set(newVal)].slice(8);
     property === "subcategory"
       ? (newVal = ["All", ...slicedVal])
@@ -87,70 +98,39 @@ export default function CategoryFilters() {
   const categoryOnlyData = getUniqueData(allData, "category");
   const subCategoryOnlyData = getUniqueData(allData, "subcategory");
   const brandsOnlyData = getUniqueData(allData, "brand");
-  const [categoryIds, setCategoryIds] = useState([])
 
   const filters = [
     {
       id: "brand",
       name: "Brand",
-      options: brandsOnlyData
+      options: brandsOnlyData,
     },
     {
       id: "category",
       name: "Category",
-      options: categoryOnlyData
-    }
+      options: categoryOnlyData,
+    },
   ];
 
-  const getCatogriedProducts = (filterValue, brandsOnlyData, categoryOnlyData) => {
-      //   setCombineArray(categoryArray)
-      //   console.log("Combined Array", combineArray?.concat(brandsArray))
-      
-      
-    //   const brandsArray = allData.filter((item) => item.brand === filterValue);
-    //   setCombineArray(brandsArray)
-    //   const reduceBrandArray = combineArray.reduce((acc, currItem) => {
-    //         acc = acc.concat(allData.filter((item) => item.brand === currItem))
-    //     }, [])
-    //     console.log("reduceBrand Array ", reduceBrandArray)
-        
-    //     const categoryArray = allData.filter((item) => item.category === filterValue)
-    //     setCombineArray(categoryArray)
-    //     const reduceCategoryArray = combineArray.reduce((acc, currItem) => {
-    //             acc = acc.concat(allData.filter((item) => item.category === currItem))
-    //     }, [])
-    //     console.log("reduceCategory Array ", reduceCategoryArray)
+  const toggle = () => {
+    setChangeView(!changeView);
+  };
 
-
-    // const categoriedProductReducer = (acc, currItem) => {
-    //     acc = acc.concat(productsArray);
-    //     return acc;
-    // }
-
-    // if(categoryOnlyData.length === 0) {
-    //     setFilterData(allData)
-    //     return allData
-    // }
-    // else{
-    //     const filterReduced = categoryOnlyData.reduce(categoriedProductReducer, [])
-    //     setFilterData(filterReduced)
-    //     return filterReduced
-    // }
-}
-
-const resetState = () => {
-    setCategoryIds([])
-    setFilterData([])
-}
+  const resetState = () => {
+    setCategoryIds([]);
+    setFilterData([]);
+    setStarRating(null);
+    setValues([minPrice, maxPrice])
+  };
 
   const updateFilterValue = (event) => {
-    resetState()
+    resetState();
     let name = event.target.name;
     let value = event.target.value;
 
     const filterDataArray = filteredData(value);
 
-    setFilterData(filterDataArray)
+    setFilterData(filterDataArray);
 
     return filterDataArray;
   };
@@ -158,35 +138,84 @@ const resetState = () => {
   const filteredData = (filterProperty) => {
     let filterArray =
       filterProperty === "All"
-        ? allData.filter((product) => product.category === "sensors")
-        : allData.filter((product) => product.subcategory === filterProperty);
-    console.log(filterArray);
+        ? all_data.filter((product) => product.category === "sensors")
+        : all_data.filter((product) => product.subcategory === filterProperty);
     return filterArray;
   };
 
   const brandData = (filterBrand) => {
-    return allData.filter((product) => (product.brand === filterBrand || product.category === filterBrand))
-  }
+    return all_data.filter(
+      (product) =>
+        product.brand === filterBrand || product.category === filterBrand
+    );
+  };
 
-  const handleCategory = e => {
-    resetState()
-    const currentCategoryChecked = e.target.value
-    const allCategoriesChecked = [...categoryIds]
+  const handleCategory = (e) => {
+    resetState();
+    const currentCategoryChecked = e.target.value;
+    const allCategoriesChecked = [...categoryIds];
     const indexFound = allCategoriesChecked.indexOf(currentCategoryChecked);
 
     let updatedCategoryIds;
     if (indexFound === -1) {
-        updatedCategoryIds = [...categoryIds, currentCategoryChecked]
-        setCategoryIds(updatedCategoryIds)
+      updatedCategoryIds = [...categoryIds, currentCategoryChecked];
+      setCategoryIds(updatedCategoryIds);
     } else {
-        updatedCategoryIds = [...categoryIds]
-        updatedCategoryIds.splice(indexFound, 1)
-        setCategoryIds(updatedCategoryIds)
+      updatedCategoryIds = [...categoryIds];
+      updatedCategoryIds.splice(indexFound, 1);
+      setCategoryIds(updatedCategoryIds);
     }
-    const DataArray = updatedCategoryIds.map((item) => brandData(item))
+    const DataArray = updatedCategoryIds.map((item) => brandData(item));
     // const branddata = [...new Set([].concat(...DataArray))] // old of doing it
-    const branddata = [...new Set(DataArray.flat())]    // new way of doing it
-    branddata.length < 1 ? setFilterData(allData) : setFilterData(branddata)
+    const branddata = [...new Set(DataArray.flat())]; // new way of doing it
+    branddata.length < 1 ? setFilterData(all_data) : setFilterData(branddata);
+  };
+
+  const getSortedProducts = (sortBy) => {
+    if (sortBy === "Price: Low to High") {
+      return all_data.sort((item1, item2) => item1.price - item2.price);
+    }
+    if (sortBy === "Price: High to Low") {
+      return all_data.sort((item1, item2) => item2.price - item1.price);
+    }
+    if (sortBy === "Best Rating") {
+      return all_data.filter((item) => item.rating === "5");
+    }
+    if (sortBy === "Featured") {
+      return all_data.filter((item) => item.featured);
+    }
+    if (sortBy === "Most Popular") {
+      return all_data.filter((item) => item.trending);
+    }
+    return allData;
+  };
+
+  const manageSort = (e) => {
+    resetState();
+    const currentValue = e.target.value;
+    const sortedProducts = getSortedProducts(currentValue);
+    setFilterData(sortedProducts);
+  };
+
+  const handleRating = (value) => {
+    resetState();
+    setStarRating(value);
+
+    const ratedFilter = all_data.filter(
+      (item) => Math.floor(Number(item.rating)) === value
+    );
+    ratedFilter.length > 0
+      ? setFilterData(ratedFilter)
+      : setFilterData(all_data);
+  };
+
+  const handlePrice = (values) => {
+    resetState()
+
+    setValues([values[0], values[1]]);
+
+    const filterPricedItem = all_data.filter((item) => (Number(item.price) >= values[0] && Number(item.price) <= values[1]))
+    filterPricedItem.length > 0 ? setFilterData(filterPricedItem) : setFilterData(all_data)
   }
 
   const card = filterData?.map((product) => (
@@ -242,7 +271,7 @@ const resetState = () => {
 
                   {/* Filters */}
                   <form className="mt-4 border-t border-gray-200">
-                    <h3 className="sr-only">Categories</h3>
+                    <h3 className="sr-only">Sensor Subcategories</h3>
                     <ul
                       role="list"
                       className="px-2 py-3 font-medium text-gray-900"
@@ -291,7 +320,13 @@ const resetState = () => {
                               </Disclosure.Button>
                             </h3>
                             <Disclosure.Panel className="pt-6">
-                              <div className={`max-h-64 space-y-6 ${section.options.length > 5 ? "overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-400 scrollbar-track-slate-100 scrollbar-track-rounded-full scrollbar-thumb-rounded-full hover:scrollbar-thumb-cyan-500" : "overflow-hidden"}`}>
+                              <div
+                                className={`max-h-64 space-y-6 ${
+                                  section.options.length > 5
+                                    ? "overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-400 scrollbar-track-slate-100 scrollbar-track-rounded-full scrollbar-thumb-rounded-full hover:scrollbar-thumb-cyan-500"
+                                    : "overflow-hidden"
+                                }`}
+                              >
                                 {section.options.map((option, optionIdx) => (
                                   <div
                                     key={option}
@@ -320,6 +355,41 @@ const resetState = () => {
                         )}
                       </Disclosure>
                     ))}
+
+                    <div className="border-t border-gray-200 px-4 py-6 flex gap-x-2">
+                      {[...Array(5)].map((_, i) => (
+                        <span
+                          type="button"
+                          key={i}
+                          onClick={() => handleRating(i + 1)}
+                          className="cursor-pointer"
+                        >
+                          {starRating > i ? (
+                            <StarFillIcon className="h-6 w-6 text-yellow-400 hover:text-yellow-500 hover:shadow" />
+                          ) : (
+                            <StarIcon className="h-6 w-6 text-yellow-400 hover:text-yellow-500 hover:shadow" />
+                          )}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="border-t border-gray-200 px-4 py-6">
+                    <Slider.Root
+                    onValueChange={handlePrice}
+                    className="flex items-center relative max-w-full slider"
+                    value={values}
+                    min={0}
+                    max={maxPrice}
+                    step={5}
+                    minStepsBetweenThumbs={1}
+                  >
+                    <Slider.Track className="h-[3px] bg-gray-200 relative flex-auto">
+                      <Slider.Range className="h-[3px] bg-cyan-400" />
+                    </Slider.Track>
+                    <Slider.Thumb className="shadow-custom hover:bg-cyan-500 block w-4 h-4 bg-white rounded-full outline-cyan-600" />
+                    <Slider.Thumb className="shadow-custom hover:bg-cyan-500 block w-4 h-4 bg-white rounded-full outline-cyan-600" />
+                  </Slider.Root>
+                    </div>
                   </form>
                 </Dialog.Panel>
               </Transition.Child>
@@ -359,8 +429,7 @@ const resetState = () => {
                       {sortOptions.map((option) => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
-                            <a
-                              href={option.href}
+                            <button
                               className={classNames(
                                 option.current
                                   ? "font-medium text-gray-900"
@@ -368,10 +437,13 @@ const resetState = () => {
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm"
                               )}
-                              onClick={console.log(option.name)}
+                              type="button"
+                              name="sort"
+                              value={option.name}
+                              onClick={manageSort}
                             >
                               {option.name}
-                            </a>
+                            </button>
                           )}
                         </Menu.Item>
                       ))}
@@ -383,9 +455,16 @@ const resetState = () => {
               <button
                 type="button"
                 className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
+                onClick={toggle}
               >
-                <span className="sr-only">View grid</span>
-                <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
+                <span className="sr-only">
+                  View {changeView ? "List" : "grid"}
+                </span>
+                {changeView ? (
+                  <Bars3Icon className="h-5 w-5" aria-hidden="true" />
+                ) : (
+                  <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
+                )}
               </button>
               <button
                 type="button"
@@ -455,12 +534,15 @@ const resetState = () => {
                           </Disclosure.Button>
                         </h3>
                         <Disclosure.Panel className="pt-6">
-                          <div className={`max-h-64 space-y-4 ${section.options.length > 5 ? "overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-400 scrollbar-track-slate-100 scrollbar-track-rounded-full scrollbar-thumb-rounded-full hover:scrollbar-thumb-cyan-500" : "overflow-hidden"}`}>
+                          <div
+                            className={`max-h-64 space-y-4 ${
+                              section.options.length > 5
+                                ? "overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-400 scrollbar-track-slate-100 scrollbar-track-rounded-full scrollbar-thumb-rounded-full hover:scrollbar-thumb-cyan-500"
+                                : "overflow-hidden"
+                            }`}
+                          >
                             {section.options.map((option, optionIdx) => (
-                              <div
-                                key={option}
-                                className="flex items-center"
-                              >
+                              <div key={option} className="flex items-center">
                                 <input
                                   id={`filter-${section.id}-${optionIdx}`}
                                   name={`${section.id}[]`}
@@ -484,6 +566,41 @@ const resetState = () => {
                     )}
                   </Disclosure>
                 ))}
+
+                <div className="border-b border-gray-200 py-6 flex gap-x-2">
+                  {[...Array(5)].map((_, i) => (
+                    <span
+                      type="button"
+                      key={i}
+                      onClick={() => handleRating(i + 1)}
+                      className="cursor-pointer"
+                    >
+                      {starRating > i ? (
+                        <StarFillIcon className="h-6 w-6 text-yellow-400 hover:text-yellow-500 hover:shadow" />
+                      ) : (
+                        <StarIcon className="h-6 w-6 text-yellow-400 hover:text-yellow-500 hover:shadow" />
+                      )}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="border-b border-gray-200 py-6">
+                  <Slider.Root
+                    onValueChange={handlePrice}
+                    className="flex items-center relative max-w-full slider"
+                    value={values}
+                    min={0}
+                    max={maxPrice}
+                    step={5}
+                    minStepsBetweenThumbs={1}
+                  >
+                    <Slider.Track className="h-[3px] bg-gray-200 relative flex-auto">
+                      <Slider.Range className="h-full block absolute bg-cyan-400" />
+                    </Slider.Track>
+                    <Slider.Thumb className="shadow-custom hover:bg-cyan-500 block w-4 h-4 bg-gray-50 rounded-full outline-cyan-600" />
+                    <Slider.Thumb className="shadow-custom hover:bg-cyan-500 block w-4 h-4 bg-gray-50 rounded-full outline-cyan-600" />
+                  </Slider.Root>
+                </div>
               </form>
 
               {/* Product grid */}

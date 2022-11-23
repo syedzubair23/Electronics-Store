@@ -107,7 +107,7 @@ export default [
       "brand": "Fujitsu",
       "model": "CC-1.5",
       "url": "https://www.niden.ro/5794-thickbox_default/condensator-ceramic-22nf-50v.jpg",
-      "rating": "5",
+      "rating": "1",
       "reviews": "1",
       "price": "0.21",
       "items_in_stock": "12",
@@ -117,7 +117,7 @@ export default [
         "star_ratings": [
           {
             "stars": "5",
-            "percentage": "100%",
+            "percentage": "0%",
           },
           {
             "stars": "4",
@@ -133,7 +133,7 @@ export default [
           },
           {
             "stars": "1",
-            "percentage": "0%",
+            "percentage": "100%",
           },
         ],
         "customer_reviews": [
@@ -141,8 +141,8 @@ export default [
             "avatar_url":
               "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Brosky",
-            "rating": "5",
-            "comments": "Too fragile but does its work.",
+            "rating": "1",
+            "comments": "Broke leads easily as these are too fragile.",
           },
         ],
       },
@@ -204,7 +204,7 @@ export default [
       "brand": "Fujitsu",
       "model": "MC-3u",
       "url": "https://cdn2.botland.store/99500-pdt_540/motor-capacitor-3uf450v-30x57mm-with-wires.jpg",
-      "rating": "4",
+      "rating": "2",
       "reviews": "2",
       "price": "1.09",
       "items_in_stock": "2",
@@ -218,7 +218,7 @@ export default [
           },
           {
             "stars": "4",
-            "percentage": "100%",
+            "percentage": "0%",
           },
           {
             "stars": "3",
@@ -226,7 +226,7 @@ export default [
           },
           {
             "stars": "2",
-            "percentage": "0%",
+            "percentage": "100%",
           },
           {
             "stars": "1",
@@ -238,8 +238,8 @@ export default [
             "avatar_url":
               "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Balki",
-            "rating": "4",
-            "comments": "Voltage ranges are perfect.",
+            "rating": "2",
+            "comments": "Voltage ranges are not perfect.",
           },
         ],
       },

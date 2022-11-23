@@ -92,6 +92,9 @@ function ContextProvider({ children }) {
   }
 
   
+    const priceArray = allData.map((item) => Number(item.price))
+    const minPrice = Math.min(...priceArray)
+    const maxPrice = Math.max(...priceArray)
 
   return (
     <Context.Provider
@@ -108,6 +111,8 @@ function ContextProvider({ children }) {
         addQuantity,
         heartIcon,
         cartQuantity,
+        minPrice,
+        maxPrice
       }}
     >
       {children}
