@@ -47,7 +47,7 @@ export default function Card({ product }) {
       <div className="mt-8 flex flex-col">
         <div className="mb-3 self-center">
           <Link to={`/product-details/${product.id}`}>
-            <h3 className="text-lg font-medium text-gray-900">
+            <h3 className="text-lg font-medium text-gray-900 text-center">
               <span className="hidden sm:block">
                 {product.title.substring(0, 17)}
                 {product.title.length > 20 ? "..." : null}

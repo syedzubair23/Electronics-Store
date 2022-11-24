@@ -11,6 +11,7 @@ import {
   MagnifyingGlassIcon,
   ShoppingBagIcon,
   XMarkIcon,
+  BellIcon
 } from "@heroicons/react/24/outline";
 import {
   ShoppingBagIcon as ShoppingBagFillIcon,
@@ -486,7 +487,7 @@ export default function Navbar() {
                 <div className="flex lg:ml-6">
                   <button className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
-                    <MagnifyingGlassIcon
+                    <BellIcon
                       className="h-6 w-6"
                       aria-hidden="true"
                     />

@@ -1,4 +1,4 @@
-import { Fragment, useState, useContext } from "react";
+import { Fragment, useState, useContext, useEffect, useMemo } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon, StarIcon } from "@heroicons/react/24/outline";
 import {
@@ -6,15 +6,18 @@ import {
   Bars4Icon,
   ChevronDownIcon,
   FunnelIcon,
+  MagnifyingGlassIcon,
   MinusIcon,
   PlusIcon,
   Squares2X2Icon,
   StarIcon as StarFillIcon,
+  XMarkIcon as XMarkFillIcon,
 } from "@heroicons/react/20/solid";
 import { Context } from "../components/logic_components/Context";
 import Card from "../components/Card";
 import * as Slider from "@radix-ui/react-slider";
-import { useEffect } from "react";
+import SearchBar from "../components/SearchBar";
+import { useSearchParams } from "react-router-dom";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -79,10 +82,42 @@ export default function CategoryFilters() {
   const [starRating, setStarRating] = useState(null);
   const [changeView, setChangeView] = useState(false);
   const [values, setValues] = useState([minPrice, maxPrice]);
-
+  const [search, setSearch] = useSearchParams();
   const all_data = [...allData];
+  const itemCounts = useMemo(
+    () =>
+      all_data.reduce((initial, item) => {
+        if (!isNaN(initial[item.subcategory])) {
+          initial[item.subcategory] += 1;
+        } else {
+          initial[item.subcategory] = 1;
+        }
+        return initial;
+      }, {}),
+    []
+  );
 
-  
+  const resetState = () => {
+    setCategoryIds([]);
+    setFilterData([]);
+    setStarRating(null);
+    setValues([minPrice, maxPrice]);
+  };
+
+  function searchFilter() {
+      resetState()
+    const searchedTitle = search.get("query")?.toLowerCase() ?? null;
+    const searchedProducts = searchedTitle
+      ? all_data.filter((item) =>
+          item.title.toLowerCase().includes(searchedTitle)
+        )
+      : all_data;
+    setFilterData(searchedProducts);
+  }
+
+  useEffect(() => {
+    searchFilter();
+  }, [search]);
 
   const getUniqueData = (data, property) => {
     let newVal = data.map((currElem) => {
@@ -90,7 +125,7 @@ export default function CategoryFilters() {
     });
     const slicedVal = [...new Set(newVal)].slice(8);
     property === "subcategory"
-      ? (newVal = ["All", ...slicedVal])
+      ? (newVal = [...slicedVal])
       : (newVal = [...new Set(newVal)]);
     return newVal;
   };
@@ -116,13 +151,6 @@ export default function CategoryFilters() {
     setChangeView(!changeView);
   };
 
-  const resetState = () => {
-    setCategoryIds([]);
-    setFilterData([]);
-    setStarRating(null);
-    setValues([minPrice, maxPrice])
-  };
-
   const updateFilterValue = (event) => {
     resetState();
     let name = event.target.name;
@@ -136,10 +164,9 @@ export default function CategoryFilters() {
   };
 
   const filteredData = (filterProperty) => {
-    let filterArray =
-      filterProperty === "All"
-        ? all_data.filter((product) => product.category === "sensors")
-        : all_data.filter((product) => product.subcategory === filterProperty);
+    let filterArray = all_data.filter(
+      (product) => product.subcategory === filterProperty
+    );
     return filterArray;
   };
 
@@ -210,13 +237,18 @@ export default function CategoryFilters() {
   };
 
   const handlePrice = (values) => {
-    resetState()
+    resetState();
 
     setValues([values[0], values[1]]);
 
-    const filterPricedItem = all_data.filter((item) => (Number(item.price) >= values[0] && Number(item.price) <= values[1]))
-    filterPricedItem.length > 0 ? setFilterData(filterPricedItem) : setFilterData(all_data)
-  }
+    const filterPricedItem = all_data.filter(
+      (item) =>
+        Number(item.price) >= values[0] && Number(item.price) <= values[1]
+    );
+    filterPricedItem.length > 0
+      ? setFilterData(filterPricedItem)
+      : setFilterData(all_data);
+  };
 
   const card = filterData?.map((product) => (
     <Card key={product.id} product={product} />
@@ -271,6 +303,25 @@ export default function CategoryFilters() {
 
                   {/* Filters */}
                   <form className="mt-4 border-t border-gray-200">
+                    <div className="px-4 pt-6 flex items-center justify-between">
+                      <SearchBar />
+                      <button
+                        type="button"
+                        className="capitalize px-2 py-1 border text-center border-cyan-400 font-medium tracking-wide rounded-full hover:bg-cyan-900 hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                        onClick={() => {
+                          resetState();
+                          setFilterData(allData);
+                        }}
+                      >
+                        <div className="flex gap-x-[2px] place-items-center">
+                          <XMarkIcon className="h-3 w-2.5 text-red-500 hover:text-red-300" />
+                          <p className="text-cyan-400 hover:text-white text-[10px]">
+                            Filters
+                          </p>
+                        </div>
+                      </button>
+                    </div>
+
                     <h3 className="sr-only">Sensor Subcategories</h3>
                     <ul
                       role="list"
@@ -278,15 +329,18 @@ export default function CategoryFilters() {
                     >
                       {subCategoryOnlyData.map((subcategory) => (
                         <li key={subcategory}>
-                          <button
-                            type="button"
-                            name="subcategory"
-                            value={subcategory}
-                            onClick={updateFilterValue}
-                            className="block px-2 py-3 capitalize"
-                          >
-                            {subcategory}
-                          </button>
+                          <div className="flex items-center justify-between">
+                            <button
+                              type="button"
+                              name="subcategory"
+                              value={subcategory}
+                              onClick={updateFilterValue}
+                              className="block px-2 py-3 capitalize"
+                            >
+                              {subcategory}
+                            </button>
+                            <p>{`(${itemCounts[subcategory] ?? 0})`}</p>
+                          </div>
                         </li>
                       ))}
                     </ul>
@@ -338,8 +392,8 @@ export default function CategoryFilters() {
                                       type="checkbox"
                                       value={option}
                                       checked={categoryIds.includes(option)}
-                                      className="h-4 w-4 rounded border-gray-300 text-cyan-400 focus:ring-cyan-300"
                                       onChange={handleCategory}
+                                      className="h-4 w-4 rounded border-gray-300 text-cyan-400 focus:ring-cyan-300"
                                     />
                                     <label
                                       htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
@@ -356,40 +410,100 @@ export default function CategoryFilters() {
                       </Disclosure>
                     ))}
 
-                    <div className="border-t border-gray-200 px-4 py-6 flex gap-x-2">
-                      {[...Array(5)].map((_, i) => (
-                        <span
-                          type="button"
-                          key={i}
-                          onClick={() => handleRating(i + 1)}
-                          className="cursor-pointer"
-                        >
-                          {starRating > i ? (
-                            <StarFillIcon className="h-6 w-6 text-yellow-400 hover:text-yellow-500 hover:shadow" />
-                          ) : (
-                            <StarIcon className="h-6 w-6 text-yellow-400 hover:text-yellow-500 hover:shadow" />
-                          )}
-                        </span>
-                      ))}
-                    </div>
+                    <Disclosure
+                      as="div"
+                      className="border-t border-gray-200 px-4 py-6"
+                    >
+                      {({ open }) => (
+                        <>
+                          <h3 className="-mx-2 -my-3 flow-root">
+                            <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
+                              <span className="font-medium text-gray-900">
+                                Rating
+                              </span>
+                              <span className="ml-6 flex items-center">
+                                {open ? (
+                                  <MinusIcon
+                                    className="h-5 w-5"
+                                    aria-hidden="true"
+                                  />
+                                ) : (
+                                  <PlusIcon
+                                    className="h-5 w-5"
+                                    aria-hidden="true"
+                                  />
+                                )}
+                              </span>
+                            </Disclosure.Button>
+                          </h3>
+                          <Disclosure.Panel className="pt-6">
+                            <div className="flex gap-x-2">
+                              {[...Array(5)].map((_, i) => (
+                                <span
+                                  type="button"
+                                  key={i}
+                                  onClick={() => handleRating(i + 1)}
+                                  className="cursor-pointer"
+                                >
+                                  {starRating > i ? (
+                                    <StarFillIcon className="h-6 w-6 text-yellow-400 hover:text-yellow-500 hover:shadow" />
+                                  ) : (
+                                    <StarIcon className="h-6 w-6 text-yellow-400 hover:text-yellow-500 hover:shadow" />
+                                  )}
+                                </span>
+                              ))}
+                            </div>
+                          </Disclosure.Panel>
+                        </>
+                      )}
+                    </Disclosure>
 
-                    <div className="border-t border-gray-200 px-4 py-6">
-                    <Slider.Root
-                    onValueChange={handlePrice}
-                    className="flex items-center relative max-w-full slider"
-                    value={values}
-                    min={0}
-                    max={maxPrice}
-                    step={5}
-                    minStepsBetweenThumbs={1}
-                  >
-                    <Slider.Track className="h-[3px] bg-gray-200 relative flex-auto">
-                      <Slider.Range className="h-[3px] bg-cyan-400" />
-                    </Slider.Track>
-                    <Slider.Thumb className="shadow-custom hover:bg-cyan-500 block w-4 h-4 bg-white rounded-full outline-cyan-600" />
-                    <Slider.Thumb className="shadow-custom hover:bg-cyan-500 block w-4 h-4 bg-white rounded-full outline-cyan-600" />
-                  </Slider.Root>
-                    </div>
+                    <Disclosure
+                      as="div"
+                      className="border-t border-gray-200 px-4 py-6"
+                    >
+                      {({ open }) => (
+                        <>
+                          <h3 className="-mx-2 -my-3 flow-root">
+                            <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
+                              <span className="font-medium text-gray-900">
+                                Price
+                              </span>
+                              <span className="ml-6 flex items-center">
+                                {open ? (
+                                  <MinusIcon
+                                    className="h-5 w-5"
+                                    aria-hidden="true"
+                                  />
+                                ) : (
+                                  <PlusIcon
+                                    className="h-5 w-5"
+                                    aria-hidden="true"
+                                  />
+                                )}
+                              </span>
+                            </Disclosure.Button>
+                          </h3>
+                          <Disclosure.Panel className="pt-6">
+                            <Slider.Root
+                              onValueChange={handlePrice}
+                              className="flex items-center relative max-w-full slider"
+                              value={values}
+                              min={0}
+                              max={maxPrice}
+                              step={5}
+                              minStepsBetweenThumbs={1}
+                            >
+                              <Slider.Track className="h-[3px] bg-gray-200 relative flex-auto">
+                                <Slider.Range className="h-[3px] bg-cyan-400" />
+                              </Slider.Track>
+                              <Slider.Thumb className="shadow-custom hover:bg-cyan-500 block w-4 h-4 bg-white rounded-full outline-cyan-600" />
+                              <Slider.Thumb className="shadow-custom hover:bg-cyan-500 block w-4 h-4 bg-white rounded-full outline-cyan-600" />
+                            </Slider.Root>
+                          </Disclosure.Panel>
+                        </>
+                      )}
+                    </Disclosure>
                   </form>
                 </Dialog.Panel>
               </Transition.Child>
@@ -485,22 +599,46 @@ export default function CategoryFilters() {
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Filters */}
               <form className="hidden lg:block">
+                <div className="">
+                  <div className="flex items-center justify-between">
+                    <SearchBar />
+                    <button
+                      type="button"
+                      className="block capitalize px-2 py-1 border text-center border-cyan-400 font-medium tracking-wide rounded-full hover:bg-cyan-900 hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                      onClick={() => {
+                        resetState();
+                        setFilterData(allData);
+                      }}
+                    >
+                      <div className="flex gap-x-[2px] place-items-center">
+                        <XMarkIcon className="h-3 w-2.5 text-red-500 hover:text-red-300" />
+                        <p className="text-cyan-400 hover:text-white text-[10px]">
+                          Filters
+                        </p>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+
                 <h3 className="sr-only">Categories</h3>
                 <ul
                   role="list"
-                  className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
+                  className="space-y-4 border-b border-gray-200 py-6 text-sm font-medium text-gray-900"
                 >
                   {subCategoryOnlyData.map((subcategory) => (
                     <li key={subcategory}>
-                      <button
-                        type="button"
-                        name="subcategory"
-                        value={subcategory}
-                        onClick={updateFilterValue}
-                        className="capitalize"
-                      >
-                        {subcategory}
-                      </button>
+                      <div className="flex items-center justify-between">
+                        <button
+                          type="button"
+                          name="subcategory"
+                          value={subcategory}
+                          onClick={updateFilterValue}
+                          className="block capitalize"
+                        >
+                          {subcategory}
+                        </button>
+                        <p>{`(${itemCounts[subcategory] ?? 0})`}</p>
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -549,8 +687,8 @@ export default function CategoryFilters() {
                                   type="checkbox"
                                   value={option}
                                   checked={categoryIds.includes(option)}
-                                  className="h-4 w-4 rounded border-gray-300 text-cyan-400 focus:ring-cyan-300"
                                   onChange={handleCategory}
+                                  className="h-4 w-4 rounded border-gray-300 text-cyan-400 focus:ring-cyan-300"
                                 />
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
@@ -567,40 +705,94 @@ export default function CategoryFilters() {
                   </Disclosure>
                 ))}
 
-                <div className="border-b border-gray-200 py-6 flex gap-x-2">
-                  {[...Array(5)].map((_, i) => (
-                    <span
-                      type="button"
-                      key={i}
-                      onClick={() => handleRating(i + 1)}
-                      className="cursor-pointer"
-                    >
-                      {starRating > i ? (
-                        <StarFillIcon className="h-6 w-6 text-yellow-400 hover:text-yellow-500 hover:shadow" />
-                      ) : (
-                        <StarIcon className="h-6 w-6 text-yellow-400 hover:text-yellow-500 hover:shadow" />
-                      )}
-                    </span>
-                  ))}
-                </div>
+                <Disclosure as="div" className="border-b border-gray-200 py-6">
+                  {({ open }) => (
+                    <>
+                      <h3 className="-my-3 flow-root">
+                        <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                          <span className="font-medium text-gray-900">
+                            Rating
+                          </span>
+                          <span className="ml-6 flex items-center">
+                            {open ? (
+                              <MinusIcon
+                                className="h-5 w-5"
+                                aria-hidden="true"
+                              />
+                            ) : (
+                              <PlusIcon
+                                className="h-5 w-5"
+                                aria-hidden="true"
+                              />
+                            )}
+                          </span>
+                        </Disclosure.Button>
+                      </h3>
+                      <Disclosure.Panel className="pt-6">
+                        <div className="flex gap-x-2">
+                          {[...Array(5)].map((_, i) => (
+                            <span
+                              type="button"
+                              key={i}
+                              onClick={() => handleRating(i + 1)}
+                              className="cursor-pointer"
+                            >
+                              {starRating > i ? (
+                                <StarFillIcon className="h-6 w-6 text-yellow-400 hover:text-yellow-500 hover:shadow" />
+                              ) : (
+                                <StarIcon className="h-6 w-6 text-yellow-400 hover:text-yellow-500 hover:shadow" />
+                              )}
+                            </span>
+                          ))}
+                        </div>
+                      </Disclosure.Panel>
+                    </>
+                  )}
+                </Disclosure>
 
-                <div className="border-b border-gray-200 py-6">
-                  <Slider.Root
-                    onValueChange={handlePrice}
-                    className="flex items-center relative max-w-full slider"
-                    value={values}
-                    min={0}
-                    max={maxPrice}
-                    step={5}
-                    minStepsBetweenThumbs={1}
-                  >
-                    <Slider.Track className="h-[3px] bg-gray-200 relative flex-auto">
-                      <Slider.Range className="h-full block absolute bg-cyan-400" />
-                    </Slider.Track>
-                    <Slider.Thumb className="shadow-custom hover:bg-cyan-500 block w-4 h-4 bg-gray-50 rounded-full outline-cyan-600" />
-                    <Slider.Thumb className="shadow-custom hover:bg-cyan-500 block w-4 h-4 bg-gray-50 rounded-full outline-cyan-600" />
-                  </Slider.Root>
-                </div>
+                <Disclosure as="div" className="border-b border-gray-200 py-6">
+                  {({ open }) => (
+                    <>
+                      <h3 className="-my-3 flow-root">
+                        <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                          <span className="font-medium text-gray-900">
+                            Price
+                          </span>
+                          <span className="ml-6 flex items-center">
+                            {open ? (
+                              <MinusIcon
+                                className="h-5 w-5"
+                                aria-hidden="true"
+                              />
+                            ) : (
+                              <PlusIcon
+                                className="h-5 w-5"
+                                aria-hidden="true"
+                              />
+                            )}
+                          </span>
+                        </Disclosure.Button>
+                      </h3>
+                      <Disclosure.Panel className="pt-6">
+                        <Slider.Root
+                          onValueChange={handlePrice}
+                          className="flex items-center relative max-w-full slider"
+                          value={values}
+                          min={0}
+                          max={maxPrice}
+                          step={5}
+                          minStepsBetweenThumbs={1}
+                        >
+                          <Slider.Track className="h-[3px] bg-gray-200 relative flex-auto">
+                            <Slider.Range className="h-full block absolute bg-cyan-400" />
+                          </Slider.Track>
+                          <Slider.Thumb className="shadow-custom hover:bg-cyan-500 block w-4 h-4 bg-gray-50 rounded-full outline-cyan-600" />
+                          <Slider.Thumb className="shadow-custom hover:bg-cyan-500 block w-4 h-4 bg-gray-50 rounded-full outline-cyan-600" />
+                        </Slider.Root>
+                      </Disclosure.Panel>
+                    </>
+                  )}
+                </Disclosure>
               </form>
 
               {/* Product grid */}

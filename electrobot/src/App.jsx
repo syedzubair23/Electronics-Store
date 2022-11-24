@@ -9,6 +9,7 @@ import Frontpage from "./pages/Frontpage"
 import Wishlist from "./components/Wishlist"
 import CategoryPage from "./pages/CategoryPage"
 import CategoryFilters from "./pages/CategoryFilters"
+import Pagination from "./components/Pagination"
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/category-filters" element={[<CategoryFilters />]} />
         
       </Routes>      
+      <Pagination />
       <Footer />
 
    
