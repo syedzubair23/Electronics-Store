@@ -30,7 +30,7 @@ function ProductPage() {
     addQuantity,
     heartIcon
   } = useContext(Context);
-  const { id } = useParams();
+  const { Id: id } = useParams();
   const navigate=useNavigate();
 
   const selected_product = allData.filter((item) => item.id === id);
@@ -54,9 +54,9 @@ function ProductPage() {
             <div className="col-span-2">
               <div className="flex flex-col gap-y-4">
                 <div className="text-sm text-gray-500 flex items-center gap-x-2 capitalize">
-                    <HomeIcon className="h-4 w-4 text-center cursor-pointer" onClick={() => navigate("/")} />/
-                  <p >{product.category}</p>/
-                  <p >{product.subcategory}</p>
+                    <HomeIcon className="h-4 w-4 text-center hover:text-gray-400 cursor-pointer" onClick={() => navigate("/")} />/
+                  <p className="cursor-pointer hover:underline" onClick={() => navigate(`/${product.category}`, {replace: true})}>{product.category}</p>/
+                  <p className="cursor-pointer hover:underline" onClick={() => navigate(`/${product.category}/${product.subcategory}`, {replace: true})}>{product.subcategory}</p>
                 </div>
                 <h2 className="text-4xl font-bold text-gray-900 mt-0.5">
                   {product.title}

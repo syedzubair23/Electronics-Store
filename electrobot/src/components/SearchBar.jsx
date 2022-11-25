@@ -33,7 +33,7 @@ function SearchBar() {
         onBlur={() => setFocused(false)}
         onFocus={() => setFocused((focus) => !focus)}
         onChange={onSearchChange}
-        // defaultValue={search.get("query") ?? ""}
+        defaultValue={search.get("query") ?? ""}
         id="search"
         name="search"
         className="block w-full text-xs border-none outline-none placeholder:text-xs placeholder:leading-none"

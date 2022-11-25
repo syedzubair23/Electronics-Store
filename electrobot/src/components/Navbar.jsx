@@ -271,7 +271,7 @@ export default function Navbar() {
                                   className="object-cover object-center"
                                 />
                               </div>
-                              <Link to={`/category/${item.id}`} className="mt-6 block font-medium text-gray-900">
+                              <Link to={`/${category.id}/${item.id}`} className="mt-6 block font-medium text-gray-900">
                                 <span
                                   className="absolute inset-0 z-10"
                                   aria-hidden="true"
@@ -292,7 +292,7 @@ export default function Navbar() {
                 <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   {navigation.pages.map((page) => (
                     <div key={page.id} className="flow-root">
-                        <Link to={page.href} className="-m-2 block p-2 font-medium text-gray-900">
+                        <Link to={`/${page.id}`} className="-m-2 block p-2 font-medium text-gray-900">
                           {page.name}
                         </Link>
                     </div>
@@ -443,7 +443,7 @@ export default function Navbar() {
                                               className="object-cover object-center h-full"
                                             />
                                           </div>
-                                          <Link to={`/category/${item.id}`} className="mt-6 block font-medium text-gray-900">
+                                          <Link to={`/${category.id}/${item.id}`} className="mt-6 block font-medium text-gray-900">
                                             <span
                                               className="absolute inset-0 z-10"
                                               aria-hidden="true"
@@ -472,7 +472,7 @@ export default function Navbar() {
                   {navigation.pages.map((page) => (
                     <Link
                       key={page.id}
-                      to={page.href}
+                      to={`/${page.id}`}
                       className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       {page.name}

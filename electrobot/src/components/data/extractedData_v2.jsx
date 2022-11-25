@@ -60,7 +60,7 @@ export default [
       "brand": "Fujitsu",
       "model": "IRF640",
       "url": "https://m.media-amazon.com/images/I/31W9k9qnJVL._SX466_.jpg",
-      "rating": "5",
+      "rating": "4",
       "reviews": "4",
       "price": "0.85",
       "items_in_stock": "13",
@@ -69,11 +69,11 @@ export default [
         "star_ratings": [
           {
             "stars": "5",
-            "percentage": "100%",
+            "percentage": "0%",
           },
           {
             "stars": "4",
-            "percentage": "0%",
+            "percentage": "100%",
           },
           {
             "stars": "3",
@@ -93,7 +93,7 @@ export default [
             "avatar_url":
               "https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png",
             "customer_name": "Lebstor",
-            "rating": "5",
+            "rating": "4",
             "comments": "Good Quality and gives accurate voltage readings.",
           },
         ],

@@ -1,20 +1,18 @@
-import React from 'react'
-import Brands from '../components/Brands'
-import Hero from '../components/Hero'
-import Incentives from '../components/Incentives'
-import TrendingProducts from '../components/TrendingProducts'
-
+import React from "react";
+import Brands from "../components/Brands";
+import Hero from "../components/Hero";
+import Incentives from "../components/Incentives";
+import TrendingProducts from "../components/TrendingProducts";
 
 function Frontpage() {
   return (
-    <>
-      <Hero /> 
-      <TrendingProducts /> 
+    <div>
+      <Hero />
+      <TrendingProducts />
       <Brands />
       <Incentives />
-    </>
-        
-  )
+    </div>
+  );
 }
 
-export default Frontpage
+export default Frontpage;

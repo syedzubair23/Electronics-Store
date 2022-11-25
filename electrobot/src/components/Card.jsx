@@ -46,7 +46,7 @@ export default function Card({ product }) {
       </div>
       <div className="mt-8 flex flex-col">
         <div className="mb-3 self-center">
-          <Link to={`/product-details/${product.id}`}>
+          <Link to={`/${product.category}/${product.subcategory}/${product.id}`}>
             <h3 className="text-lg font-medium text-gray-900 text-center">
               <span className="hidden sm:block">
                 {product.title.substring(0, 17)}
@@ -60,10 +60,8 @@ export default function Card({ product }) {
           <div className="flex gap-x-0.5">
             {Array(Math.floor(Number(product.rating)))
               .fill()
-              .map(() => (
-                <p>
-                  <StarIcon className="h-5 w-5 text-yellow-400" />
-                </p>
+              .map((_, i) => (
+                  <StarIcon key={i} className="h-5 w-5 text-yellow-400" />
               ))}
           </div>
           <p className="text-sm text-gray-500 mt-2">{`${product.reviews} reviews`}</p>
