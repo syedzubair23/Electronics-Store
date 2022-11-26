@@ -41,17 +41,16 @@ function ProductPage() {
       {selected_product.map((product) => (
         <div className="mx-auto max-w-2xl py-10 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8 border-b border-gray-100">
           <div className="grid grid-cols-1 gap-y-10 lg:gap-x-16 lg:grid-cols-5">
-            <div className="col-span-3  border border-gray-100 rounded-lg bg-white group-hover:opacity-75 flex items-center">
-              <div className="min-h-96 aspect-w-1 aspect-h-1 w-full  overflow-hidden lg:aspect-none lg:h-96">
+            <div className="col-span-3 order-2 lg:order-1 border border-gray-100 rounded-lg bg-white group-hover:opacity-75 flex items-center">
+              <div className="lg:min-h-96 md:h-72 md:aspect-none aspect-w-1 aspect-h-1 w-full overflow-hidden lg:aspect-none lg:h-96">
                 <img
-                  // src="https://c4.wallpaperflare.com/wallpaper/672/858/376/raspberry-pi-computer-macro-wallpaper-preview.jpg"
                   src={product.url}
                   alt={product.title}
-                  className="h-full w-full object-contain object-center lg:h-full lg:w-full"
+                  className="h-full w-full md:h-full md:w-full object-contain object-center lg:h-full lg:w-full"
                 />
               </div>
             </div>
-            <div className="col-span-2">
+            <div className="col-span-2 order-1 lg:order-2">
               <div className="flex flex-col gap-y-4">
                 <div className="text-sm text-gray-500 flex items-center gap-x-2 capitalize">
                     <HomeIcon className="h-4 w-4 text-center hover:text-gray-400 cursor-pointer" onClick={() => navigate("/")} />/
@@ -119,11 +118,11 @@ function ProductPage() {
 
           <div className="my-32 w-full">
           <Tab.Group>
-        <Tab.List className="flex space-x-6 px-4 border-b border-gray-200">
+        <Tab.List className="flex space-x-3 md:space-x-6 px-4 border-b border-gray-200">
             <Tab
               className={({ selected }) =>
                 classNames(
-                  'px-8 py-4 text-base font-medium leading-5 text-cyan-400',
+                  'px-4 sm:px-8 py-4 text-base font-medium leading-5 text-cyan-400',
                   selected
                     ? "border-cyan-400 text-cyan-400"
                     : "border-transparent text-gray-700 hover:text-gray-800",

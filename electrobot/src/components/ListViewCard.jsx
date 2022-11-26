@@ -1,10 +1,6 @@
-import {
-  StarIcon,
-  HeartIcon as HeartFillIcon,
-} from "@heroicons/react/20/solid";
-// import { HeartIcon } from "@heroicons/react/20/outline";
 import React, { useContext } from "react";
 import { Context } from "./logic_components/Context";
+import { Link } from "react-router-dom";
 
 function ListViewCard({ product }) {
   const { heartIcon } = useContext(Context);
@@ -25,7 +21,7 @@ function ListViewCard({ product }) {
           <div className="flex items-center gap-x-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-yellow-500"
+              className="h-5 w-5 text-yellow-400"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -44,17 +40,17 @@ function ListViewCard({ product }) {
             {product.subcategory}
           </div>
         </div>
-        <h3 className="font-black text-gray-800 lg:text-3xl md:text-2xl sm:xl text-lg hidden sm:block">
-          {product.title}
-        </h3>
-        <h3 className="font-black text-gray-800 lg:text-3xl md:text-2xl sm:xl text-lg block sm:hidden">
-          {product.title.substring(0, 25)}
-          {product.title.length > 30 ? "..." : null}
-        </h3>
-        {/* <p className="text-gray-500 text-sm">
-          {product.description.substring(0, 60)}
-                {product.description.length > 60 ? "..." : null}
-          </p> */}
+        
+        <Link to={`/${product.category}/${product.subcategory}/${product.id}`}>
+          <h3 className="font-black text-gray-800 lg:text-3xl md:text-2xl sm:xl text-lg hidden sm:block">
+            {product.title}
+          </h3>
+          <h3 className="font-black text-gray-800 lg:text-3xl md:text-2xl sm:xl text-lg block sm:hidden">
+            {product.title.substring(0, 25)}
+            {product.title.length > 30 ? "..." : null}
+          </h3>
+        </Link>
+
         <p className="md:text-base text-gray-500 text-sm hidden md:block">
           {product.description.substring(0, 200)}
           {product.description.length > 200 ? "..." : null}

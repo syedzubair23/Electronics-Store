@@ -1,12 +1,9 @@
 import { useState, useContext } from "react";
 import {
-  HeartIcon,
-  ShoppingCartIcon,
   ShoppingBagIcon,
 } from "@heroicons/react/24/outline";
 import {
   StarIcon,
-  HeartIcon as HeartFillIcon,
   ShoppingBagIcon as ShoppingBagFillIcon,
 } from "@heroicons/react/24/solid";
 import { Context } from "./logic_components/Context";
