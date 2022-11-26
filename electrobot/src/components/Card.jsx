@@ -43,7 +43,7 @@ export default function Card({ product }) {
       </div>
       <div className="mt-8 flex flex-col">
         <div className="mb-3 self-center">
-          <Link to={`/${product.category}/${product.subcategory}/${product.id}`}>
+          <Link to={`/${product.category}/${product.subcategory}/${product.id}`} className='hover:underline'>
             <h3 className="text-lg font-medium text-gray-900 text-center">
               <span className="hidden sm:block">
                 {product.title.substring(0, 17)}

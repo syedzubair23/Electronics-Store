@@ -7,14 +7,15 @@ export default function Category() {
   const { allData } = useContext(Context);
   const { _category } = useParams()
   
+  // const renderPage = allData.some((product) => product.includes(_category))
   const category = allData.filter((product) => product.category === _category.toString())  
 
-  const card = category.map((product) => (
+  const card = category?.map((product) => (
     <Card key={product.id} product={product} />
   ));
 
   return (
-    <div className="bg-white">
+    category.length > 0 && <div className="bg-white">
       <div className="mx-auto max-w-2xl py-10 px-4 sm:py-14 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="text-4xl font-bold tracking-tight text-gray-900 capitalize">
           {_category}

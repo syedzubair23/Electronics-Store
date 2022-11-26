@@ -1,17 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import React, { useContext } from "react";
-import { useStateValue } from "./logic_components/StateProvider";
 import { Context } from "./logic_components/Context";
-import CustomSelect from "./CustomSelect";
-import { XMarkIcon } from "@heroicons/react/24/outline";
-import { Tab, Combobox } from "@headlessui/react";
-import CheckoutForm from "./CheckoutForm";
+import { Tab } from "@headlessui/react";
 import { useFormik } from "formik";
 import { userFormSchema } from "./form_validation_schema/formValidation";
 import Subtotal from "./Subtotal";
 import CartItems from "./CartItems";
-
+import { useNavigate } from "react-router-dom";
+import useLocalStorage from "../hooks/useLocalStorage";
+import { Persist } from "formik-persist"
 
 const delivery_method = [
   { id: 1, delivery: "Standard", business_days: "4-10", charges: "5" },
@@ -42,8 +40,11 @@ function classNames(...classes) {
 }
 
 function Checkout() {
-  const { cartItems, removeFromCart, addQuantity } = useContext(Context);
+  const { cartItems } = useContext(Context);
   const [deliveryCharges, setDeliveryCharges] = useState("5");
+  const [formInput, setFormInput] = useLocalStorage("checkout-form", initialValues)
+  const navigate = useNavigate()
+
 
   const {
     values,
@@ -52,7 +53,6 @@ function Checkout() {
     handleBlur,
     handleChange,
     handleSubmit,
-    resetForm,
   } = useFormik({
     initialValues,
     validationSchema: userFormSchema,
@@ -63,14 +63,19 @@ function Checkout() {
         values
       );
       action.resetForm();
+      navigate('/order-summary', {replace: true})
     },
   });
   console.log(
     "🚀 ~ file: CheckoutForm.jsx ~ line 68 ~ Checkout ~ errors",
     errors
   );
-
   
+  useEffect(() => {
+    setFormInput(values)
+  }, [values, setFormInput])
+  
+
   const subtotal = cartItems
     .reduce(
       (acc, item) =>
@@ -108,7 +113,7 @@ function Checkout() {
                     id="email"
                     name="email"
                     className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                    value={values.name}
+                    value={values?.email  ?? ''}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -136,7 +141,7 @@ function Checkout() {
                       id="first_name"
                       name="first_name"
                       className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                      value={values.name}
+                      value={values?.first_name ?? ''}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -158,7 +163,7 @@ function Checkout() {
                       id="last_name"
                       name="last_name"
                       className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                      value={values.name}
+                      value={values?.last_name ?? ''}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -181,7 +186,7 @@ function Checkout() {
                     id="company"
                     name="company"
                     className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                    value={values.name}
+                    value={values?.company ?? ''}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -203,7 +208,7 @@ function Checkout() {
                     id="address"
                     name="address"
                     className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                    value={values.name}
+                    value={values?.address ?? ''}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -225,7 +230,7 @@ function Checkout() {
                     id="apartment"
                     name="apartment"
                     className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                    value={values.name}
+                    value={values?.apartment ?? ''}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -248,7 +253,7 @@ function Checkout() {
                       id="city"
                       name="city"
                       className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                      value={values.name}
+                      value={values?.city ?? ''}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -268,7 +273,7 @@ function Checkout() {
                       id="country"
                       name="country"
                       className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                      value={values.name}
+                      value={values?.country ?? ''}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -290,7 +295,7 @@ function Checkout() {
                       id="state_province"
                       name="state_province"
                       className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                      value={values.name}
+                      value={values?.state_province ?? ''}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -313,7 +318,7 @@ function Checkout() {
                       id="postal_code"
                       name="postal_code"
                       className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                      value={values.name}
+                      value={values?.postal_code ?? ''}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -336,7 +341,7 @@ function Checkout() {
                     id="phone"
                     name="phone"
                     className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200 block w-full p-2.5 shadow outline-none"
-                    value={values.name}
+                    value={values?.phone ?? ''}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -409,7 +414,7 @@ function Checkout() {
                     id="card_number"
                     name="card_number"
                     className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                    value={values.name}
+                    value={values?.card_number ?? ''}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -431,7 +436,7 @@ function Checkout() {
                     id="name_on_card"
                     name="name_on_card"
                     className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                    value={values.name}
+                    value={values?.name_on_card ?? ''}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -454,7 +459,7 @@ function Checkout() {
                       id="expiration_date"
                       name="expiration_date"
                       className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200 block w-full p-2.5 shadow outline-none"
-                      value={values.name}
+                      value={values?.expiration_date ?? ''}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -477,7 +482,7 @@ function Checkout() {
                       id="cvc"
                       name="cvc"
                       className="outline-none text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200 block w-full p-2.5 shadow"
-                      value={values.name}
+                      value={values?.cvc ?? ''}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -565,7 +570,7 @@ function Checkout() {
                       <div className="w-full">
                         <button
                           type="submit"
-                          className="outline-none text-center w-full rounded-md border border-transparent bg-cyan-400 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-500"
+                          className="disabled:cursor-not-allowed disabled:opacity-30 outline-none text-center w-full rounded-md border border-transparent bg-cyan-400 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-500"
                         >
                           Pay now
                         </button>

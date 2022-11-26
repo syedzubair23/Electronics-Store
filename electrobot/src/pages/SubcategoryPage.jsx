@@ -8,14 +8,15 @@ export default function SubcategoryPage() {
   const { id } = useParams()
   console.log(id)
 
+  // const renderPage = allData.some((product) => product.includes(id))
   const subcategory = allData.filter((product) => product.subcategory === id)  
 
-  const card = subcategory.map((product) => (
+  const card = subcategory?.map((product) => (
     <Card key={product.id} product={product} />
   ));
 
   return (
-    <div className="bg-white">
+    subcategory.length > 0 && <div className="bg-white">
       <div className="mx-auto max-w-2xl py-10 px-4 sm:py-14 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="text-4xl font-bold tracking-tight text-gray-900 capitalize">
           {id} 

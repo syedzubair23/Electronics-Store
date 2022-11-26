@@ -40,8 +40,8 @@ function ListViewCard({ product }) {
             {product.subcategory}
           </div>
         </div>
-        
-        <Link to={`/${product.category}/${product.subcategory}/${product.id}`}>
+
+        <Link to={`/${product.category}/${product.subcategory}/${product.id}`} className='hover:underline'>
           <h3 className="font-black text-gray-800 lg:text-3xl md:text-2xl sm:xl text-lg hidden sm:block">
             {product.title}
           </h3>

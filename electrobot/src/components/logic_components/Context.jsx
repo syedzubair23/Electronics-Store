@@ -30,7 +30,7 @@ function ContextProvider({ children }) {
     setCartItems(updatedArr);
   }
 
-  const cartQuantity = cartItems.reduce(
+  const cartQuantity = cartItems?.reduce(
     (acc, item) => acc + (item.items_in_stock > 0 ? Number(item.qty) || 1 : 0),
     0
   );
@@ -57,8 +57,9 @@ function ContextProvider({ children }) {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   }
 
-  function emptyCart() {
+  function emptyCartAndFav() {
     setCartItems([]);
+    setFavoriteItems([]);
   }
 
   function addToFavorite(newItem) {
@@ -104,7 +105,7 @@ function ContextProvider({ children }) {
         cartItems,
         addToCart,
         removeFromCart,
-        emptyCart,
+        emptyCartAndFav,
         favoriteItems,
         addToFavorite,
         removeFromFavorite,
@@ -112,7 +113,8 @@ function ContextProvider({ children }) {
         heartIcon,
         cartQuantity,
         minPrice,
-        maxPrice
+        maxPrice,
+        
       }}
     >
       {children}
