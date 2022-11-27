@@ -9,7 +9,7 @@ import Subtotal from "./Subtotal";
 import CartItems from "./CartItems";
 import { useNavigate } from "react-router-dom";
 import useLocalStorage from "../hooks/useLocalStorage";
-import { Persist } from "formik-persist"
+import { Persist } from "formik-persist";
 
 const delivery_method = [
   { id: 1, delivery: "Standard", business_days: "4-10", charges: "5" },
@@ -41,46 +41,94 @@ function classNames(...classes) {
 
 function Checkout() {
   const { cartItems } = useContext(Context);
-  const [deliveryCharges, setDeliveryCharges] = useState("5");
-  const [formInput, setFormInput] = useLocalStorage("checkout-form", initialValues)
-  const navigate = useNavigate()
-
-
-  const {
-    values,
-    errors,
-    touched,
-    handleBlur,
-    handleChange,
-    handleSubmit,
-  } = useFormik({
-    initialValues,
-    validationSchema: userFormSchema,
-    onSubmit: (values, action) => {
-      values.delivery_Charges = deliveryCharges;
-      console.log(
-        "🚀 ~ file: CheckoutForm.jsx ~ line 62 ~ CheckoutForm ~ values",
-        values
-      );
-      action.resetForm();
-      navigate('/order-summary', {replace: true})
-    },
-  });
-  console.log(
-    "🚀 ~ file: CheckoutForm.jsx ~ line 68 ~ Checkout ~ errors",
-    errors
+  const [deliveryCharges, setDeliveryCharges] = useLocalStorage(
+    "delivery-charges",
+    "5"
   );
+  const [formInput, setFormInput] = useLocalStorage(
+    "checkout-form",
+    initialValues
+  );
+  const navigate = useNavigate();
+
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues,
+      validationSchema: userFormSchema,
+      onSubmit: (values, action) => {
+        values.delivery_Charges = deliveryCharges;
+        action.resetForm();
+        navigate("/order-summary", { replace: true });
+      },
+    });
+
+    useEffect(() => {
+      values.email = formInput.email;
+      values.first_name = formInput.first_name;
+      values.last_name = formInput.last_name;
+      values.company = formInput.company;
+      values.address = formInput.address;
+      values.apartment = formInput.apartment;
+      values.city = formInput.city;
+      values.country = formInput.country;
+      values.state_province = formInput.state_province;
+      values.postal_code = formInput.postal_code;
+      values.phone = formInput.phone;
+      values.delivery_Charges = deliveryCharges;
+      values.card_number = formInput.card_number;
+      values.name_on_card = formInput.name_on_card;
+      values.expiration_date = formInput.expiration_date;
+      values.cvc = formInput.cvc;
+      return () => {
+        values.email = "";
+        values.first_name = "";
+        values.last_name = "";
+        values.company = "";
+        values.address = "";
+        values.apartment = "";
+        values.city = "";
+        values.country = "";
+        values.state_province = "";
+        values.postal_code = "";
+        values.phone = "";
+        values.delivery_Charges = "5";
+        values.card_number = "";
+        values.name_on_card = "";
+        values.expiration_date = "";
+        values.cvc = "";
+      };
+    }, []);
   
+    function resetForm() {
+      values.email = "";
+      values.first_name = "";
+      values.last_name = "";
+      values.company = "";
+      values.address = "";
+      values.apartment = "";
+      values.city = "";
+      values.country = "";
+      values.state_province = "";
+      values.postal_code = "";
+      values.phone = "";
+      values.delivery_Charges = "5";
+      values.card_number = "";
+      values.name_on_card = "";
+      values.expiration_date = "";
+      values.cvc = "";
+      setFormInput(initialValues);
+    } 
+
   useEffect(() => {
-    setFormInput(values)
-  }, [values, setFormInput])
-  
+    setFormInput(values);
+  }, [values, formInput, resetForm]);
 
   const subtotal = cartItems
     .reduce(
       (acc, item) =>
         acc +
-        (item.items_in_stock > 0 ? Number(item.qty) || 1 : 0) * Number(item.price),
+        (item.items_in_stock > 0 ? Number(item.qty) || 1 : 0) *
+          Number(item.price),
       0
     )
     .toFixed(2);
@@ -94,7 +142,7 @@ function Checkout() {
     <div className="bg-gray-100">
       <div className="mx-auto max-w-2xl py-12 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
         <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 gap-y-10 gap-x-8 lg:grid-cols-2 xl:gap-x-8">
+          <div className="grid grid-cols-1 gap-y-10 gap-x-8 lg:grid-cols-2 md:gap-x-16">
             {/* <CheckoutForm /> */}
             <div>
               <div>
@@ -112,8 +160,8 @@ function Checkout() {
                     type="email"
                     id="email"
                     name="email"
-                    className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                    value={values?.email  ?? ''}
+                    className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow-sm outline-none"
+                    value={values?.email ?? ""}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -140,8 +188,8 @@ function Checkout() {
                       type="text"
                       id="first_name"
                       name="first_name"
-                      className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                      value={values?.first_name ?? ''}
+                      className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow-sm outline-none"
+                      value={values?.first_name ?? ""}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -162,8 +210,8 @@ function Checkout() {
                       type="text"
                       id="last_name"
                       name="last_name"
-                      className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                      value={values?.last_name ?? ''}
+                      className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow-sm outline-none"
+                      value={values?.last_name ?? ""}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -185,8 +233,8 @@ function Checkout() {
                     type="text"
                     id="company"
                     name="company"
-                    className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                    value={values?.company ?? ''}
+                    className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow-sm outline-none"
+                    value={values?.company ?? ""}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -207,8 +255,8 @@ function Checkout() {
                     type="text"
                     id="address"
                     name="address"
-                    className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                    value={values?.address ?? ''}
+                    className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow-sm outline-none"
+                    value={values?.address ?? ""}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -229,8 +277,8 @@ function Checkout() {
                     type="text"
                     id="apartment"
                     name="apartment"
-                    className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                    value={values?.apartment ?? ''}
+                    className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow-sm outline-none"
+                    value={values?.apartment ?? ""}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -252,8 +300,8 @@ function Checkout() {
                       type="text"
                       id="city"
                       name="city"
-                      className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                      value={values?.city ?? ''}
+                      className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow-sm outline-none"
+                      value={values?.city ?? ""}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -272,8 +320,8 @@ function Checkout() {
                       type="text"
                       id="country"
                       name="country"
-                      className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                      value={values?.country ?? ''}
+                      className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow-sm outline-none"
+                      value={values?.country ?? ""}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -294,8 +342,8 @@ function Checkout() {
                       type="text"
                       id="state_province"
                       name="state_province"
-                      className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                      value={values?.state_province ?? ''}
+                      className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow-sm outline-none"
+                      value={values?.state_province ?? ""}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -317,8 +365,8 @@ function Checkout() {
                       pattern="[0-9]*"
                       id="postal_code"
                       name="postal_code"
-                      className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                      value={values?.postal_code ?? ''}
+                      className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow-sm outline-none"
+                      value={values?.postal_code ?? ""}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -340,8 +388,8 @@ function Checkout() {
                     type="tel"
                     id="phone"
                     name="phone"
-                    className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200 block w-full p-2.5 shadow outline-none"
-                    value={values?.phone ?? ''}
+                    className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200 block w-full p-2.5 shadow-sm outline-none"
+                    value={values?.phone ?? ""}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -356,7 +404,7 @@ function Checkout() {
                 </h2>
 
                 <div>
-                  <Tab.Group defaultIndex={0}>
+                  <Tab.Group defaultIndex={deliveryCharges === "16" ? 1 : 0}>
                     <Tab.List className="grid gap-x-4 gap-y-5 mb-5 sm:grid-cols-2">
                       {delivery_method.map((deliveryMethod) => (
                         <Tab
@@ -413,8 +461,8 @@ function Checkout() {
                     pattern="[0-9]*"
                     id="card_number"
                     name="card_number"
-                    className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                    value={values?.card_number ?? ''}
+                    className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow-sm outline-none"
+                    value={values?.card_number ?? ""}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -435,8 +483,8 @@ function Checkout() {
                     type="text"
                     id="name_on_card"
                     name="name_on_card"
-                    className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow outline-none"
-                    value={values?.name_on_card ?? ''}
+                    className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200  block w-full p-2.5 shadow-sm outline-none"
+                    value={values?.name_on_card ?? ""}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -458,8 +506,8 @@ function Checkout() {
                       type="text"
                       id="expiration_date"
                       name="expiration_date"
-                      className="text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200 block w-full p-2.5 shadow outline-none"
-                      value={values?.expiration_date ?? ''}
+                      className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200 block w-full p-2.5 shadow-sm outline-none"
+                      value={values?.expiration_date ?? ""}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -481,8 +529,8 @@ function Checkout() {
                       pattern="[0-9]*"
                       id="cvc"
                       name="cvc"
-                      className="outline-none text-gray-500 text-sm rounded-lg focus:ring-2 focus:ring-cyan-200 block w-full p-2.5 shadow"
-                      value={values?.cvc ?? ''}
+                      className="text-gray-500 border border-gray-300 focus:border-none text-sm rounded-lg focus:ring-2 focus:ring-cyan-200 block w-full p-2.5 shadow-sm outline-none"
+                      value={values?.cvc ?? ""}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -491,7 +539,13 @@ function Checkout() {
                     ) : null}
                   </div>
                 </div>
-
+                <button
+                  type="button"
+                  className="mt-2 text-white bg-cyan-400 hover:bg-cyan-500 focus:ring-4 outline-none focus:ring-cyan-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                  onClick={() => resetForm()}
+                >
+                  Clear Form
+                </button>
               </div>
             </div>
 
@@ -516,7 +570,9 @@ function Checkout() {
                       <div className="flex flex-col gap-y-7 text-sm text-gray-900 font-medium">
                         <div className="flex justify-between">
                           <p>Subtotal</p>
-                          <p className="font-medium">${<Subtotal cartItems={cartItems} />}</p>
+                          <p className="font-medium">
+                            ${<Subtotal cartItems={cartItems} />}
+                          </p>
                         </div>
                         <div className="flex justify-between">
                           <p>Shipping</p>
@@ -538,7 +594,6 @@ function Checkout() {
                             ).toFixed(2)}
                           </p>
                         </div>
-                    
                       </div>
                     </div>
 

@@ -16,21 +16,20 @@ function App() {
   return (
     <div className="app">
       <Navbar />
-      {/* <ListViewCard /> */}
       <ScrollToTop>
         <Routes>
-          <Route path="/" element={[<Frontpage />]} />
-          <Route path="/wishlist" element={[<Wishlist />]} />
-          <Route path="/checkout" element={[<Checkout />]} />
-          <Route path="/:_category" element={[<Category />]} />
+          <Route path="/" element={<Frontpage />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/:_category" element={<Category />} />
           <Route
             path="/:Category/:subcategory/:Id"
-            element={[<ProductPage />]}
+            element={<ProductPage />}
           />
-          <Route path="/:subCategory/:id" element={[<SubcategoryPage />]} />
-          <Route path="/store" element={[<Store />]} />
-          <Route path="/order-summary" element={[<OrderSummary />]} />
-          <Route element={[<ErrorPage />]} />
+          <Route path="/:subCategory/:id" element={<SubcategoryPage />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/order-summary" element={<OrderSummary />} />
+          <Route element={<ErrorPage />} />
         </Routes>
       </ScrollToTop>
       <Footer />

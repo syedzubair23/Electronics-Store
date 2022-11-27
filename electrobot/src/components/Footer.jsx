@@ -159,7 +159,6 @@ function Footer() {
                     <div>
                       {item.columns.map((sub) => (
                         <a key={sub.id} 
-                        // href={sub.href} 
                         className="mt-6 block text-gray-600">
                           {sub.subtitle}
                         </a>

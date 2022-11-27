@@ -524,7 +524,7 @@ export default function Store() {
                               <Slider.Thumb className="shadow-custom relative hover:bg-cyan-500 block w-3.5 h-3.5 bg-gray-50 rounded-full outline-cyan-600">
                                 <div className="absolute -mt-8 -ml-[9px]">
                                   <div className="relative shadow-md rounded-full">
-                                    <div className="bg-white truncate text-gray-700 border border-cyan-400 text-[10px] py-1 text-center rounded py-1 w-8">
+                                    <div className="bg-white truncate text-gray-700 border border-cyan-400 text-[10px] text-center rounded py-1 w-8">
                                       ${Number(values[0]).toFixed(0)}
                                     </div>
                                     <svg
@@ -851,7 +851,7 @@ export default function Store() {
                           <Slider.Thumb className="shadow-custom relative hover:bg-cyan-500 block w-3.5 h-3.5 bg-gray-50 rounded-full outline-cyan-600">
                             <div className="absolute -mt-8 -ml-[9px]">
                               <div className="relative shadow-md rounded-full">
-                                <div className="bg-white truncate text-gray-700 border border-cyan-400 text-[10px] py-1 text-center rounded py-1 w-8">
+                                <div className="bg-white truncate text-gray-700 border border-cyan-400 text-[10px] text-center rounded py-1 w-8">
                                   ${Number(values[0]).toFixed(1)}
                                 </div>
                                 <svg

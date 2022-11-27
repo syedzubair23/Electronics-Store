@@ -24,7 +24,6 @@ export default function CustomSelect({ quantity, id, addQuantity, getItemQuantit
         addQuantity(id, value);
       }
         }>
-        {console.log("item id :", id, "item quantity :", selected)}
         <div className="relative mt-1">
           <div className="relative w-full cursor-default overflow-hidden rounded-md bg-white text-left shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
             <Combobox.Input

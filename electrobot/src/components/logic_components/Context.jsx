@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import data from "../data/extractedData_v2"
-import { HeartIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
+import { HeartIcon } from "@heroicons/react/24/outline";
 import {
   HeartIcon as HeartFillIcon,
-  ShoppingBagIcon as ShoppingBagFillIcon,
 } from "@heroicons/react/24/solid";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
@@ -20,7 +19,6 @@ function ContextProvider({ children }) {
   }
 
   function addQuantity(id, qty) {
-    console.log(id);
     const updatedArr = cartItems.map((product) => {
       if (product.id === id) {
         return { ...product, qty: qty };
@@ -38,7 +36,6 @@ function ContextProvider({ children }) {
   function addToCart(product) {
     setCartItems(currItems => {
       if (currItems.find(item => item.id === product.id) == null) {
-        console.log([...currItems, {...product, qty: 1}])
         return [...currItems, {...product , qty: 1}]
       } else {
         return currItems.map(item => {
@@ -51,7 +48,6 @@ function ContextProvider({ children }) {
       }
     })
   }
-  console.log(cartItems);
 
   function removeFromCart(id) {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
@@ -65,7 +61,6 @@ function ContextProvider({ children }) {
   function addToFavorite(newItem) {
     setFavoriteItems((prevItems) => [...prevItems, newItem]);
   }
-  console.log(favoriteItems);
 
   function removeFromFavorite(id) {
     setFavoriteItems((prevItems) => prevItems.filter((item) => item.id !== id));

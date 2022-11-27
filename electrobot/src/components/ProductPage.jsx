@@ -39,7 +39,7 @@ function ProductPage() {
   return (
     <div className="bg-white">
       {selected_product.map((product) => (
-        <div className="mx-auto max-w-2xl py-10 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8 border-b border-gray-100">
+        <div key={product.id} className="mx-auto max-w-2xl py-10 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8 border-b border-gray-100">
           <div className="grid grid-cols-1 gap-y-10 lg:gap-x-16 lg:grid-cols-5">
             <div className="col-span-3 order-2 lg:order-1 border border-gray-100 rounded-lg bg-white group-hover:opacity-75 flex items-center">
               <div className="lg:min-h-96 md:h-72 md:aspect-none aspect-w-1 aspect-h-1 w-full overflow-hidden lg:aspect-none lg:h-96">
@@ -72,10 +72,8 @@ function ProductPage() {
                     <div className="flex items-center text-yellow-400">
                       {Array(Math.floor(Number(product.rating)))
                         .fill()
-                        .map(() => (
-                          <p>
-                            <StarIcon className="h-6 w-6 text-yellow-400" />
-                          </p>
+                        .map((_, index) => (
+                            <StarIcon key={index} className="h-6 w-6 text-yellow-400" />
                         ))}
                     </div>
                     <p className="text-sm text-gray-900 font-medium self-end">
@@ -159,19 +157,17 @@ function ProductPage() {
                   <div className="flex items-center text-yellow-400">
                     {Array(Math.floor(Number(product.rating)))
                       .fill()
-                      .map(() => (
-                        <p>
-                          <StarIcon className="h-5 w-5 text-yellow-400" />
-                        </p>
-                      ))}
+                      .map((_, index) =>
+                          <StarIcon key={index} className="h-5 w-5 text-yellow-400" />
+                      )}
                   </div>
                   <p className="text-sm text-gray-900 font-medium">
                     Based on {product.reviews} reviews
                   </p>
                 </div>
                 <div className="flex flex-col gap-y-[20px] mt-4">
-                  {product.product_reviews.star_ratings.map((s_rating) => (
-                    <div className="flex items-center gap-x-2.5">
+                  {product.product_reviews.star_ratings.map((s_rating, i) => (
+                    <div key={"sr"+i} className="flex items-center gap-x-2.5">
                       <p className="text-base font-medium w-3">
                         {s_rating.stars}
                       </p>
@@ -206,7 +202,7 @@ function ProductPage() {
               </div>
               <div className="col-span-3 flex flex-col">
                 {product.product_reviews.customer_reviews.map((c_review, i) => (
-                  <div className="flex flex-col gap-y-4">
+                  <div key={"cr" + i} className="flex flex-col gap-y-4">
                     <div className="flex gap-x-3.5 items-center">
                       <div className="h-12 w-12 rounded-full bg-gray-400">
                         <img
@@ -223,10 +219,8 @@ function ProductPage() {
                         <div className="flex items-center text-yellow-400">
                           {Array(Math.floor(Number(c_review.rating)))
                             .fill()
-                            .map(() => (
-                              <p>
-                                <StarIcon className="h-5 w-5 text-yellow-400" />
-                              </p>
+                            .map((_, index) => (
+                                <StarIcon key={'star' + index} className="h-5 w-5 text-yellow-400" />
                             ))}
                         </div>
                       </div>

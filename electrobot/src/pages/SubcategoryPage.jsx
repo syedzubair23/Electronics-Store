@@ -2,13 +2,12 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import Card from "../components/Card";
 import { Context } from "../components/logic_components/Context";
+import ErrorPage from "../components/ErrorPage";
 
 export default function SubcategoryPage() {
   const { allData } = useContext(Context);
   const { id } = useParams()
-  console.log(id)
 
-  // const renderPage = allData.some((product) => product.includes(id))
   const subcategory = allData.filter((product) => product.subcategory === id)  
 
   const card = subcategory?.map((product) => (
@@ -16,7 +15,7 @@ export default function SubcategoryPage() {
   ));
 
   return (
-    subcategory.length > 0 && <div className="bg-white">
+    subcategory.length > 0 ? <div className="bg-white">
       <div className="mx-auto max-w-2xl py-10 px-4 sm:py-14 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="text-4xl font-bold tracking-tight text-gray-900 capitalize">
           {id} 
@@ -26,6 +25,7 @@ export default function SubcategoryPage() {
           {card}
         </div>
       </div>
-    </div>
+    </div> :
+    <ErrorPage />
   );
 }

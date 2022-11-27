@@ -24,7 +24,7 @@ export default function Hero() {
           >
             <polygon points="50,0 100,0 50,100 0,100" />
           </svg>
-          
+
           <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 xl:-mt-10 2xl:-mt-0">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl font-bold  text-gray-900 sm:text-5xl md:text-6xl">
@@ -38,11 +38,11 @@ export default function Hero() {
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <Link to="/store">
                     <div className="rounded-md shadow">
-                    <a
+                    <button
                         className="flex w-full items-center justify-center rounded-md border border-transparent bg-cyan-400 px-16 py-3 text-base font-medium text-white hover:bg-cyan-500 md:px-18 md:text-lg"
                     >
                         Shop now
-                    </a>
+                    </button>
                     </div>
                 </Link>
               </div>
