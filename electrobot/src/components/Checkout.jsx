@@ -9,7 +9,6 @@ import Subtotal from "./Subtotal";
 import CartItems from "./CartItems";
 import { useNavigate } from "react-router-dom";
 import useLocalStorage from "../hooks/useLocalStorage";
-import { Persist } from "formik-persist";
 
 const delivery_method = [
   { id: 1, delivery: "Standard", business_days: "4-10", charges: "5" },
@@ -51,7 +50,7 @@ function Checkout() {
   );
   const navigate = useNavigate();
 
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit, resetForm: resetsForm } =
     useFormik({
       initialValues,
       validationSchema: userFormSchema,
@@ -117,11 +116,12 @@ function Checkout() {
       values.expiration_date = "";
       values.cvc = "";
       setFormInput(initialValues);
+      resetsForm()
     } 
 
   useEffect(() => {
     setFormInput(values);
-  }, [values, formInput, resetForm]);
+  }, [values, formInput]);
 
   const subtotal = cartItems
     .reduce(
@@ -624,7 +624,7 @@ function Checkout() {
                       </div>
                       <div className="w-full">
                         <button
-                          type="submit"
+                          type="button"
                           className="disabled:cursor-not-allowed disabled:opacity-30 outline-none text-center w-full rounded-md border border-transparent bg-cyan-400 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-500"
                         >
                           Pay now

@@ -20,8 +20,8 @@ export const userFormSchema = Yup.object({
   delivery: Yup.string(),
   card_number: Yup.string().min(14, "Card number must be at least 14 numbers").max(16, "Card number must be at most 16 numbers").matches(cardNumberRegExp ,"Enter valid card number").required("Please enter your card number"),
   name_on_card: Yup.string().min(2).max(34).required("Please enter your name on card").matches(/^[a-zA-Z ]*$/, "Enter only alphabets"),
-  expiration_date: Yup.string().min(4, "Expiration date must be at least 5 numbers without / or -").max(5, "Expiration date must be at least 5 numbers with / or -").required("Please enter expiration date").matches(/^(0[1-9]|1[0-2](\/|-|))([0-9]{2})$/, "Enter valid expiration date"),
-  cvc: Yup.string().min(3, "CVC code must be atleast 3 numbers").max(4, "CVC code must be at most 4 numbers").required("Please enter your card's cvc code").matches(/^[0-9]{3,4}$/, "Enter valid cvc code"),
+  expiration_date: Yup.string().matches(/^(0[1-9]|1[0-2](\/|-))([0-9]{2})$/, "Enter valid expiration date"),
+  cvc: Yup.string().min(3, "CVC code must be atleast 3 numbers").max(4, "CVC code must be at most 4 numbers").required("Enter card's cvc code").matches(/^[0-9]{3,4}$/, "Enter valid cvc code"),
 });
 
 // const cards = {
