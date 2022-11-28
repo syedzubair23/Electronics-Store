@@ -7,8 +7,8 @@ function OrderSummary() {
     const {emptyCartAndFav} = useContext(Context)
     const navigate = useNavigate()
   return (
-    <div className="h-[calc(100vh-105px)] grid grid-col-1 place-items-center px-4 sm:px-8 md:-mt-28">
-        <div>
+    <div className="h-[calc(100vh-105px)] grid grid-col-1 place-items-center px-4 sm:px-8">
+        <div className='md:-mt-4'>
             <h3 className='text-sm text-cyan-400 font-medium'>Payment successful</h3>
             <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-3.5'>Thanks for ordering</h2>
             <p className='text-base sm:text-lg text-gray-500 max-w-prose'>We appreciate your order, we're currently processing it. So hang tight and we'll send you confirmation very soon!</p>

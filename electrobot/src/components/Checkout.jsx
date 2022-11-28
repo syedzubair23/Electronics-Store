@@ -115,6 +115,7 @@ function Checkout() {
       values.name_on_card = "";
       values.expiration_date = "";
       values.cvc = "";
+      setDeliveryCharges("5")
       setFormInput(initialValues);
       resetsForm()
     } 
@@ -404,7 +405,7 @@ function Checkout() {
                 </h2>
 
                 <div>
-                  <Tab.Group defaultIndex={deliveryCharges === "16" ? 1 : 0}>
+                  <Tab.Group defaultIndex={0} selectedIndex={deliveryCharges === "5" ? 0 : 1} >
                     <Tab.List className="grid gap-x-4 gap-y-5 mb-5 sm:grid-cols-2">
                       {delivery_method.map((deliveryMethod) => (
                         <Tab
@@ -591,7 +592,7 @@ function Checkout() {
                               Number(subtotal) +
                               Number(shipping_charges) +
                               Number(taxes)
-                            ).toFixed(2)}
+                            ).toFixed(2).toLocaleString()}
                           </p>
                         </div>
                       </div>
@@ -624,7 +625,7 @@ function Checkout() {
                       </div>
                       <div className="w-full">
                         <button
-                          type="button"
+                          type="submit"
                           className="disabled:cursor-not-allowed disabled:opacity-30 outline-none text-center w-full rounded-md border border-transparent bg-cyan-400 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-500"
                         >
                           Pay now

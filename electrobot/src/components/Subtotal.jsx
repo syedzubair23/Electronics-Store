@@ -8,7 +8,7 @@ function Subtotal({cartItems}) {
         (item.items_in_stock > 0 ? Number(item.qty) || 1 : 0) * Number(item.price),
       0
     )
-    .toFixed(2);
+    .toFixed(2).toLocaleString();
 
   return (
     <>

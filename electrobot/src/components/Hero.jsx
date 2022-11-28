@@ -12,9 +12,9 @@ const navigation = [
 
 export default function Hero() {
   return (
-    <div className="relative overflow-hidden bg-gray-100 min-h-[calc(100vh-105px)]">
-      <div className="mx-auto max-w-7xl min-h-[calc(100vh-105px)]">
-        <div className="relative z-10 bg-gray-100 py-8 sm:py-16 md:py-20 lg:w-full lg:max-w-2xl lg:pt-10 lg:pb-[5.71rem] xl:py-32 min-h-[calc(100vh-105px)]">
+    <div className="relative overflow-hidden bg-gray-100 sm:min-h-[calc(100vh-105px)]">
+      <div className="mx-auto max-w-7xl sm:min-h-[calc(100vh-105px)]">
+        <div className="relative z-10 bg-gray-100 py-12 sm:py-16 md:py-20 flex items-center lg:w-full lg:max-w-2xl lg:pt-0 lg:pb-4 xl:py-32 sm:min-h-[calc(100vh-105px)]">
           <svg
             className="absolute inset-y-0 right-0 hidden h-full w-48 translate-x-1/2 transform text-gray-100 lg:block"
             fill="currentColor"

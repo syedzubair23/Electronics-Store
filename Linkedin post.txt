@@ -1,0 +1,36 @@
+Whenever I used to search for electronic components for my electronics projects. I have to browse across 99% ugly looking electronic ecommerce websites. So, I thought why not I should make a minimalistic, eye-catching, responsive and highly functional featured based electronic hardware ecommerce website. 
+
+
+
+In first phase, I started designing main website components on Figma software. It took me almost 5-7 days from learning to design website. I almost learnt the working of software in 4-5 hours as it was quite similar to adobe illustrator which I had quite some experience with making logos.
+
+
+
+In second phase, I stared building website by choosing Tailwind CSS, tailwind headless UI, and #React framework. First of all, I designed all the components and made Pages by using them. Then I started with basic functionality of ecommerce website
+
+like add to cart, add to favorites, and remove from cart. After completing this, I used #tailwind headless UI commbox
+
+component to select product quantity. I was so adamant to use this as it wasted my lot of time because I was unable to solve some silly bug.
+
+After wasting my two whole days on internet, I seek help from my LinkedIn friends and some were gracious enough to listen my
+
+problem and gave me some guidance. I would love to give a thanks to @Muhammad Musab Saleem for continuously giving me ideas to solve this problem and special thanks to @Rohail Babar who 
+
+actually resolved the select option issue.
+
+I used context API for state management and used Formik and yup library for forms handling. In the end, I designed products
+
+filter functionality like search, sort by category, rating, popular, featured, price, brands etc. I added pagination features for showing large amount of products and made useLocalStorage custom hook to avoid loss of data upon refresh.
+
+
+
+In final phase, I added 404 Error page, order summary page and did some refactoring. The whole website is fully responsive.
+
+It took me almost 30 days to complete this project. Please visit a link or watch a video and give me your suggestions.
+
+Thanks.
+
+
+
+Special shoutout to @Scrimba and @Per Harald Borgen who were kind enough to award me 6 month free scholarship for their frontend developer career path course.
+I learnt a lot from @Kevin Powell and @Bob ziroll.
