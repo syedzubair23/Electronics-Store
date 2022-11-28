@@ -34,6 +34,25 @@ let initialValues = {
   cvc: "",
 };
 
+let initial_Values = {
+  email: "",
+  first_name: "",
+  last_name: "",
+  company: "",
+  address: "",
+  apartment: "",
+  city: "",
+  country: "",
+  state_province: "",
+  postal_code: "",
+  phone: "",
+  delivery_Charges: "5",
+  card_number: "",
+  name_on_card: "",
+  expiration_date: "",
+  cvc: "",
+}
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -55,9 +74,12 @@ function Checkout() {
       initialValues,
       validationSchema: userFormSchema,
       onSubmit: (values, action) => {
-        values.delivery_Charges = deliveryCharges;
-        action.resetForm();
-        navigate("/order-summary", { replace: true });
+      setDeliveryCharges("5")
+      setFormInput(initial_Values);  
+      action.resetForm()
+      resetsForm();
+      resetForm();
+      navigate("/order-summary", { replace: true });
       },
     });
 
@@ -116,13 +138,14 @@ function Checkout() {
       values.expiration_date = "";
       values.cvc = "";
       setDeliveryCharges("5")
-      setFormInput(initialValues);
+      setFormInput(initial_Values);
       resetsForm()
     } 
 
   useEffect(() => {
+    values.delivery_Charges = deliveryCharges;
     setFormInput(values);
-  }, [values, formInput]);
+  }, [values, formInput, deliveryCharges]);
 
   const subtotal = cartItems
     .reduce(
@@ -405,7 +428,7 @@ function Checkout() {
                 </h2>
 
                 <div>
-                  <Tab.Group defaultIndex={0} selectedIndex={deliveryCharges === "5" ? 0 : 1} >
+                  <Tab.Group defaultIndex={deliveryCharges === "5" ? 0 : 1} selectedIndex={deliveryCharges === "5" ? 0 : 1} >
                     <Tab.List className="grid gap-x-4 gap-y-5 mb-5 sm:grid-cols-2">
                       {delivery_method.map((deliveryMethod) => (
                         <Tab
@@ -413,7 +436,6 @@ function Checkout() {
                             setDeliveryCharges(deliveryMethod.charges)
                           }
                           key={deliveryMethod.id}
-                          //   name="delivery_method"
                           className={({ selected }) =>
                             classNames(
                               "bg-white px-4 py-5 rounded-lg shadow outline-none",

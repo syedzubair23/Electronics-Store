@@ -53,9 +53,8 @@ function ContextProvider({ children }) {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   }
 
-  function emptyCartAndFav() {
+  function emptyCart() {
     setCartItems([]);
-    setFavoriteItems([]);
   }
 
   function addToFavorite(newItem) {
@@ -100,7 +99,7 @@ function ContextProvider({ children }) {
         cartItems,
         addToCart,
         removeFromCart,
-        emptyCartAndFav,
+        emptyCart,
         favoriteItems,
         addToFavorite,
         removeFromFavorite,

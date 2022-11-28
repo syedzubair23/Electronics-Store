@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { Context } from './logic_components/Context'
 
 function OrderSummary() {
-    const {emptyCartAndFav} = useContext(Context)
+    const {emptyCart} = useContext(Context)
     const navigate = useNavigate()
   return (
     <div className="h-[calc(100vh-105px)] grid grid-col-1 place-items-center px-4 sm:px-8">
@@ -16,7 +16,7 @@ function OrderSummary() {
             <div className='w-full'>
             <button className='text-cyan-400 font-medium text-sm mt-6 hover:underline block ml-auto pr-4' onClick={() => {
                 navigate('/store')
-                emptyCartAndFav()
+                emptyCart()
                 }}>
             Continue Shopping ➜
             </button>
